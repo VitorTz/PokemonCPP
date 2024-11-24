@@ -4,6 +4,7 @@
 
 
 #define NUM_COMPONENTS 3
+#define NUM_UPDATABLE_COMPONENTS 1
 #define TRANSFORM_ID 0
 #define SPRITE_ID 1
 #define SPRITE_ANIMATION_ID 2
@@ -29,3 +30,16 @@ typedef struct sprite_animation {
 	uint8_t index;
 	uint8_t max_index;
 } sprite_animation_t;
+
+
+void transform_init(transform_t* t, zindex_t z);
+
+void sprite_init(sprite_t* s, const char* filepath);
+
+void sprite_animation_init(
+	sprite_animation_t* s,
+	const char* filepath,
+	float width,
+	float height,
+	uint8_t speed
+);

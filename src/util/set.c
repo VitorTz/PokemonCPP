@@ -3,13 +3,22 @@
 
 
 set_t* set_create(const size_t v_size, size_t(*hash)(const void*)) {
-	set_t* tree = (set_t*)malloc(sizeof(set_t));
-	if (tree == NULL) { return NULL; }
-	tree->root = NULL;
-	tree->hash = hash;
-	tree->v_size = v_size;
-	tree->vec = vector_create(v_size, 16);
-	return tree;
+	set_t* s = (set_t*)malloc(sizeof(set_t));	
+	s->root = NULL;
+	s->hash = hash;
+	s->size = 0;
+	s->v_size = v_size;
+	s->vec = vector_create(v_size, 16);
+	return s;
+}
+
+
+void set_init(set_t* s, const size_t v_size, size_t (*hash)(const void*)) {
+	s->root = NULL;
+	s->hash = hash;
+	s->v_size = v_size;
+	s->size = 0;
+	s->vec = vector_create(v_size, 16);
 }
 
 
@@ -22,10 +31,18 @@ static void set_destroy_aux(set_node_t* node) {
 }
 
 
-void set_destroy(set_t* t) {
-	set_destroy_aux(t->root);
-	vector_destroy(t->vec);
-	free(t);
+void set_close(set_t* s) {
+	set_destroy_aux(s->root);
+	vector_destroy(s->vec);
+}
+
+
+
+
+void set_destroy(set_t* s) {
+	set_destroy_aux(s->root);
+	vector_destroy(s->vec);
+	free(s);
 }
 
 
@@ -158,17 +175,17 @@ static void set_copy_node(set_node_t* dst, set_node_t* src, const size_t v_size)
 }
 
 
-static set_node_t* set_erase_aux(set_t* t, set_node_t* root, const size_t key) {
+static set_node_t* set_erase_aux(set_t* s, set_node_t* root, const size_t key) {
 	if (root == NULL) return root;
 
 	if (key < root->key) {
-		root->left = set_erase_aux(t, root->left, key);
+		root->left = set_erase_aux(s, root->left, key);
 	}
 	else if (key > root->key) {
-		root->right = set_erase_aux(t, root->right, key);
+		root->right = set_erase_aux(s, root->right, key);
 	}
 	else {
-		t->size--;
+		s->size--;
 		if (root->left == NULL || root->right == NULL) {
 			set_node_t* temp = root->left != NULL ? root->left : root->right;
 			if (temp == NULL) {
@@ -186,7 +203,7 @@ static set_node_t* set_erase_aux(set_t* t, set_node_t* root, const size_t key) {
 		else {
 			set_node_t* temp = set_min_node(root->right);
 			root->key = temp->key;
-			root->right = set_erase_aux(t, root->right, temp->key);
+			root->right = set_erase_aux(s, root->right, temp->key);
 		}
 	}
 
@@ -229,6 +246,17 @@ void set_erase(set_t* t, const void* key) {
 }
 
 
+static int set_contains_aux(set_node_t* node, const size_t key) {
+	if (node == NULL) return 0;
+	return node->key == key || set_contains_aux(node->left, key) || set_contains_aux(node->right, key);
+}
+
+
+int set_contains(set_t* s, const void* data) {	
+	return set_contains_aux(s->root, s->hash(data));
+}
+
+
 void set_clear(set_t* t) {
 	set_destroy_aux(t->root);
 	t->root = NULL;
@@ -250,11 +278,11 @@ static set_iter_aux(set_node_t* node, vector_t* vec) {
 	if (node == NULL) {
 		return;
 	}
-	set_iter_aux(node->left, vec);
-	set_iter_aux(node->right, vec);
 	if (node->data != NULL) {
 		vector_push_back(vec, node->data);
 	}
+	set_iter_aux(node->left, vec);
+	set_iter_aux(node->right, vec);
 }
 
 iterator_t set_iter(set_t* t) {

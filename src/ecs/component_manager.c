@@ -1,4 +1,5 @@
 #include "component_manager.h"
+#include <string.h>
 
 
 component_manager_t* component_manager_create() {

@@ -9,6 +9,21 @@ vector_t* vector_create(const size_t v_size, const size_t capacity) {
 	v->v_size = v_size;
 	v->capacity = capacity;
 	v->size = 0;
+	return v;
+}
+
+
+void vector_init(vector_t* v, const size_t v_size, const size_t capacity) {
+	v->data = (char*)malloc(v_size * capacity);
+	v->tmp_data = (char*)malloc(v_size);
+	v->v_size = v_size;
+	v->capacity = capacity;
+	v->size = 0;
+}
+
+
+void vector_close(vector_t* v) {
+	free(v->data);
 }
 
 
@@ -35,6 +50,16 @@ void vector_push_back(vector_t* v, const void* data) {
 }
 
 
+void* vector_begin(vector_t* v) {
+	return v->data;
+}
+
+
+void* vector_end(vector_t* v) {
+	return v->data + v->v_size * v->size;
+}
+
+
 void* vector_allocate(vector_t* v) {
 	return v->data + v->v_size * v->size++;
 }
@@ -45,8 +70,9 @@ void* vector_back(vector_t* v) {
 }
 
 
-void vector_pop_back(vector_t* v) {
+void vector_pop_back(vector_t* v, void* dst) {
 	if (v->size > 0) {
+		memcpy(dst, v->data + v->v_size * v->size, v->v_size);
 		v->size--;
 	}
 }

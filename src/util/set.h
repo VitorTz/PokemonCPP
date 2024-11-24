@@ -24,16 +24,22 @@ typedef struct set {
 
 set_t* set_create(size_t v_size, size_t(*hash)(const void*));
 
-void set_destroy(set_t* t);
+void set_init(set_t* s, size_t v_size, size_t (*hash)(const void*));
 
-void set_insert(set_t* t, const void* data);
+void set_close(set_t* s);
 
-void set_erase(set_t* t, const void* data);
+void set_destroy(set_t* s);
 
-void set_clear(set_t* t);
+void set_insert(set_t* s, const void* data);
 
-int set_is_empty(set_t* t);
+void set_erase(set_t* s, const void* data);
 
-size_t set_size(set_t* t);
+int set_contains(set_t* s, const void* data);
 
-iterator_t set_iter(set_t* t);
+void set_clear(set_t* s);
+
+int set_is_empty(set_t* s);
+
+size_t set_size(set_t* s);
+
+iterator_t set_iter(set_t* s);

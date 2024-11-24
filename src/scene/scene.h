@@ -2,6 +2,7 @@
 #include "../constants.h"
 #include "../util/scene_id.h"
 #include "../util/texture_pool.h"
+#include "../ecs/ecs_manager.h"
 
 
 typedef struct scene {

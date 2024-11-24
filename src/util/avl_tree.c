@@ -204,9 +204,7 @@ static avl_node_t* avl_tree_allocate_aux(
 
 void* avl_tree_allocate(avl_tree_t* t, const void* key) {
 	void* p = avl_tree_at(t, t->hash(key));
-	if (p != NULL) {
-		return p;
-	}
+	if (p != NULL) { return NULL; }
 	p = malloc(t->v_size);
 	t->root = avl_tree_allocate_aux(t, t->root, t->hash(key), p);
 	return p;
