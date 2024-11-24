@@ -30,6 +30,15 @@ Texture2D texture_pool_get(const char* s) {
 }
 
 
+void texture_pool_erase(const char* s) {
+    void* data = avl_tree_at(pool, s);
+    if (data != NULL) {
+        UnloadTexture(*((Texture2D*)data));
+        avl_tree_erase(pool, s);
+    }
+}
+
+
 void texture_pool_close() {
     const iterator_t iter = avl_tree_iter(pool);
     for (Texture2D* t = iter.begin; t < iter.end; t++) {

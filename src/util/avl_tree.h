@@ -32,6 +32,8 @@ void avl_tree_erase(avl_tree_t* t, const void* key);
 
 void* avl_tree_at(avl_tree_t* t, const void* key);
 
+void* avl_tree_allocate(avl_tree_t* t, const void* key);
+
 void avl_tree_clear(avl_tree_t* t);
 
 int avl_tree_is_empty(avl_tree_t* t);

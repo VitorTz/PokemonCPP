@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="20" height="12" tilewidth="64" tileheight="64" infinite="0" nextlayerid="11" nextobjectid="21">
+ <properties>
+  <property name="map-id" type="int" value="6"/>
+ </properties>
+ <tileset firstgid="1" source="../tilesets/world.tsx"/>
+ <tileset firstgid="211" source="../tilesets/objects.tsx"/>
+ <tileset firstgid="251" source="../tilesets/indoor.tsx"/>
+ <layer id="1" name="Terrain" width="20" height="12">
+  <data encoding="csv">
+256,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,257,258,
+286,267,267,279,280,267,267,267,267,267,267,267,267,267,267,279,280,267,267,298,
+286,277,277,289,290,277,277,277,277,277,277,277,277,277,277,289,290,277,277,298,
+286,287,287,287,287,287,287,287,287,287,287,287,287,287,287,287,287,287,287,298,
+286,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,298,
+286,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,298,
+286,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,298,
+286,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,298,
+286,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,298,
+286,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,298,
+286,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,297,298,
+306,307,269,270,307,307,307,307,307,307,307,307,307,307,307,307,307,307,307,308
+</data>
+ </layer>
+ <objectgroup id="2" name="Entities">
+  <properties>
+   <property name="group-id" type="int" value="0"/>
+  </properties>
+  <object id="1" name="Player" x="191.401" y="622.898">
+   <properties>
+    <property name="direction" value="u"/>
+    <property name="obj-id" type="int" value="0"/>
+    <property name="zindex" type="int" value="3"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="9" name="Collisions" visible="0">
+  <properties>
+   <property name="group-id" type="int" value="1"/>
+  </properties>
+  <object id="13" x="46.3848" y="180.167" width="10.6152" height="536.829"/>
+  <object id="15" x="59.7814" y="149.858" width="1155.55" height="26.2621"/>
+  <object id="17" x="60.9166" y="708.314" width="97.6666" height="20.0201"/>
+  <object id="18" x="224.667" y="708.534" width="996.334" height="16.4666"/>
+  <object id="19" x="146.334" y="729.979" width="89.3333" height="20.0201"/>
+  <object id="20" x="1221.67" y="191" width="17.3333" height="517.667"/>
+ </objectgroup>
+ <objectgroup id="5" name="Transition" visible="0">
+  <properties>
+   <property name="group-id" type="int" value="2"/>
+  </properties>
+  <object id="8" x="162.083" y="680.144" width="60" height="43.022">
+   <properties>
+    <property name="obj-id" type="int" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

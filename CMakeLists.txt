@@ -26,7 +26,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raylib)
 
 # Add source to this project's executable.
-add_executable (PokemonC  "src/main.c" "src/constants.h" "src/util/vector.h" "src/util/vector.c" "src/util/avl_tree.h" "src/util/avl_tree.c" "src/util/texture_pool.h" "src/util/texture_pool.c" "src/util/query.h" "src/util/iterator.h")
+add_executable (PokemonC  "src/main.c" "src/constants.h" "src/util/vector.h" "src/util/vector.c" "src/util/avl_tree.h" "src/util/avl_tree.c" "src/util/texture_pool.h" "src/util/texture_pool.c" "src/util/query.h" "src/util/iterator.h" "src/scene/scene.h" "src/util/scene_id.h" "src/scene/scene.c" "src/scene/title_screen.c" "src/scene/world.c" "src/scene/fire_arena.c" "src/scene/plant_arena.c" "src/scene/water_arena.c" "src/scene/hospital.c" "src/scene/house.c" "src/scene/test_scene.c" "src/ecs/components.h" "src/util/types.h" "src/ecs/entity_manager.h" "src/ecs/entity_manager.c" "src/ecs/component_manager.h" "src/ecs/component_manager.c" "src/ecs/system_manager.h" "src/ecs/system_manager.c" "src/util/set.h" "src/util/set.c")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET PokemonC PROPERTY CXX_STANDARD 20)

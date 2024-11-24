@@ -42,6 +42,19 @@ static avl_node_t* avl_tree_create_node(avl_tree_t* t, const size_t key, const v
 }
 
 
+static avl_node_t* avl_tree_create_empty_node(avl_tree_t* t, const size_t key, void* new_data) {
+	avl_node_t* node = (avl_node_t*)malloc(sizeof(avl_node_t));
+	if (node == NULL) { return NULL; }
+	node->key = key;
+	node->data = malloc(t->v_size);
+	node->height = 0;
+	node->left = NULL;
+	node->right = NULL;	
+	new_data = node->data;
+	return node;
+}
+
+
 static int avl_tree_node_height(avl_node_t* node) {
 	if (node == NULL) {
 		return 0;
@@ -137,6 +150,67 @@ void avl_tree_insert(avl_tree_t* t, const void* key, const void* data) {
 	t->root = avl_tree_insert_aux(t, t->root, t->hash(key), data);
 }
 
+
+static avl_node_t* avl_tree_allocate_aux(
+	avl_tree_t* t,
+	avl_node_t* node,
+	const size_t key,
+	void* new_data
+) {
+	if (node == NULL) {
+		t->size++;
+		return avl_tree_create_empty_node(t, key, new_data);
+	}
+
+	if (key < node->key) {
+		node->left = avl_tree_allocate_aux(t, node->left, key, new_data);
+	}
+	else if (key > node->key) {
+		node->right = avl_tree_allocate_aux(t, node->right, key, new_data);
+	}
+	else {
+		return node;
+	}
+
+	node->height = 1 + max(avl_tree_node_height(node->left), avl_tree_node_height(node->right));
+
+	const int balance = avl_tree_get_balance(node);
+
+	// Left Left
+	if (balance > 1 && key < node->left->key) {
+		return avl_tree_right_rotate(node);
+	}
+
+	// Right Right
+	if (balance < -1 && key > node->right->key) {
+		return avl_tree_left_rotate(node);
+	}
+
+	// Left Right
+	if (balance > 1 && key > node->left->key) {
+		node->left = avl_tree_left_rotate(node->left);
+		return avl_tree_right_rotate(node);
+	}
+
+	// Right Left
+	if (balance < -1 && key < node->right->key) {
+		node->right = avl_tree_right_rotate(node->right);
+		return avl_tree_left_rotate(node);
+	}
+
+	return node;
+}
+
+
+void* avl_tree_allocate(avl_tree_t* t, const void* key) {
+	void* p = avl_tree_at(t, t->hash(key));
+	if (p != NULL) {
+		return p;
+	}
+	p = malloc(t->v_size);
+	t->root = avl_tree_allocate_aux(t, t->root, t->hash(key), p);
+	return p;
+}
 
 static avl_node_t* avl_tree_min_node(avl_node_t* node) {
 	avl_node_t* current = node;	
