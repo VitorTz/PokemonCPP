@@ -51,10 +51,24 @@ void ecs_close(ecs_t* ecs) {
 entity_t ecs_create_entity(ecs_t* ecs, const zindex_t z, const int add_to_camera) {
 	const entity_t e = entity_manager_create_entity(ecs->entity);
 	transform_t* t = (transform_t*) component_manager_at(ecs->component, e, TRANSFORM_ID);
-	transform_init(t, z);	
+	transform_init(t, z);
 	if (add_to_camera) {
 		camera_insert(ecs->camera, e, z);
 	}
+	return e;
+}
+
+
+entity_t ecs_create_sprite(ecs_t* ecs, const zindex_t z, const char* image_path, const float x, const float y) {
+	const entity_t e = ecs_create_entity(ecs, z, 1);	
+	sprite_t* sprite = (sprite_t*) ecs_component_insert(ecs, e, SPRITE_ID);
+	sprite_init(sprite, image_path);
+	transform_t* t = (transform_t*) component_manager_at(ecs->component, e, TRANSFORM_ID);
+	t->pos = (Vector2){ x, y };
+	t->size = (Vector2){
+		(float) sprite->texture.width,
+		(float) sprite->texture.height
+	};
 	return e;
 }
 
@@ -132,15 +146,20 @@ static void comp_entity_pair(const void* l, const void* r) {
 
 
 void ecs_draw(ecs_t* ecs) {
-	for (int i = 0; i < CAMERA_ZINDEX_MAX; i++) {
-		vector_t* vec = ecs->camera->entities + i;
-		const iterator_t iter = vector_iter(vec);
-		for (entity_pair_t* pair = iter.begin; pair < iter.end; pair++) {
-			const transform_t* t = component_manager_at(ecs->component, pair->e, TRANSFORM_ID);
-			pair->y = t->pos.y + t->size.y / 2.0f;
+	BeginMode2D(ecs->camera->camera2D);
+		for (int i = 0; i < CAMERA_ZINDEX_MAX; i++) {
+			vector_t* vec = ecs->camera->entities + i;
+			const iterator_t iter = vector_iter(vec);
+			for (entity_pair_t* pair = iter.begin; pair < iter.end; pair++) {
+				const transform_t* t = component_manager_at(ecs->component, pair->e, TRANSFORM_ID);
+				pair->y = t->pos.y + t->size.y / 2.0f;
+			}
+			qsort(vec->data, vec->size, sizeof(entity_pair_t), comp_entity_pair);
+			system_manager_draw(ecs->system, vector_iter(vec));
 		}
-		qsort(vec->data, vec->size, sizeof(entity_pair_t), comp_entity_pair);
-		system_manager_draw(ecs->system, vector_iter(vec));
+	EndMode2D();
+	if (DEBUG_MODE) {
+		DrawFPS(20, 20);
 	}
 }
 

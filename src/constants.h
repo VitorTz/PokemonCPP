@@ -13,10 +13,12 @@
 #define BACKGROUNDS_PATH "./resources/graphics/backgrounds/"
 #define GRAPHICS_PATH "./resources/graphics/"
 #define CHARACTERS_PATH "./resources/graphics/characters/"
+#define MAPS_PATH "./resources/data/maps/"
 
 #define MAX_ENTITIES 4096
-#define MAIN_SCENE TitleScreenID
+#define MAIN_SCENE WorldSceneID
 
+#define DEBUG_MODE 1
 
 #define CAMERA_ZINDEX_MIN 0
 #define CAMERA_ZINDEX_MAX 6

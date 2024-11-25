@@ -28,6 +28,8 @@ void ecs_close(ecs_t* ecs);
 
 entity_t ecs_create_entity(ecs_t* ecs, zindex_t z, int add_to_camera);
 
+entity_t ecs_create_sprite(ecs_t* ecs, zindex_t z, const char* image_path, float x, float y);
+
 void ecs_destroy_entity(ecs_t* ecs, entity_t e);
 
 void ecs_add_collisions(ecs_t* ecs, float x, float y, float width, float height);
