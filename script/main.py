@@ -20,7 +20,7 @@ def main() -> None:
                 objs: list[TiledObject] = [x for x in tiledgroup]                
                 output.write(f"{tiledgroup.properties['group-id']} {len(objs)}\n")
                 for obj in objs:
-                    output.write(f"{obj.x} {obj.y} {obj.width} {obj.height} {obj.properties.get('obj-id', -1)} {obj.properties.get('zindex', 0)} {obj.properties.get('terrain', 0)} {obj.properties.get('n', 0)} {obj.properties.get('direction', 'd')} ")
+                    output.write(f"{obj.x} {obj.y} {obj.width} {obj.height} {obj.properties.get('obj-id', 99)} {obj.properties.get('zindex', 0)} {obj.properties.get('terrain', 0)} {obj.properties.get('n', 0)} {obj.properties.get('direction', 'd')} ")
                     if (obj.properties.get("source") and tiledgroup.name != "Coast"):
                         imagepath = "./resources/graphics" + obj.properties["source"].split("graphics")[1]
                     else:

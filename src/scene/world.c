@@ -6,6 +6,7 @@ void scene_world_init() {
 	ecs_manager_create_instance(WorldSceneID);
 	ecs_manager_set_instance(WorldSceneID);
 	ecs_t* ecs = ecs_manager_get_instance();
+	ecs_create_sprite(ecs, 0, MAPS_PATH "world.png", 0.0f, 0.0f);
 	load_tiledmap(ecs, MAPS_PATH "world.txt");	
 }
 

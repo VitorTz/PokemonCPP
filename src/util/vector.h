@@ -1,6 +1,7 @@
 #pragma once
 #include <stdlib.h>
 #include <string.h>
+#include <assert.h>
 #include "iterator.h"
 
 
@@ -32,6 +33,8 @@ void* vector_allocate(vector_t* v);
 void* vector_at(vector_t* v, size_t i);
 
 void* vector_back(vector_t* v);
+
+void vector_convert(vector_t* v, size_t v_size, size_t capacity);
 
 void vector_pop_back(vector_t* v, void* dst);
 

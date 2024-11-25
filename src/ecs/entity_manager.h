@@ -1,6 +1,7 @@
 #pragma once
 #include <assert.h>
 #include "../constants.h"
+#include "../util/avl_tree.h"
 #include "../util/types.h"
 #include "../util/vector.h"
 

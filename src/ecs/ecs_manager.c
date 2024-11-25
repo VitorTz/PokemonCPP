@@ -1,10 +1,8 @@
-#include <assert.h>
 #include "ecs_manager.h"
-#include "../util/avl_tree.h"
 
 
-static avl_tree_t* ecs_map;
-static ecs_t* ecs_instance;
+static avl_tree_t* ecs_map = NULL;
+static ecs_t* ecs_instance = NULL;
 
 
 static size_t hash_scene_id(const void* k) {
@@ -14,8 +12,7 @@ static size_t hash_scene_id(const void* k) {
 
 
 void ecs_manager_init() {
-	ecs_map = avl_tree_create(sizeof(ecs_t), hash_scene_id);
-	ecs_instance = NULL;
+	ecs_map = avl_tree_create(sizeof(ecs_t), hash_scene_id);	
 }
 
 
@@ -30,10 +27,10 @@ void ecs_manager_close() {
 
 void ecs_manager_create_instance(const enum SceneID scene_id) {
 	if (avl_tree_at(ecs_map, &scene_id) == NULL) {
-		ecs_t ecs_;
+		ecs_t ecs_ = { 0 };
 		avl_tree_insert(ecs_map, &scene_id, &ecs_);
 		ecs_t* ecs = (ecs_t*) avl_tree_at(ecs_map, &scene_id);
-		ecs_init(ecs);
+		ecs_init(ecs, scene_id);
 	}
 }
 

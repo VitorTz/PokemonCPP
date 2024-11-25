@@ -1,10 +1,12 @@
 #pragma once
+#include <assert.h>
 #include "components.h"
 #include "../constants.h"
 #include "../util/avl_tree.h"
 #include "../util/set.h"
 #include "../util/vector.h"
 #include "../util/types.h"
+#include "../util/entity_pair.h"
 
 
 typedef struct system {
@@ -23,8 +25,24 @@ typedef struct system_manager {
 
 
 void system_sprite_draw(entity_t e);
-void system_sprite_animation_update(float dt, iterator_t);
+void system_sprite_animation_update(float dt, iterator_t iter);
 void system_sprite_animation_draw(entity_t e);
+
+void system_character_update(float dt, iterator_t iter);
+
+void system_movement_update(float dt, iterator_t iter);
+
+void system_coast_init();
+void system_coast_update(float dt, iterator_t iter);
+void system_coast_draw(entity_t e);
+
+void system_water_update(float dt, iterator_t iter);
+void system_water_draw(entity_t e);
+
+void system_player_update(float dt, iterator_t iter);
+
+void system_transition_update(float dt, iterator_t iter);
+void system_transition_draw(entity_t e);
 
 
 system_manager_t* system_manager_create();

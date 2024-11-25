@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="86" height="86" tilewidth="64" tileheight="64" infinite="0" nextlayerid="17" nextobjectid="2245">
+<map version="1.10" tiledversion="1.11.0" orientation="orthogonal" renderorder="right-down" width="86" height="86" tilewidth="64" tileheight="64" infinite="0" nextlayerid="17" nextobjectid="2246">
  <properties>
   <property name="map-id" type="int" value="1"/>
  </properties>
@@ -17,9 +17,8 @@
    <image source="../../graphics/objects/sand.png" width="64" height="64"/>
   </tile>
  </tileset>
- <tileset firstgid="254" source="../tilesets/pokemon-tileset.tsx"/>
- <tileset firstgid="21254" source="../tilesets/coast.tsx"/>
- <layer id="1" name="Terrain" width="86" height="86">
+ <tileset firstgid="254" source="../tilesets/coast.tsx"/>
+ <layer id="1" name="Terrain" width="86" height="86" visible="0">
   <data encoding="csv">
 195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,196,132,132,136,132,132,132,136,132,123,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,
 195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,196,132,132,147,126,132,132,136,132,132,123,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,
@@ -109,1791 +108,1962 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="3" name="Entities">
+ <objectgroup id="3" name="Entities" visible="0">
   <properties>
    <property name="group-id" type="int" value="0"/>
   </properties>
-  <object id="13" name="Character" x="3506.5" y="4660.5">
-   <properties>
-    <property name="direction" value="d"/>
-    <property name="obj-id" type="int" value="10"/>
-    <property name="zindex" type="int" value="3"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="14" name="Character" x="3648" y="3776">
-   <properties>
-    <property name="direction" value="d"/>
-    <property name="obj-id" type="int" value="10"/>
-    <property name="zindex" type="int" value="3"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="524" name="Character" x="1280" y="4544">
-   <properties>
-    <property name="direction" value="r"/>
-    <property name="obj-id" type="int" value="10"/>
-    <property name="zindex" type="int" value="3"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="831" name="Character" x="4885" y="4210">
-   <properties>
-    <property name="direction" value="l"/>
-    <property name="obj-id" type="int" value="10"/>
-    <property name="zindex" type="int" value="3"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="961" name="Character" x="596" y="2437.33">
-   <properties>
-    <property name="direction" value="r"/>
-    <property name="obj-id" type="int" value="10"/>
-    <property name="zindex" type="int" value="3"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="1145" name="Character" x="3328" y="2880">
-   <properties>
-    <property name="direction" value="r"/>
-    <property name="obj-id" type="int" value="10"/>
-    <property name="zindex" type="int" value="3"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="1146" name="Character" x="4096" y="2048">
-   <properties>
-    <property name="direction" value="u"/>
-    <property name="obj-id" type="int" value="10"/>
-    <property name="zindex" type="int" value="3"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="1572" name="Player" x="4449.33" y="3881.33">
+  <object id="2245" name="Player" x="4385.33" y="3710.67" width="128" height="128">
    <properties>
     <property name="direction" value="d"/>
     <property name="obj-id" type="int" value="0"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
-   <point/>
   </object>
  </objectgroup>
- <objectgroup id="9" name="Coast">
+ <objectgroup id="9" name="Coast" visible="0">
   <properties>
-   <property name="group-id" type="int" value="3"/>
+   <property name="group-id" type="int" value="1"/>
   </properties>
-  <object id="1702" gid="21302" x="3200" y="2688" width="64" height="64">
+  <object id="1702" gid="302" x="3200" y="2688" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1703" gid="21303" x="3264" y="2688" width="64" height="64">
+  <object id="1703" gid="303" x="3264" y="2688" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1704" gid="21303" x="3328" y="2688" width="64" height="64">
+  <object id="1704" gid="303" x="3328" y="2688" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1705" gid="21304" x="3392" y="2688" width="64" height="64">
+  <object id="1705" gid="304" x="3392" y="2688" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1706" gid="21280" x="3392" y="2624" width="64" height="64">
+  <object id="1706" gid="280" x="3392" y="2624" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1707" gid="21280" x="3392" y="2560" width="64" height="64">
+  <object id="1707" gid="280" x="3392" y="2560" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1708" gid="21280" x="3392" y="2496" width="64" height="64">
+  <object id="1708" gid="280" x="3392" y="2496" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1709" gid="21280" x="3392" y="2432" width="64" height="64">
+  <object id="1709" gid="280" x="3392" y="2432" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1711" gid="21257" x="3392" y="2368" width="64" height="64">
+  <object id="1711" gid="257" x="3392" y="2368" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1712" gid="21303" x="3456" y="2368" width="64" height="64">
+  <object id="1712" gid="303" x="3456" y="2368" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1713" gid="21304" x="3520" y="2368" width="64" height="64">
+  <object id="1713" gid="304" x="3520" y="2368" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1714" gid="21257" x="3520" y="2304" width="64" height="64">
+  <object id="1714" gid="257" x="3520" y="2304" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1715" gid="21304" x="3584" y="2304" width="64" height="64">
+  <object id="1715" gid="304" x="3584" y="2304" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1716" gid="21280" x="3584" y="2240" width="64" height="64">
+  <object id="1716" gid="280" x="3584" y="2240" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1717" gid="21280" x="3584" y="2176" width="64" height="64">
+  <object id="1717" gid="280" x="3584" y="2176" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1718" gid="21256" x="3584" y="2112" width="64" height="64">
+  <object id="1718" gid="256" x="3584" y="2112" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1719" gid="21255" x="3520" y="2112" width="64" height="64">
+  <object id="1719" gid="255" x="3520" y="2112" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1720" gid="21255" x="3456" y="2112" width="64" height="64">
+  <object id="1720" gid="255" x="3456" y="2112" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1721" gid="21254" x="3392" y="2112" width="64" height="64">
+  <object id="1721" gid="254" x="3392" y="2112" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1722" gid="21307" x="3392" y="2176" width="64" height="64">
+  <object id="1722" gid="307" x="3392" y="2176" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1724" gid="21254" x="3328" y="2176" width="64" height="64">
+  <object id="1724" gid="254" x="3328" y="2176" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1725" gid="21307" x="3328" y="2240" width="64" height="64">
+  <object id="1725" gid="307" x="3328" y="2240" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1726" gid="21254" x="3264" y="2240" width="64" height="64">
+  <object id="1726" gid="254" x="3264" y="2240" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1727" gid="21307" x="3264" y="2304" width="64" height="64">
+  <object id="1727" gid="307" x="3264" y="2304" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1728" gid="21254" x="3200" y="2304" width="64" height="64">
+  <object id="1728" gid="254" x="3200" y="2304" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1730" gid="21278" x="3200" y="2432" width="64" height="64">
+  <object id="1730" gid="278" x="3200" y="2432" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1731" gid="21278" x="3200" y="2368" width="64" height="64">
+  <object id="1731" gid="278" x="3200" y="2368" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1732" gid="21278" x="3200" y="2496" width="64" height="64">
+  <object id="1732" gid="278" x="3200" y="2496" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1733" gid="21278" x="3200" y="2560" width="64" height="64">
+  <object id="1733" gid="278" x="3200" y="2560" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1734" gid="21278" x="3200" y="2624" width="64" height="64">
+  <object id="1734" gid="278" x="3200" y="2624" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1944" gid="21255" x="5376" y="2816" width="64" height="64">
+  <object id="1944" gid="255" x="5376" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1945" gid="21255" x="5440" y="2816" width="64" height="64">
+  <object id="1945" gid="255" x="5440" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1947" gid="21255" x="5312" y="2816" width="64" height="64">
+  <object id="1947" gid="255" x="5312" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1949" gid="21305" x="5248" y="2816" width="64" height="64">
+  <object id="1949" gid="305" x="5248" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1950" gid="21259" x="5248" y="2752" width="64" height="64">
+  <object id="1951" gid="256" x="5248" y="2752" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="2"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1952" gid="255" x="5184" y="2752" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1953" gid="255" x="5120" y="2752" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1954" gid="255" x="4992" y="2752" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1955" gid="255" x="5056" y="2752" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1958" gid="305" x="4928" y="2752" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1959" gid="256" x="4928" y="2688" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="2"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1960" gid="255" x="4864" y="2688" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1961" gid="255" x="4800" y="2688" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1962" gid="255" x="4736" y="2688" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1963" gid="255" x="4672" y="2688" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1965" gid="305" x="4608" y="2688" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1966" gid="256" x="4608" y="2624" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="2"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1967" gid="255" x="4544" y="2624" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1968" gid="255" x="4480" y="2624" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1969" gid="255" x="4416" y="2624" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1971" gid="305" x="4352" y="2624" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1972" gid="256" x="4352" y="2560" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="2"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1973" gid="255" x="4288" y="2560" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1974" gid="255" x="4224" y="2560" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1975" gid="255" x="4160" y="2560" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1977" gid="255" x="4032" y="2560" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1978" gid="255" x="4096" y="2560" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1979" gid="255" x="3968" y="2560" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1980" gid="255" x="3904" y="2560" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1983" gid="305" x="3840" y="2560" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1984" gid="256" x="3840" y="2496" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="2"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1985" gid="255" x="3776" y="2496" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1986" gid="255" x="3712" y="2496" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1987" gid="255" x="3648" y="2496" width="64" height="64">
+   <properties>
+    <property name="n" type="int" value="1"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
+    <property name="zindex" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="1988" gid="254" x="3584" y="2496" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1951" gid="21256" x="5248" y="2752" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1952" gid="21255" x="5184" y="2752" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1953" gid="21255" x="5120" y="2752" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1954" gid="21255" x="4992" y="2752" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1955" gid="21255" x="5056" y="2752" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1958" gid="21305" x="4928" y="2752" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="6"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1959" gid="21256" x="4928" y="2688" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1960" gid="21255" x="4864" y="2688" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1961" gid="21255" x="4800" y="2688" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1962" gid="21255" x="4736" y="2688" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1963" gid="21255" x="4672" y="2688" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1965" gid="21305" x="4608" y="2688" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="6"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1966" gid="21256" x="4608" y="2624" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1967" gid="21255" x="4544" y="2624" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1968" gid="21255" x="4480" y="2624" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1969" gid="21255" x="4416" y="2624" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1971" gid="21305" x="4352" y="2624" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="6"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1972" gid="21256" x="4352" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1973" gid="21255" x="4288" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1974" gid="21255" x="4224" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1975" gid="21255" x="4160" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1976" gid="21255" x="4032" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1977" gid="21255" x="4032" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1978" gid="21255" x="4096" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1979" gid="21255" x="3968" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1980" gid="21255" x="3904" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1983" gid="21305" x="3840" y="2560" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="6"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1984" gid="21256" x="3840" y="2496" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1985" gid="21255" x="3776" y="2496" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1986" gid="21255" x="3712" y="2496" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1987" gid="21255" x="3648" y="2496" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1988" gid="21254" x="3584" y="2496" width="64" height="64">
-   <properties>
-    <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="5"/>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="1989" gid="21278" x="3584" y="2560" width="64" height="64">
+  <object id="1989" gid="278" x="3584" y="2560" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1990" gid="21278" x="3584" y="2624" width="64" height="64">
+  <object id="1990" gid="278" x="3584" y="2624" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1991" gid="21278" x="3584" y="2688" width="64" height="64">
+  <object id="1991" gid="278" x="3584" y="2688" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1992" gid="21302" x="3584" y="2752" width="64" height="64">
+  <object id="1992" gid="302" x="3584" y="2752" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1993" gid="21303" x="3648" y="2752" width="64" height="64">
+  <object id="1993" gid="303" x="3648" y="2752" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1994" gid="21303" x="3712" y="2752" width="64" height="64">
+  <object id="1994" gid="303" x="3712" y="2752" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1995" gid="21259" x="3776" y="2752" width="64" height="64">
+  <object id="1995" gid="259" x="3776" y="2752" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1996" gid="21302" x="3776" y="2816" width="64" height="64">
+  <object id="1996" gid="302" x="3776" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1997" gid="21303" x="3840" y="2816" width="64" height="64">
+  <object id="1997" gid="303" x="3840" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1998" gid="21303" x="3904" y="2816" width="64" height="64">
+  <object id="1998" gid="303" x="3904" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1999" gid="21303" x="3968" y="2816" width="64" height="64">
+  <object id="1999" gid="303" x="3968" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2000" gid="21303" x="4032" y="2816" width="64" height="64">
+  <object id="2000" gid="303" x="4032" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2001" gid="21259" x="4096" y="2816" width="64" height="64">
+  <object id="2001" gid="259" x="4096" y="2816" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2002" gid="21302" x="4096" y="2880" width="64" height="64">
+  <object id="2002" gid="302" x="4096" y="2880" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2003" gid="21303" x="4160" y="2880" width="64" height="64">
+  <object id="2003" gid="303" x="4160" y="2880" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2004" gid="21303" x="4224" y="2880" width="64" height="64">
+  <object id="2004" gid="303" x="4224" y="2880" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2005" gid="21303" x="4288" y="2880" width="64" height="64">
+  <object id="2005" gid="303" x="4288" y="2880" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2006" gid="21303" x="4352" y="2880" width="64" height="64">
+  <object id="2006" gid="303" x="4352" y="2880" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2007" gid="21303" x="4416" y="2880" width="64" height="64">
+  <object id="2007" gid="303" x="4416" y="2880" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2009" gid="21259" x="4480" y="2880" width="64" height="64">
+  <object id="2009" gid="259" x="4480" y="2880" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2010" gid="21302" x="4480" y="2944" width="64" height="64">
+  <object id="2010" gid="302" x="4480" y="2944" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2011" gid="21303" x="4544" y="2944" width="64" height="64">
+  <object id="2011" gid="303" x="4544" y="2944" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2012" gid="21303" x="4608" y="2944" width="64" height="64">
+  <object id="2012" gid="303" x="4608" y="2944" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2013" gid="21303" x="4672" y="2944" width="64" height="64">
+  <object id="2013" gid="303" x="4672" y="2944" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2014" gid="21303" x="4736" y="2944" width="64" height="64">
+  <object id="2014" gid="303" x="4736" y="2944" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2015" gid="21259" x="4800" y="2944" width="64" height="64">
+  <object id="2015" gid="259" x="4800" y="2944" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2016" gid="21302" x="4800" y="3008" width="64" height="64">
+  <object id="2016" gid="302" x="4800" y="3008" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2017" gid="21303" x="4864" y="3008" width="64" height="64">
+  <object id="2017" gid="303" x="4864" y="3008" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2018" gid="21303" x="4928" y="3008" width="64" height="64">
+  <object id="2018" gid="303" x="4928" y="3008" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2019" gid="21303" x="4992" y="3008" width="64" height="64">
+  <object id="2019" gid="303" x="4992" y="3008" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2020" gid="21259" x="5056" y="3008" width="64" height="64">
+  <object id="2020" gid="259" x="5056" y="3008" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2021" gid="21302" x="5056" y="3072" width="64" height="64">
+  <object id="2021" gid="302" x="5056" y="3072" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2022" gid="21303" x="5120" y="3072" width="64" height="64">
+  <object id="2022" gid="303" x="5120" y="3072" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2023" gid="21303" x="5184" y="3072" width="64" height="64">
+  <object id="2023" gid="303" x="5184" y="3072" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2024" gid="21303" x="5248" y="3072" width="64" height="64">
+  <object id="2024" gid="303" x="5248" y="3072" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2025" gid="21303" x="5312" y="3072" width="64" height="64">
+  <object id="2025" gid="303" x="5312" y="3072" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2026" gid="21259" x="5376" y="3072" width="64" height="64">
+  <object id="2026" gid="259" x="5376" y="3072" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="6"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="1"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2027" gid="21302" x="5376" y="3136" width="64" height="64">
+  <object id="2027" gid="302" x="5376" y="3136" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2029" gid="21267" x="5440" y="4032" width="64" height="64">
+  <object id="2029" gid="267" x="5440" y="4032" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2030" gid="21267" x="5376" y="4032" width="64" height="64">
+  <object id="2030" gid="267" x="5376" y="4032" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2031" gid="21266" x="5312" y="4032" width="64" height="64">
+  <object id="2031" gid="266" x="5312" y="4032" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2032" gid="21319" x="5312" y="4096" width="64" height="64">
+  <object id="2032" gid="319" x="5312" y="4096" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2033" gid="21266" x="5248" y="4096" width="64" height="64">
+  <object id="2033" gid="266" x="5248" y="4096" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2034" gid="21290" x="5248" y="4160" width="64" height="64">
+  <object id="2034" gid="290" x="5248" y="4160" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2035" gid="21319" x="5248" y="4224" width="64" height="64">
+  <object id="2035" gid="319" x="5248" y="4224" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2036" gid="21267" x="5184" y="4224" width="64" height="64">
+  <object id="2036" gid="267" x="5184" y="4224" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2037" gid="21267" x="5120" y="4224" width="64" height="64">
+  <object id="2037" gid="267" x="5120" y="4224" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2038" gid="21267" x="5056" y="4224" width="64" height="64">
+  <object id="2038" gid="267" x="5056" y="4224" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2039" gid="21266" x="4992" y="4224" width="64" height="64">
+  <object id="2039" gid="266" x="4992" y="4224" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2040" gid="21290" x="4992" y="4288" width="64" height="64">
+  <object id="2040" gid="290" x="4992" y="4288" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2041" gid="21290" x="4992" y="4352" width="64" height="64">
+  <object id="2041" gid="290" x="4992" y="4352" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2042" gid="21319" x="4992" y="4416" width="64" height="64">
+  <object id="2042" gid="319" x="4992" y="4416" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2043" gid="21267" x="4928" y="4416" width="64" height="64">
+  <object id="2043" gid="267" x="4928" y="4416" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2044" gid="21266" x="4864" y="4416" width="64" height="64">
+  <object id="2044" gid="266" x="4864" y="4416" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2045" gid="21290" x="4864" y="4480" width="64" height="64">
+  <object id="2045" gid="290" x="4864" y="4480" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2046" gid="21290" x="4864" y="4544" width="64" height="64">
+  <object id="2046" gid="290" x="4864" y="4544" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2047" gid="21290" x="4864" y="4608" width="64" height="64">
+  <object id="2047" gid="290" x="4864" y="4608" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2048" gid="21290" x="4864" y="4672" width="64" height="64">
+  <object id="2048" gid="290" x="4864" y="4672" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2049" gid="21290" x="4864" y="4736" width="64" height="64">
+  <object id="2049" gid="290" x="4864" y="4736" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2050" gid="21290" x="4864" y="4800" width="64" height="64">
+  <object id="2050" gid="290" x="4864" y="4800" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2051" gid="21290" x="4864" y="4864" width="64" height="64">
+  <object id="2051" gid="290" x="4864" y="4864" width="64" height="64">
    <properties>
     <property name="n" type="int" value="3"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2052" gid="21319" x="4864" y="4928" width="64" height="64">
+  <object id="2052" gid="319" x="4864" y="4928" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2053" gid="21267" x="4800" y="4928" width="64" height="64">
+  <object id="2053" gid="267" x="4800" y="4928" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2054" gid="21267" x="4736" y="4928" width="64" height="64">
+  <object id="2054" gid="267" x="4736" y="4928" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2055" gid="21266" x="4736" y="4928" width="64" height="64">
+  <object id="2055" gid="266" x="4736" y="4928" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2056" gid="21319" x="4736" y="4992" width="64" height="64">
+  <object id="2056" gid="319" x="4736" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2057" gid="21267" x="4672" y="4992" width="64" height="64">
+  <object id="2057" gid="267" x="4672" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2058" gid="21267" x="4608" y="4992" width="64" height="64">
+  <object id="2058" gid="267" x="4608" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2059" gid="21266" x="4608" y="4992" width="64" height="64">
+  <object id="2059" gid="266" x="4608" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2060" gid="21319" x="4608" y="5056" width="64" height="64">
+  <object id="2060" gid="319" x="4608" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="8"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2061" gid="21267" x="4544" y="5056" width="64" height="64">
+  <object id="2061" gid="267" x="4544" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2062" gid="21267" x="4480" y="5056" width="64" height="64">
+  <object id="2062" gid="267" x="4480" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2063" gid="21267" x="4416" y="5056" width="64" height="64">
+  <object id="2063" gid="267" x="4416" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2064" gid="21267" x="4352" y="5056" width="64" height="64">
+  <object id="2064" gid="267" x="4352" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2065" gid="21267" x="4288" y="5056" width="64" height="64">
+  <object id="2065" gid="267" x="4288" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2066" gid="21267" x="4224" y="5056" width="64" height="64">
+  <object id="2066" gid="267" x="4224" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2067" gid="21267" x="4160" y="5056" width="64" height="64">
+  <object id="2067" gid="267" x="4160" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2068" gid="21267" x="4096" y="5056" width="64" height="64">
+  <object id="2068" gid="267" x="4096" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2069" gid="21267" x="4032" y="5056" width="64" height="64">
+  <object id="2069" gid="267" x="4032" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2070" gid="21267" x="3968" y="5056" width="64" height="64">
+  <object id="2070" gid="267" x="3968" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2071" gid="21267" x="3840" y="5056" width="64" height="64">
+  <object id="2071" gid="267" x="3840" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2072" gid="21267" x="3904" y="5056" width="64" height="64">
+  <object id="2072" gid="267" x="3904" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2073" gid="21267" x="3712" y="5056" width="64" height="64">
+  <object id="2073" gid="267" x="3712" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2074" gid="21267" x="3776" y="5056" width="64" height="64">
+  <object id="2074" gid="267" x="3776" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2075" gid="21267" x="3648" y="5056" width="64" height="64">
+  <object id="2075" gid="267" x="3648" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2076" gid="21267" x="3584" y="5056" width="64" height="64">
+  <object id="2076" gid="267" x="3584" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2077" gid="21267" x="3520" y="5056" width="64" height="64">
+  <object id="2077" gid="267" x="3520" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2078" gid="21267" x="3456" y="5056" width="64" height="64">
+  <object id="2078" gid="267" x="3456" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2079" gid="21267" x="3392" y="5056" width="64" height="64">
+  <object id="2079" gid="267" x="3392" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2080" gid="21267" x="3328" y="5056" width="64" height="64">
+  <object id="2080" gid="267" x="3328" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2081" gid="21267" x="3200" y="5056" width="64" height="64">
+  <object id="2081" gid="267" x="3200" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2082" gid="21267" x="3264" y="5056" width="64" height="64">
+  <object id="2082" gid="267" x="3264" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2083" gid="21267" x="3136" y="5056" width="64" height="64">
+  <object id="2083" gid="267" x="3136" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2084" gid="21267" x="3008" y="5056" width="64" height="64">
+  <object id="2084" gid="267" x="3008" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2085" gid="21267" x="3072" y="5056" width="64" height="64">
+  <object id="2085" gid="267" x="3072" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2086" gid="21267" x="2944" y="5056" width="64" height="64">
+  <object id="2086" gid="267" x="2944" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2087" gid="21267" x="2880" y="5056" width="64" height="64">
+  <object id="2087" gid="267" x="2880" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2088" gid="21267" x="2816" y="5056" width="64" height="64">
+  <object id="2088" gid="267" x="2816" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2089" gid="21267" x="2752" y="5056" width="64" height="64">
+  <object id="2089" gid="267" x="2752" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2090" gid="21267" x="2688" y="5056" width="64" height="64">
+  <object id="2090" gid="267" x="2688" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2091" gid="21267" x="1152" y="5056" width="64" height="64">
+  <object id="2091" gid="267" x="1152" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2092" gid="21267" x="1216" y="5056" width="64" height="64">
+  <object id="2092" gid="267" x="1216" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2093" gid="21267" x="1216" y="5056" width="64" height="64">
+  <object id="2093" gid="267" x="1216" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2094" gid="21267" x="1280" y="5056" width="64" height="64">
+  <object id="2094" gid="267" x="1280" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2095" gid="21267" x="1344" y="5056" width="64" height="64">
+  <object id="2095" gid="267" x="1344" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2096" gid="21267" x="1408" y="5056" width="64" height="64">
+  <object id="2096" gid="267" x="1408" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2097" gid="21267" x="1408" y="5056" width="64" height="64">
+  <object id="2097" gid="267" x="1408" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2098" gid="21267" x="1472" y="5056" width="64" height="64">
+  <object id="2098" gid="267" x="1472" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2099" gid="21267" x="1536" y="5056" width="64" height="64">
+  <object id="2099" gid="267" x="1536" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2100" gid="21267" x="1600" y="5056" width="64" height="64">
+  <object id="2100" gid="267" x="1600" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2101" gid="21267" x="1728" y="5056" width="64" height="64">
+  <object id="2101" gid="267" x="1728" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2102" gid="21267" x="1664" y="5056" width="64" height="64">
+  <object id="2102" gid="267" x="1664" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2103" gid="21267" x="1792" y="5056" width="64" height="64">
+  <object id="2103" gid="267" x="1792" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2104" gid="21267" x="1856" y="5056" width="64" height="64">
+  <object id="2104" gid="267" x="1856" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2105" gid="21267" x="1920" y="5056" width="64" height="64">
+  <object id="2105" gid="267" x="1920" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2106" gid="21267" x="1984" y="5056" width="64" height="64">
+  <object id="2106" gid="267" x="1984" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2107" gid="21267" x="2112" y="5056" width="64" height="64">
+  <object id="2107" gid="267" x="2112" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2108" gid="21267" x="2176" y="5056" width="64" height="64">
+  <object id="2108" gid="267" x="2176" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2109" gid="21267" x="2048" y="5056" width="64" height="64">
+  <object id="2109" gid="267" x="2048" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2110" gid="21267" x="2304" y="5056" width="64" height="64">
+  <object id="2110" gid="267" x="2304" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2111" gid="21267" x="2240" y="5056" width="64" height="64">
+  <object id="2111" gid="267" x="2240" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2112" gid="21267" x="2368" y="5056" width="64" height="64">
+  <object id="2112" gid="267" x="2368" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2113" gid="21267" x="2432" y="5056" width="64" height="64">
+  <object id="2113" gid="267" x="2432" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2114" gid="21267" x="2560" y="5056" width="64" height="64">
+  <object id="2114" gid="267" x="2560" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2115" gid="21267" x="2560" y="5056" width="64" height="64">
+  <object id="2115" gid="267" x="2560" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2116" gid="21267" x="2624" y="5056" width="64" height="64">
+  <object id="2116" gid="267" x="2624" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2117" gid="21267" x="2496" y="5056" width="64" height="64">
+  <object id="2117" gid="267" x="2496" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2118" gid="21317" x="1088" y="5056" width="64" height="64">
+  <object id="2118" gid="317" x="1088" y="5056" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2119" gid="21268" x="1088" y="4992" width="64" height="64">
+  <object id="2119" gid="268" x="1088" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2120" gid="21267" x="1024" y="4992" width="64" height="64">
+  <object id="2120" gid="267" x="1024" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2121" gid="21267" x="960" y="4992" width="64" height="64">
+  <object id="2121" gid="267" x="960" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2122" gid="21267" x="896" y="4992" width="64" height="64">
+  <object id="2122" gid="267" x="896" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2123" gid="21267" x="832" y="4992" width="64" height="64">
+  <object id="2123" gid="267" x="832" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2124" gid="21267" x="768" y="4992" width="64" height="64">
+  <object id="2124" gid="267" x="768" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2125" gid="21267" x="704" y="4992" width="64" height="64">
+  <object id="2125" gid="267" x="704" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2126" gid="21317" x="640" y="4992" width="64" height="64">
+  <object id="2126" gid="317" x="640" y="4992" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2127" gid="21268" x="640" y="4928" width="64" height="64">
+  <object id="2127" gid="268" x="640" y="4928" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2128" gid="21317" x="576" y="4928" width="64" height="64">
+  <object id="2128" gid="317" x="576" y="4928" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2129" gid="21268" x="576" y="4864" width="64" height="64">
+  <object id="2129" gid="268" x="576" y="4864" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2130" gid="21317" x="512" y="4864" width="64" height="64">
+  <object id="2130" gid="317" x="512" y="4864" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2131" gid="21292" x="512" y="4800" width="64" height="64">
+  <object id="2131" gid="292" x="512" y="4800" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2132" gid="21292" x="512" y="4736" width="64" height="64">
+  <object id="2132" gid="292" x="512" y="4736" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2133" gid="21292" x="512" y="4672" width="64" height="64">
+  <object id="2133" gid="292" x="512" y="4672" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2135" gid="21292" x="512" y="4608" width="64" height="64">
+  <object id="2135" gid="292" x="512" y="4608" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2136" gid="21292" x="512" y="4544" width="64" height="64">
+  <object id="2136" gid="292" x="512" y="4544" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2137" gid="21292" x="512" y="4416" width="64" height="64">
+  <object id="2137" gid="292" x="512" y="4416" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2138" gid="21292" x="512" y="4352" width="64" height="64">
+  <object id="2138" gid="292" x="512" y="4352" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2139" gid="21292" x="512" y="4480" width="64" height="64">
+  <object id="2139" gid="292" x="512" y="4480" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2140" gid="21292" x="512" y="4288" width="64" height="64">
+  <object id="2140" gid="292" x="512" y="4288" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2141" gid="21292" x="512" y="4160" width="64" height="64">
+  <object id="2141" gid="292" x="512" y="4160" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2142" gid="21292" x="512" y="4096" width="64" height="64">
+  <object id="2142" gid="292" x="512" y="4096" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2143" gid="21292" x="512" y="4224" width="64" height="64">
+  <object id="2143" gid="292" x="512" y="4224" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2144" gid="21292" x="512" y="4032" width="64" height="64">
+  <object id="2144" gid="292" x="512" y="4032" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2145" gid="21292" x="512" y="3968" width="64" height="64">
+  <object id="2145" gid="292" x="512" y="3968" width="64" height="64">
    <properties>
     <property name="n" type="int" value="0"/>
-    <property name="obj-id" type="int" value="0"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2146" gid="21268" x="512" y="3968" width="64" height="64">
+  <object id="2146" gid="268" x="512" y="3968" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2147" gid="21317" x="448" y="3968" width="64" height="64">
+  <object id="2147" gid="317" x="448" y="3968" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2148" gid="21292" x="448" y="3904" width="64" height="64">
+  <object id="2148" gid="292" x="448" y="3904" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2149" gid="21292" x="448" y="3840" width="64" height="64">
+  <object id="2149" gid="292" x="448" y="3840" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2150" gid="21268" x="448" y="3776" width="64" height="64">
+  <object id="2150" gid="268" x="448" y="3776" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2151" gid="21317" x="384" y="3776" width="64" height="64">
+  <object id="2151" gid="317" x="384" y="3776" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2152" gid="21292" x="384" y="3712" width="64" height="64">
+  <object id="2152" gid="292" x="384" y="3712" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2153" gid="21292" x="384" y="3648" width="64" height="64">
+  <object id="2153" gid="292" x="384" y="3648" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2154" gid="21292" x="384" y="3584" width="64" height="64">
+  <object id="2154" gid="292" x="384" y="3584" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2155" gid="21292" x="384" y="3520" width="64" height="64">
+  <object id="2155" gid="292" x="384" y="3520" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2156" gid="21292" x="384" y="3456" width="64" height="64">
+  <object id="2156" gid="292" x="384" y="3456" width="64" height="64">
    <properties>
     <property name="n" type="int" value="5"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2157" gid="21268" x="384" y="3392" width="64" height="64">
+  <object id="2157" gid="268" x="384" y="3392" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2158" gid="21317" x="320" y="3392" width="64" height="64">
+  <object id="2158" gid="317" x="320" y="3392" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2159" gid="21268" x="320" y="3328" width="64" height="64">
+  <object id="2159" gid="268" x="320" y="3328" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2160" gid="21267" x="256" y="3328" width="64" height="64">
+  <object id="2160" gid="267" x="256" y="3328" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2161" gid="21317" x="192" y="3328" width="64" height="64">
+  <object id="2161" gid="317" x="192" y="3328" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2162" gid="21268" x="192" y="3264" width="64" height="64">
+  <object id="2162" gid="268" x="192" y="3264" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2163" gid="21267" x="128" y="3264" width="64" height="64">
+  <object id="2163" gid="267" x="128" y="3264" width="64" height="64">
    <properties>
     <property name="n" type="int" value="1"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2164" gid="21317" x="64" y="3264" width="64" height="64">
+  <object id="2164" gid="317" x="64" y="3264" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2165" gid="21268" x="64" y="3200" width="64" height="64">
+  <object id="2165" gid="268" x="64" y="3200" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2166" gid="21317" x="0" y="3200" width="64" height="64">
+  <object id="2166" gid="317" x="0" y="3200" width="64" height="64">
    <properties>
     <property name="n" type="int" value="6"/>
-    <property name="obj-id" type="int" value="4"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="3"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2167" gid="21268" x="0" y="3136" width="64" height="64">
+  <object id="2167" gid="268" x="0" y="3136" width="64" height="64">
    <properties>
     <property name="n" type="int" value="2"/>
-    <property name="obj-id" type="int" value="3"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="2"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2171" gid="21303" x="5440" y="3136" width="64" height="64">
+  <object id="2171" gid="303" x="5440" y="3136" width="64" height="64">
    <properties>
     <property name="n" type="int" value="7"/>
-    <property name="obj-id" type="int" value="5"/>
+    <property name="obj-id" type="int" value="99"/>
+    <property name="terrain" type="int" value="0"/>
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="6" name="Monsters">
+ <objectgroup id="6" name="Monsters" visible="0">
   <properties>
-   <property name="group-id" type="int" value="4"/>
+   <property name="group-id" type="int" value="2"/>
   </properties>
   <object id="34" gid="251" x="4096" y="4096" width="64" height="64">
    <properties>
@@ -4360,1621 +4530,1627 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="2" name="GameObjs">
+ <objectgroup id="2" name="GameObjs" visible="0">
   <properties>
-   <property name="group-id" type="int" value="5"/>
+   <property name="group-id" type="int" value="3"/>
   </properties>
   <object id="1" gid="211" x="4352" y="3776" width="320" height="320">
    <properties>
-    <property name="obj-id" type="int" value="1"/>
+    <property name="obj-id" type="int" value="0"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="2" gid="226" x="3455.33" y="3783.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="3" gid="226" x="3264" y="3712" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="4" gid="227" x="3264" y="3392" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="7" gid="213" x="4424" y="4818" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="8" gid="215" x="4198.67" y="4640" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="10" gid="215" x="4574" y="4576" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="11" gid="213" x="4494.67" y="4545.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="19" gid="229" x="4096" y="3392" width="384" height="384">
    <properties>
-    <property name="obj-id" type="int" value="1"/>
+    <property name="obj-id" type="int" value="0"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="40" gid="232" x="3776" y="3776" width="320" height="320">
    <properties>
-    <property name="obj-id" type="int" value="1"/>
+    <property name="obj-id" type="int" value="0"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="41" gid="227" x="3520" y="3712" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="42" gid="227" x="3956" y="3210" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="43" gid="227" x="3904" y="3328" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="44" gid="227" x="3328" y="3328" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="45" gid="223" x="1152" y="3904" width="448" height="448">
    <properties>
-    <property name="obj-id" type="int" value="1"/>
+    <property name="obj-id" type="int" value="0"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="47" gid="224" x="4096" y="1408" width="448" height="448">
    <properties>
-    <property name="obj-id" type="int" value="1"/>
+    <property name="obj-id" type="int" value="0"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="48" gid="225" x="512" y="896" width="448" height="448">
    <properties>
-    <property name="obj-id" type="int" value="1"/>
+    <property name="obj-id" type="int" value="0"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="49" gid="218" x="1504" y="3974.5" width="64" height="104">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="50" gid="217" x="1190" y="3975" width="64" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="51" gid="230" x="1920" y="2432" width="448" height="448">
    <properties>
-    <property name="obj-id" type="int" value="1"/>
+    <property name="obj-id" type="int" value="0"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="52" gid="229" x="1600" y="2176" width="384" height="384">
    <properties>
-    <property name="obj-id" type="int" value="1"/>
+    <property name="obj-id" type="int" value="0"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="53" gid="212" x="1969.33" y="1954.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="54" gid="212" x="2385.33" y="1962.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="55" gid="212" x="2304" y="640" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="56" gid="212" x="2688" y="1408" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="57" gid="212" x="1740.66" y="1114" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="58" gid="221" x="1677.33" y="2758.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="59" gid="222" x="2390.67" y="2628" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="60" gid="222" x="2489.33" y="2573.33" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="61" gid="222" x="2704" y="2049.33" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="62" gid="221" x="1042.67" y="2729.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="63" gid="221" x="1152" y="2432" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="64" gid="221" x="896" y="576" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="66" gid="212" x="1930.67" y="2024" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="67" gid="212" x="1216" y="1408" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="68" gid="212" x="2334.67" y="2064" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="69" gid="212" x="1568" y="2460" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="70" gid="212" x="1344" y="2752" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="71" gid="212" x="1152" y="1856" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="72" gid="212" x="1240" y="1772" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="73" gid="212" x="1240" y="1284" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="74" gid="212" x="1302.67" y="1338.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="75" gid="220" x="1746.18" y="2827.39" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="76" gid="220" x="949.212" y="1978.91" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="77" gid="220" x="837.091" y="1772.85" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="78" gid="220" x="2649.21" y="2191.03" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="79" gid="222" x="1929.7" y="2752.97" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="80" gid="222" x="2317.58" y="2752.97" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="81" gid="222" x="2566.06" y="2492.36" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="82" gid="222" x="2629.7" y="2252.97" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="83" gid="222" x="2666.06" y="1625.7" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="84" gid="220" x="2697.7" y="1712.24" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="85" gid="220" x="2764.36" y="1342.55" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="86" gid="221" x="2112" y="576" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="87" gid="221" x="1788.61" y="2697.09" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="88" gid="221" x="2137.09" y="2700.12" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="89" gid="221" x="1280" y="2688" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="90" gid="221" x="1088" y="2496" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="91" gid="227" x="4140.12" y="1472.85" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="92" gid="228" x="4115" y="1416" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="93" gid="226" x="4396" y="1458" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="94" gid="227" x="4474" y="1422" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="95" gid="227" x="3961" y="1235" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="96" gid="228" x="4039" y="1146" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="97" gid="228" x="4459" y="1014" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="98" gid="228" x="3974" y="964" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="99" gid="228" x="4284" y="850" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="100" gid="228" x="4661" y="1145" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="101" gid="228" x="4730" y="1414" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="102" gid="228" x="4605" y="1451" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="103" gid="228" x="4597" y="889" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="104" gid="228" x="3947" y="821" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="105" gid="228" x="3735" y="1309" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="106" gid="228" x="4445.33" y="2196" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="107" gid="228" x="4003" y="1735" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="108" gid="228" x="3930" y="1466" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="109" gid="227" x="4639" y="1516" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="110" gid="227" x="4701" y="1253" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="111" gid="227" x="4015" y="1636" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="112" gid="227" x="4078" y="1561" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="113" gid="227" x="4229" y="1859" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="114" gid="227" x="4014" y="1005" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="115" gid="227" x="4256" y="930" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="116" gid="227" x="3723" y="1387" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="117" gid="226" x="4606" y="1249" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="118" gid="226" x="4437" y="848" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="119" gid="226" x="3930" y="1047" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="120" gid="226" x="3998" y="1490" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="121" gid="226" x="4509" y="1543" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="201" gid="227" x="1152" y="2944" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="202" gid="227" x="960" y="3072" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="203" gid="227" x="1088" y="3008" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="207" gid="233" x="4292" y="4591.5" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="208" gid="233" x="4448" y="4591.5" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="210" name="top" gid="235" x="4288" y="4480" width="232" height="80">
    <properties>
-    <property name="obj-id" type="int" value="0"/>
-    <property name="zindex" type="int" value="4"/>
+    <property name="obj-id" type="int" value="2"/>
+    <property name="zindex" type="int" value="5"/>
    </properties>
   </object>
   <object id="212" gid="233" x="1267" y="4067.75" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="213" gid="233" x="1421.67" y="4069.08" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="214" name="top" gid="235" x="1261.67" y="3957.58" width="232" height="80">
    <properties>
-    <property name="obj-id" type="int" value="0"/>
+    <property name="obj-id" type="int" value="2"/>
     <property name="zindex" type="int" value="4"/>
    </properties>
   </object>
   <object id="346" gid="227" x="3078.67" y="2824" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="347" gid="227" x="2928" y="2676" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="348" gid="227" x="2737.33" y="2925.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="349" gid="228" x="3010.67" y="2553.33" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="350" gid="213" x="1482.67" y="3546.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="351" gid="213" x="1036" y="4214.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="352" gid="213" x="1724" y="4100" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="353" gid="213" x="1673.33" y="4782.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="354" gid="213" x="597.333" y="4402.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="355" gid="218" x="673.333" y="4458.67" width="64" height="104">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="368" gid="227" x="3072" y="3072" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="509" gid="227" x="2624" y="3072" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="510" gid="226" x="2688" y="3136" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="511" gid="221" x="448" y="576" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="512" gid="221" x="960" y="640" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="513" gid="212" x="1024" y="704" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="514" gid="212" x="832" y="1024" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="516" gid="212" x="576" y="960" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="517" gid="212" x="448" y="896" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="518" gid="212" x="1280" y="1088" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="519" gid="212" x="320" y="1408" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="520" gid="222" x="256" y="1472" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="521" gid="220" x="415.64" y="1494.54" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="522" gid="221" x="1024" y="1344" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="523" gid="221" x="128" y="1280" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="525" gid="227" x="4352" y="2240" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="526" gid="228" x="3532" y="1198" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="527" gid="228" x="3366" y="1339" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="528" gid="228" x="3173" y="1705" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="529" gid="227" x="3420" y="1263" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="530" gid="227" x="3599" y="1969" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="531" gid="227" x="3111" y="2063" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="532" gid="227" x="3200" y="1856" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="533" gid="227" x="3008" y="1600" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="534" gid="226" x="4593" y="3856" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="535" gid="226" x="4437" y="3227" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="536" gid="227" x="4038" y="3842" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="537" gid="227" x="4060" y="3447" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="538" gid="227" x="4367" y="3505" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="539" gid="227" x="4443" y="3436" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="576" gid="227" x="3840" y="3456" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="582" gid="220" x="320" y="1536" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="583" gid="221" x="448" y="2752" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="584" gid="221" x="384" y="2688" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="585" gid="221" x="1920" y="640" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="586" gid="212" x="1728" y="704" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="587" gid="212" x="2176" y="640" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="588" gid="222" x="1856" y="640" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="589" gid="212" x="2624" y="832" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="590" gid="212" x="1984" y="576" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="591" gid="221" x="2048" y="512" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="592" gid="221" x="2560" y="768" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="595" gid="222" x="2176" y="704" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="596" gid="222" x="1984" y="704" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="597" gid="222" x="1920" y="576" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="598" gid="213" x="2496" y="4928" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="599" gid="213" x="2481.33" y="4188" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="600" gid="215" x="2688" y="4160" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="601" gid="215" x="1734" y="4167" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="602" gid="215" x="1134" y="3914.5" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="604" gid="215" x="1190.33" y="4077.5" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="606" gid="213" x="1497.5" y="4290.17" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="607" gid="213" x="1549.33" y="3913.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="608" gid="217" x="1117.33" y="3642.67" width="64" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="609" gid="213" x="900" y="3917.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="627" gid="240" x="1031.67" y="4148.17" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="628" gid="241" x="1118.5" y="3950.17" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="629" gid="241" x="1822.17" y="4183.83" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="630" gid="241" x="1185.67" y="4260.67" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="631" gid="241" x="1660" y="4261.33" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="633" gid="240" x="1119" y="4241.33" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="634" gid="240" x="1848" y="4158" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="635" gid="240" x="1001.33" y="4108" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="639" gid="218" x="935.5" y="4005" width="64" height="104">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="641" gid="217" x="1650" y="3841.5" width="64" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="642" gid="241" x="904" y="3934" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="643" gid="241" x="862.5" y="3806.5" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="644" gid="240" x="773.5" y="3742" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="645" gid="240" x="847.5" y="4291.5" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="646" gid="241" x="1728.5" y="4210.5" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="647" gid="233" x="1271.83" y="4290.75" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="648" gid="233" x="1418.83" y="4290.75" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="649" name="top" gid="235" x="1261.83" y="4178.58" width="232" height="80">
    <properties>
-    <property name="obj-id" type="int" value="0"/>
+    <property name="obj-id" type="int" value="2"/>
     <property name="zindex" type="int" value="4"/>
    </properties>
   </object>
   <object id="650" gid="241" x="2222" y="4051" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="651" gid="241" x="1874" y="3496" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="652" gid="241" x="2546" y="3979" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="653" gid="240" x="2093" y="4676" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="654" gid="240" x="1078" y="4482" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="655" gid="240" x="4211.33" y="4563.33" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="656" gid="240" x="4479.33" y="4620.67" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="657" gid="241" x="4264.33" y="4501" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="658" gid="241" x="4265" y="4615" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="659" gid="236" x="3081.33" y="3098" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="660" gid="236" x="3139.33" y="2872.67" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="661" gid="236" x="3733.33" y="3094" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="662" gid="237" x="3361.33" y="3020" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="664" gid="236" x="2771.33" y="2641.33" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="665" gid="237" x="2963.33" y="3235.33" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="666" gid="237" x="2813.33" y="2674.67" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="671" gid="226" x="4692" y="3166.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="672" gid="227" x="4780" y="3273.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="673" gid="227" x="4866.67" y="3816" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="674" gid="227" x="5372" y="3741.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="675" gid="228" x="4764" y="3384" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="676" gid="228" x="4838.67" y="3700" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="677" gid="237" x="4869.33" y="3610" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="678" gid="237" x="4917.33" y="3108.67" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="679" gid="237" x="4881.33" y="3946" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="680" gid="213" x="4747.67" y="4043.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="681" gid="241" x="4839" y="4087" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="682" gid="241" x="4810" y="4069.33" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="683" gid="241" x="4918.67" y="4295.33" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="684" gid="240" x="4821" y="4147.67" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="685" gid="240" x="4786.67" y="4114.33" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="686" gid="215" x="4744.33" y="3964.67" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="830" gid="240" x="4934" y="4245" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="871" gid="220" x="1780" y="2936.5" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="925" gid="215" x="1761.33" y="3464" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="941" gid="220" x="832" y="2176" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="954" gid="221" x="532.97" y="2349.45" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="955" gid="220" x="466.303" y="2270.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="956" gid="239" x="905.333" y="1257.27" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="957" gid="239" x="644" y="1996.67" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="958" gid="238" x="612.667" y="1956.67" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="959" gid="238" x="762" y="2662" width="60" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="960" gid="239" x="1101.33" y="2519.33" width="56" height="60">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="964" gid="227" x="4373" y="1657" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1008" gid="227" x="4903.33" y="2080.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1009" gid="227" x="4868" y="2362.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1010" gid="227" x="4986.67" y="1862.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1011" gid="227" x="4986.66" y="1214.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1012" gid="227" x="4951.33" y="1496.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1013" gid="227" x="5070" y="996.667" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1014" gid="227" x="4851.99" y="605.333" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1015" gid="227" x="4816.66" y="887.333" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1016" gid="227" x="4935.33" y="387.333" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1017" gid="228" x="5013.33" y="1552" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1018" gid="228" x="5052" y="1322.67" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1019" gid="228" x="4885.33" y="981.333" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1020" gid="228" x="5097.33" y="1422.67" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1021" gid="228" x="4956" y="1526.67" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1022" gid="228" x="5104" y="2106.67" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1023" gid="228" x="5276" y="1702.67" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1024" gid="228" x="5037.33" y="1668" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1025" gid="228" x="5224" y="1577.33" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1026" gid="228" x="4948" y="1240" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1027" gid="228" x="4552" y="514.667" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1028" gid="228" x="4061.33" y="384" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1029" gid="228" x="3718.67" y="348" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1030" gid="228" x="4241.33" y="396" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1031" gid="228" x="4920" y="668" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1032" gid="226" x="5042.67" y="1933.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1033" gid="226" x="4932" y="1613.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1034" gid="226" x="4930.67" y="2413.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1035" gid="226" x="4817.33" y="3454.67" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1036" gid="226" x="4929.33" y="3713.33" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1072" gid="227" x="4279" y="1922" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1073" gid="226" x="4614" y="2310" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1074" gid="228" x="4739" y="1583" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1075" gid="228" x="4702" y="1629" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1076" gid="228" x="4735" y="1844" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1077" gid="228" x="4669" y="2022" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1078" gid="228" x="4623" y="2089" width="64" height="128">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
   <object id="1079" gid="227" x="4678" y="2170" width="128" height="192">
    <properties>
-    <property name="obj-id" type="int" value="2"/>
+    <property name="obj-id" type="int" value="1"/>
     <property name="zindex" type="int" value="3"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="5" name="Transition">
   <properties>
-   <property name="group-id" type="int" value="2"/>
+   <property name="group-id" type="int" value="4"/>
   </properties>
   <object id="1683" x="1343.64" y="3812.36" width="64.1818" height="91.6364">
    <properties>
     <property name="obj-id" type="int" value="2"/>
+    <property name="zindex" type="int" value="5"/>
    </properties>
   </object>
   <object id="1684" x="704" y="803.75" width="64" height="84">
    <properties>
     <property name="obj-id" type="int" value="4"/>
+    <property name="zindex" type="int" value="5"/>
    </properties>
   </object>
   <object id="1685" x="4288.25" y="1316.25" width="63.25" height="83.5">
    <properties>
     <property name="obj-id" type="int" value="3"/>
+    <property name="zindex" type="int" value="5"/>
    </properties>
   </object>
   <object id="1686" x="1728.33" y="2084.33" width="127" height="81.6667">
    <properties>
     <property name="obj-id" type="int" value="5"/>
+    <property name="zindex" type="int" value="5"/>
    </properties>
   </object>
   <object id="1687" x="4224" y="3300" width="127.333" height="84">
    <properties>
     <property name="obj-id" type="int" value="5"/>
+    <property name="zindex" type="int" value="5"/>
    </properties>
   </object>
   <object id="1688" x="4417" y="3691.5" width="60" height="75">
    <properties>
     <property name="obj-id" type="int" value="6"/>
+    <property name="zindex" type="int" value="5"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup id="14" name="Collision" visible="0">
   <properties>
-   <property name="group-id" type="int" value="1"/>
+   <property name="group-id" type="int" value="5"/>
   </properties>
   <object id="1152" x="1025.67" y="3439.67" width="52.6667" height="656.333"/>
   <object id="1153" x="1047.33" y="3408.67" width="26.3333" height="24.3333"/>
@@ -6402,7 +6578,7 @@
     <property name="zindex" type="int" value="1"/>
    </properties>
   </object>
-  <object id="1594" x="576" y="5056" width="4929.98" height="448">
+  <object id="1594" x="576" y="5056" width="4930" height="448">
    <properties>
     <property name="zindex" type="int" value="1"/>
    </properties>
@@ -6558,11 +6734,6 @@
    </properties>
   </object>
   <object id="2230" x="448" y="3968" width="64" height="896">
-   <properties>
-    <property name="zindex" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="2231" x="3476" y="3792">
    <properties>
     <property name="zindex" type="int" value="1"/>
    </properties>

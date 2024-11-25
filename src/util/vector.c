@@ -96,6 +96,18 @@ void vector_swap(vector_t* v, const size_t i, const size_t j) {
 }
 
 
+void vector_convert(vector_t* v, const size_t new_v_size, const size_t new_capacity) {	
+	if (v->capacity * v->v_size < new_v_size * new_capacity) {
+		void* tmp = realloc(v->data, new_v_size * new_capacity);
+		assert(tmp != NULL);
+		v->data = tmp;
+	}
+	v->capacity = new_capacity;
+	v->v_size = new_v_size;
+	v->size = 0;
+}
+
+
 void vector_clear(vector_t* v) {
 	v->size = 0;
 }

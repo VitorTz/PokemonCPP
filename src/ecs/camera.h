@@ -24,10 +24,6 @@ void camera_insert(camera_t* camera, entity_t e, zindex_t z);
 
 void camera_erase(camera_t* camera, entity_t e, zindex_t z);
 
-void camera_sort_entities(camera_t* camera);
-
-iterator_t camera_get_iter_by_zindex(camera_t* camera, zindex_t z);
-
 void camera_clear(camera_t* camera);
 
 size_t camera_size(camera_t* camera);

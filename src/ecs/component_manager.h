@@ -1,17 +1,12 @@
 #pragma once
 #include <stdlib.h>
-#include "../constants.h"
 #include "components.h"
-
-
-typedef struct component_array {
-	char* data;
-	size_t v_size;
-} component_array_t;
+#include "../constants.h"
+#include "../util/vector.h"
 
 
 typedef struct component_manager {
-	component_array_t components[NUM_COMPONENTS];
+	vector_t* components;	
 } component_manager_t;
 
 

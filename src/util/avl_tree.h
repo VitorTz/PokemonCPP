@@ -1,7 +1,8 @@
 #pragma once
 #include <stdlib.h>
+#include <string.h>
+#include <assert.h>
 #include "vector.h"
-#include "query.h"
 
 
 typedef struct avl_node {

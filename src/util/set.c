@@ -1,9 +1,9 @@
 #include "set.h"
-#include <string.h>
 
 
 set_t* set_create(const size_t v_size, size_t(*hash)(const void*)) {
 	set_t* s = (set_t*)malloc(sizeof(set_t));	
+	assert(s != NULL);
 	s->root = NULL;
 	s->hash = hash;
 	s->size = 0;
@@ -51,6 +51,7 @@ static set_node_t* set_create_node(set_t* t, const size_t key, const void* data)
 	if (node == NULL) { return NULL; }
 	node->key = key;
 	node->data = malloc(t->v_size);
+	assert(node->data != NULL);
 	node->height = 0;
 	node->left = NULL;
 	node->right = NULL;
@@ -274,7 +275,7 @@ size_t set_size(set_t* t) {
 }
 
 
-static set_iter_aux(set_node_t* node, vector_t* vec) {
+static void set_iter_aux(set_node_t* node, vector_t* vec) {
 	if (node == NULL) {
 		return;
 	}

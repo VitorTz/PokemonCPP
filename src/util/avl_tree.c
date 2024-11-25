@@ -1,5 +1,4 @@
 #include "avl_tree.h"
-#include <string.h>
 
 
 avl_tree_t* avl_tree_create(const size_t v_size, size_t(*hash)(const void*)) {
@@ -34,6 +33,7 @@ static avl_node_t* avl_tree_create_node(avl_tree_t* t, const size_t key, const v
 	if (node == NULL) { return NULL; }
 	node->key = key;
 	node->data = malloc(t->v_size);
+	assert(node->data != NULL);
 	node->height = 0;
 	node->left = NULL;
 	node->right = NULL;	
@@ -203,12 +203,13 @@ static avl_node_t* avl_tree_allocate_aux(
 
 
 void* avl_tree_allocate(avl_tree_t* t, const void* key) {
-	void* p = avl_tree_at(t, t->hash(key));
+	void* p = avl_tree_at(t, key);
 	if (p != NULL) { return NULL; }
 	p = malloc(t->v_size);
 	t->root = avl_tree_allocate_aux(t, t->root, t->hash(key), p);
 	return p;
 }
+
 
 static avl_node_t* avl_tree_min_node(avl_node_t* node) {
 	avl_node_t* current = node;	
@@ -332,7 +333,7 @@ size_t avl_tree_size(avl_tree_t* t) {
 }
 
 
-static avl_tree_iter_aux(avl_node_t* node, vector_t* vec) {
+static void avl_tree_iter_aux(avl_node_t* node, vector_t* vec) {
 	if (node == NULL) {
 		return;
 	}

@@ -1,4 +1,5 @@
 #pragma once
+#include <raylib.h>
 #include "util/scene_id.h"
 
 
@@ -18,7 +19,22 @@
 #define MAX_ENTITIES 4096
 #define MAIN_SCENE WorldSceneID
 
+#define GAME_CHARACTER_SIZE 128.0f
+#define TILE_SIZE 64.0f
+
+#define PLAYER_SPEED 150.0f
+
 #define DEBUG_MODE 1
 
 #define CAMERA_ZINDEX_MIN 0
 #define CAMERA_ZINDEX_MAX 6
+
+#define SPRITE_ANIMATION_SPEED_SLOW 16
+#define SPRITE_ANIMATION_SPEED_NORMAL 8
+#define SPRITE_ANIMATION_SPEED_FAST 4
+
+#define LEFT_KEY KEY_A
+#define RIGHT_KEY KEY_D
+#define UP_KEY KEY_W
+#define DOWN_KEY KEY_S
+#define ACTION_KEY KEY_F
