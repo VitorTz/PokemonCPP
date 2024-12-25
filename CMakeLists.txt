@@ -27,7 +27,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raylib)
 
 # Add source to this project's executable.
-add_executable (PokemonC "PokemonC.c" "src/util/iterator.h" "src/util/vector.h" "src/util/vector.c")
+add_executable (PokemonC "src/main.c" "src/util/iterator.h" "src/util/vector.h" "src/util/vector.c" "src/scene/scene.h" "src/scene/scene_id.h" "src/scene/scene.c" "src/util/config.h" "src/util/config.c" "src/scene/world.c" "src/scene/title_screen.c" "src/scene/fire_arena.c" "src/scene/plant_arena.c" "src/scene/water_arena.c" "src/scene/hospital.c" "src/scene/house.c" "src/scene/test_scene.c")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET PokemonC PROPERTY CXX_STANDARD 20)
