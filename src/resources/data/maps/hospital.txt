@@ -1,0 +1,37 @@
+5 22
+192.0 192.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table6.png
+192.0 256.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table5.png
+192.0 320.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table5.png
+192.0 384.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table5.png
+192.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table4.png
+256.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+384.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+320.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+448.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+512.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+576.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+640.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+768.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+832.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+704.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+960.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+896.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table3.png
+1024.0 448.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table2.png
+1024.0 384.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table1.png
+1024.0 320.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table1.png
+1024.0 256.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table1.png
+1024.0 192.0 64.0 64.0 2 2 0 0 d ./resources/graphics/objects/table0.png
+0 3
+190.666 631.391 0 0 0 2 0 0 u ./
+413.914 419.314 0 0 1 1 0 0 d ./
+862.068 420.41 0 0 1 1 0 0 d ./
+1 7
+200.0 206.0 30.0 276.0 99 0 0 0 d ./
+236.0 454.0 841.0 28.0 99 0 0 0 d ./
+1047.0 206.0 29.0 244.0 99 0 0 0 d ./
+64.0 178.0 1148.0 11.0 99 0 0 0 d ./
+42.0 176.0 8.0 552.0 99 0 0 0 d ./
+50.0 718.0 1180.0 32.0 99 0 0 0 d ./
+1226.0 182.0 10.0 542.0 99 0 0 0 d ./
+2 1
+162.265 693.294 60.0 42.6204 1 0 0 0 d ./

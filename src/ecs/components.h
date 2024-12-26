@@ -26,6 +26,12 @@ typedef struct sprite {
 
 typedef struct sprite_animation {
 	Texture2D* texture;
+	Rectangle texture_rect;
+	uint8_t current_frame;
+	uint8_t max_frame;
+	uint8_t current_sprite;
+	uint8_t max_sprite;
+	uint8_t cols;	
 } sprite_animation_t;
 
 
@@ -33,6 +39,15 @@ void transform_init(transform_t* t, zindex_t zindex);
 
 void sprite_init(sprite_t* s, const char* filepath);
 
+void sprite_animation_init(
+	sprite_animation_t* s,
+	const char* filepath,
+	float sprite_width,
+	float sprite_height,
+	uint8_t speed,
+	uint8_t rows,
+	uint8_t cols
+);
 
 
 #endif

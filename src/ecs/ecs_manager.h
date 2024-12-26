@@ -11,6 +11,10 @@ ecs_t* ecs_manager_get_instance(SceneID scene_id);
 
 void ecs_manager_create_intance(SceneID scene_id);
 
+void ecs_manager_set_current_ecs_instance(SceneID scene_id);
+
+ecs_t* ecs_manager_get_current_ecs_instance();
+
 void ecs_manager_destroy_instance(SceneID scene_id);
 
 

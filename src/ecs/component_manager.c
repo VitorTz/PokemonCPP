@@ -11,11 +11,18 @@ void component_manager_init(component_manager_t* c) {
 		malloc(sizeof(sprite_t) * MAX_ENTITIES),
 		sizeof(sprite_t)
 	};
+
+	c->component_array[SPRITE_ANIMATION_ID] = (component_array_t){
+		malloc(sizeof(sprite_animation_t) * MAX_ENTITIES),
+		sizeof(sprite_animation_t)
+	};
 }
 
-void component_manager_close(component_manager_t* c) {	
-	for (int i = 0; i < NUM_COMPONENTS; i++) {		
-		free(c->component_array[i].data);
+void component_manager_close(component_manager_t* c) {
+	for (int i = 0; i < NUM_COMPONENTS; i++) {
+		if (c->component_array[i].data != NULL) {
+			free(c->component_array[i].data);
+		}
 	}
 }
 

@@ -41,6 +41,14 @@ void ecs_update(ecs_t* ecs, float dt);
 
 void ecs_draw(ecs_t* ecs);
 
+entity_t ecs_create_sprite(
+	ecs_t* ecs, 
+	const char* filepath, 
+	float pos_x,
+	float pos_y,
+	zindex_t zindex
+);
+
 transform_t* ecs_get_transform(ecs_t* ecs, entity_t e);
 
 size_t ecs_num_entities_on_camera(ecs_t* ecs);

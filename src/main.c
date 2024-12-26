@@ -1,12 +1,9 @@
 ﻿#include <raylib.h>
-#include <stdio.h>
-#include "util/hash_map.h"
+#include "ecs/ecs_manager.h"
 #include "util/texture_pool.h"
 #include "util/config.h"
-#include "util/util.h"
 #include "util/globals.h"
 #include "scene/scene.h"
-#include "constants.h"
 
 
 int main() {
@@ -15,6 +12,7 @@ int main() {
 
 	globals_init();
 	texture_pool_init();
+	ecs_manager_init();
 	scene_init();	
 
 	while (!WindowShouldClose()) {		
@@ -27,6 +25,7 @@ int main() {
 		EndDrawing();
 	}
 		
+	ecs_manager_close();
 	texture_pool_close();
 	globals_close();
 	CloseWindow();

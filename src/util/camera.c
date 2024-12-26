@@ -27,8 +27,7 @@ void camera_close(camera_t* camera) {
 	}
 	for (int i = 0; i <= CAMERA_ZINDEX_GROUND; i++) {
 		vector_close(camera->entities + i);
-	}
-	free(camera);
+	}	
 }
 
 void camera_reset(camera_t* camera) {

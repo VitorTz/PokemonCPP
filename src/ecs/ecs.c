@@ -77,7 +77,7 @@ void ecs_update(ecs_t* ecs, const float dt) {
 		vector_clear(&ecs->entities_to_destroy);
 	}
 
-	while (vector_is_empty(&ecs->entities_to_destroy)) {
+	while (!vector_is_empty(&ecs->entities_to_destroy)) {
 		const entity_t* e = (entity_t*) vector_back(&ecs->entities_to_destroy);		
 		camera_erase(&ecs->camera, *e, ecs_get_transform(ecs, *e)->zindex);
 		entity_manager_destroy_entity(&ecs->entity, *e);
@@ -106,13 +106,30 @@ void ecs_draw(ecs_t* ecs) {
 		// Draw entities
 		for (entity_pair_t* p = iter.begin; p < iter.end; p++) {			
 			hash_set_t* components = ecs->system.entities_to_drawable_components + p->e; // Drawable components of entity
-			iterator_t hash_iter = hash_set_iter(components);			
-			for (component_t* id = hash_iter.begin; id < hash_iter.end; id++) {
-				system_t* system = ecs->system.system + *id;
-				system->draw(p->e);
-			}
+			for (vector_t* bucket = components->buckets; bucket < components->buckets + components->n_buckets; bucket++) {
+				iterator_t hash_iter = vector_iter(bucket);
+				for (component_t* id = hash_iter.begin; id < hash_iter.end; id++) {
+					ecs->system.system[*id].draw(p->e);					
+				}
+			}			
 		}
 	}
+}
+
+entity_t ecs_create_sprite(
+	ecs_t* ecs,
+	const char* filepath,
+	const float pos_x,
+	const float pos_y,
+	const zindex_t zindex
+) {
+	const entity_t e = ecs_create_entity(ecs, zindex, 1);
+	sprite_t* sprite = (sprite_t*)ecs_add_component(ecs, e, SPRITE_ID);
+	sprite_init(sprite, filepath);
+	transform_t* transform = ecs_get_transform(ecs, e);
+	transform->pos = (Vector2){ pos_x, pos_y };
+	transform->size = (Vector2){ (float) sprite->texture->width, (float) sprite->texture->height };
+	return e;
 }
 
 transform_t* ecs_get_transform(ecs_t* ecs, const entity_t e) {

@@ -3,8 +3,8 @@
 #include "system_manager.h"
 
 
-void sprite_animation_update(entity_t e);
-void sprite_animation_draw(iterator_t* iter, float dt);
+void sprite_animation_update(iterator_t* iter, float dt);
+void sprite_animation_draw(entity_t e);
 
 
 #endif

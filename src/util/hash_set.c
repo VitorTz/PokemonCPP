@@ -111,8 +111,10 @@ iterator_t hash_set_iter(hash_set_t* s) {
 
 	for (vector_t* v = s->buckets; v < s->buckets + s->n_buckets; v++) {
 		iterator_t iter = vector_iter(v);
+		void** p1;
 		for (char* p = iter.begin; p < iter.end; p += iter.step) {
-			vector_push_back(vec_aux, p);
+			p1 = p;
+			vector_push_back(vec_aux, p1);
 		}
 	}
 
