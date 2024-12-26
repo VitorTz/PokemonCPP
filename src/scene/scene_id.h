@@ -11,7 +11,8 @@ typedef enum scene_id {
 	WaterArenaSceneID,
 	HospitalSceneID,
 	HouseSceneID,
-	TestSceneID
+	TestSceneID,
+	NumScenes
 } SceneID;
 
 

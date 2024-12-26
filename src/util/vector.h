@@ -30,6 +30,8 @@ void vector_push_back(vector_t* v, const void* data);
 
 void vector_erase(vector_t* v, size_t i);
 
+void vector_erase_back(vector_t* v);
+
 int vector_is_empty(vector_t* v);
 
 void vector_insert(vector_t* v, const void* data, size_t i);
@@ -53,3 +55,5 @@ void* vector_back(vector_t* v);
 void* vector_front(vector_t* v);
 
 iterator_t vector_iter(vector_t* v);
+
+size_t vector_size(const vector_t* v);

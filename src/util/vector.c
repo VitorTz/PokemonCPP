@@ -73,6 +73,12 @@ void vector_erase(vector_t* v, const size_t i) {
 	v->size--;
 }
 
+void vector_erase_back(vector_t* v) {
+	if (v->size > 0) {
+		v->size--;
+	}
+}
+
 void vector_insert(vector_t* v, const void* data, const size_t i) {
 	vector_grow(v);
 	char* begin = (char*)v->data;
@@ -135,4 +141,8 @@ iterator_t vector_iter(vector_t* v) {
 		v->v_size
 	};
 	return iter;
+}
+
+size_t vector_size(const vector_t* v) {
+	return v->size;
 }

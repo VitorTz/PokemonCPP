@@ -33,7 +33,7 @@ void system_manager_init(system_manager_t* s) {
 	}
 
 	// Entities -> Drawable Component (hash set)
-	s->entities_to_drawable_components = (hash_set_t*)malloc(sizeof(hash_set_t) * MAX_ENTITIES);
+	s->entities_to_drawable_components = (hash_set_t*)malloc(sizeof(hash_set_t) * MAX_ENTITIES);	
 	for (int i = 0; i < MAX_ENTITIES; i++) {
 		hash_set_init(
 			s->entities_to_drawable_components + i,
@@ -76,20 +76,14 @@ void system_manager_erase(
 	hash_set_erase(s->entities_to_drawable_components + e, &id);
 }
 
-void system_manager_entity_destroy(
-	system_manager_t* s,
-	const entity_t e
-) {
+void system_manager_destroy_entity(system_manager_t* s, const entity_t e) {
 	for (int i = 0; i < NUM_COMPONENTS; i++) {
 		hash_set_erase(s->component_to_entities + i, &e);
 	}
 	hash_set_clear(s->entities_to_drawable_components + e);
 }
 
-void system_manager_update(
-	system_manager_t* s,
-	const float dt
-) {
+void system_manager_update(system_manager_t* s, const float dt) {
 	for (int i = 0; i < NUM_UPDATABLE_COMPONENTS; i++) {
 		const component_t id = UPDATE_ORDER[i];
 		system_t* system = &s->system[id];
@@ -100,4 +94,13 @@ void system_manager_update(
 
 void system_manager_draw(system_manager_t* s) {
 
+}
+
+void system_manager_clear(system_manager_t* s) {
+	for (int i = 0; i < NUM_COMPONENTS; i++) {
+		hash_set_clear(s->component_to_entities + i);
+	}
+	for (int i = 0; i < MAX_ENTITIES; i++) {
+		hash_set_clear(s->entities_to_drawable_components + i);
+	}
 }
