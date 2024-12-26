@@ -1,9 +1,9 @@
 #pragma once
-#include "iterator.h"
+#include <assert.h>
 #include <stdlib.h>
 #include <string.h>
-#include <assert.h>
 #include <stdint.h>
+#include "iterator.h"
 
 	
 typedef struct vector {
@@ -16,7 +16,15 @@ typedef struct vector {
 
 vector_t* vector_create(size_t v_size, size_t capacity);
 
+void vector_cast(vector_t* v, size_t v_size);
+
+void vector_init(vector_t* v, size_t v_size, size_t capacity);
+
+void vector_close(vector_t* v);
+
 void vector_destroy(vector_t* v);
+
+void* vector_allocate(vector_t* v);
 
 void vector_push_back(vector_t* v, const void* data);
 
@@ -35,6 +43,8 @@ void* vector_pop_back(vector_t* v);
 void* vector_pop_front(vector_t* v);
 
 void* vector_begin(vector_t* v);
+
+void vector_clear(vector_t* v);
 
 void* vector_end(vector_t* v);
 

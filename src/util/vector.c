@@ -1,21 +1,43 @@
 #include "vector.h"
 
 
-vector_t* vector_create(const size_t v_size, const size_t capacity) {
-	vector_t* v = (vector_t*)malloc(sizeof(vector_t));
-	assert(v != NULL);	
+void vector_init(
+	vector_t* v,
+	const size_t v_size,
+	const size_t capacity
+) {
 	v->capacity = capacity;
 	v->v_size = v_size;
 	v->size = 0;
-	v->data = malloc(sizeof(v_size) * capacity);
+	v->data = malloc(v_size * capacity);
+}
+
+vector_t* vector_create(const size_t v_size, const size_t capacity) {
+	vector_t* v = (vector_t*)malloc(sizeof(vector_t));
+	assert(v != NULL);	
+	vector_init(v, v_size, capacity);
 	return v;
+}
+
+
+void vector_close(vector_t* v) {
+	if (v->data != NULL) {
+		free(v->data);
+	}
+}
+
+void vector_cast(vector_t* v, const size_t new_v_size) {
+	if (new_v_size * v->capacity > v->v_size * v->capacity) {
+		void* tmp = realloc(v->data, new_v_size * v->capacity);
+		assert(tmp != NULL);
+		v->data = tmp;
+	}
+	v->v_size = new_v_size;
 }
 
 void vector_destroy(vector_t* v) {
 	if (v != NULL) {
-		if (v->data != NULL) {
-			free(v->data);
-		}
+		vector_close(v);
 		free(v);
 	}
 }
@@ -34,6 +56,11 @@ void vector_push_back(vector_t* v, const void* data) {
 	vector_grow(v);
 	memcpy((char*) v->data + v->size * v->v_size, data, v->v_size);
 	v->size++;
+}
+
+void* vector_allocate(vector_t* v) {
+	vector_grow(v);
+	return (char*)v->data + v->v_size * v->size++;	
 }
 
 int vector_is_empty(vector_t* v) {
@@ -91,6 +118,10 @@ void* vector_front(vector_t* v) {
 
 void* vector_begin(vector_t* v) {
 	return v->data;
+}
+
+void vector_clear(vector_t* v) {
+	v->size = 0;
 }
 
 void* vector_end(vector_t* v) {

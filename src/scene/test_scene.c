@@ -10,5 +10,5 @@ void scene_test_update(const float dt) {
 }
 
 void scene_test_draw() {
-
+	
 }

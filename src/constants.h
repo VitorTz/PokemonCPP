@@ -8,8 +8,11 @@
 #define WINDOW_TITLE "PokemonC"
 #define FPS 60
 
+#define MAX_ENTITIES 2048
 
-#define MAIN_SCENE TitleScreenID
+#define ASSETS_PATH "./resources/"
+
+#define MAIN_SCENE TestSceneID
 #define SCENE_TRANSITION_TIME 1.0f
 
 #endif // POKE_CONSTANTS_H

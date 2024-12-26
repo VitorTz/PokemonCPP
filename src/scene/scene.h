@@ -4,6 +4,7 @@
 #include <raymath.h>
 #include <stdio.h>
 #include "scene_id.h"
+#include "../util/texture_pool.h"
 #include "../util/config.h"
 #include "../constants.h"
 
