@@ -2,7 +2,6 @@
 #define POKE_SCENE_ID_H
 
 
-
 typedef enum scene_id {
 	TitleScreenID,
 	WorldSceneID,

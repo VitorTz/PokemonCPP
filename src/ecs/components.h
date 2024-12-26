@@ -31,9 +31,10 @@ typedef struct sprite_animation {
 	uint8_t max_frame;
 	uint8_t current_sprite;
 	uint8_t max_sprite;
-	uint8_t cols;	
+	uint8_t cols;
 } sprite_animation_t;
 
+int component_is_drawable(component_t id);
 
 void transform_init(transform_t* t, zindex_t zindex);
 

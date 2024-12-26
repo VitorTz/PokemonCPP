@@ -1,12 +1,6 @@
 #ifndef POKE_SCENE_H
 #define POKE_SCENE_H
-#include <raylib.h>
-#include <raymath.h>
-#include <stdio.h>
 #include "scene_id.h"
-#include "../util/texture_pool.h"
-#include "../util/config.h"
-#include "../constants.h"
 
 
 typedef struct scene {
@@ -63,6 +57,3 @@ void scene_test_draw();
 
 
 #endif
-
-
-

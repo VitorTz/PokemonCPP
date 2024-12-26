@@ -1,5 +1,5 @@
-#ifndef POKE_SPRITE_SYSTEM_H
-#define POKE_SPRITE_SYSTEM_H
+#ifndef POKE_SYSTEM_SPRITE_H
+#define POKE_SYSTEM_SPRITE_H
 #include "system_manager.h"
 
 

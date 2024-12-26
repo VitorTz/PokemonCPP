@@ -5,22 +5,23 @@
 
 // Resources
 #define ASSETS_PATH "./resources/"
+#define GRAPHICS_PATH "./resources/graphics/"
+#define ICONS_PATH "./resources/graphics/icons/"
 
 // Window
 #define SCREEN_W 1280
 #define SCREEN_H 720
-#define SCREEN_CENTERX 640.0f
-#define SCREEN_CENTERY 360.0f
-#define WINDOW_TITLE "PokemonC"
-#define FPS 60
+#define SCREEN_CENTERX 640
+#define SCREEN_CENTERY 360
+#define WINDOW_TITLE "Pokemon"
+#define WINDOW_FPS 60
 
-// Ecs
-#define MAX_ENTITIES 2048
 
 // Scenes
 #define MAIN_SCENE TestSceneID
-#define SCENE_TRANSITION_TIME 1.0f
-
+#define  SCENE_TRANSITION_TIME 1.0f
+// ECS
+#define MAX_ENTITIES 2048
 
 // Camera
 #define CAMERA_ZINDEX_MIN 0
@@ -33,9 +34,8 @@
 #define CAMERA_ZINDEX_OVERLAY 6
 #define CAMERA_ZINDEX_MAX 6
 
-#define CAMERA_ZOOM_MIN 0.25f
+#define CAMERA_ZOOM_MIN 0.5f
 #define CAMERA_ZOOM_MAX 2.5f
 
 
-#endif // POKE_CONSTANTS_H
-
+#endif // !POKE_CONSTANTS_H

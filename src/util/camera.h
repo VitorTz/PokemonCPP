@@ -10,7 +10,7 @@
 
 typedef struct camera {
 	Camera2D camera2D;
-	vector_t entities[CAMERA_ZINDEX_MAX + 1];
+	vector_t* entities;
 	uint8_t* is_on_camera;
 	size_t size;
 } camera_t;

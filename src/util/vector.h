@@ -1,59 +1,51 @@
-#pragma once
+#ifndef POKE_VECTOR_H
+#define POKE_VECTOR_H
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
-#include "iterator.h"
+#include <stddef.h>
 
-	
+
+typedef struct vector_iterator {
+	char* begin;
+	char* end;
+	size_t step;
+} vector_iterator_t;
+
+
 typedef struct vector {
-	void* data;
-	size_t capacity;
+	char* data;
+	size_t type_size;
 	size_t size;
-	size_t v_size;
+	size_t capacity;
 } vector_t;
 
 
-vector_t* vector_create(size_t v_size, size_t capacity);
+void vector_init(vector_t* vec, size_t type_size, size_t capacity);
 
-void vector_cast(vector_t* v, size_t v_size);
+void vector_close(vector_t* vec);
 
-void vector_init(vector_t* v, size_t v_size, size_t capacity);
+void vector_reserve(vector_t* vec, size_t num_elements);
 
-void vector_close(vector_t* v);
+void vector_push_back(vector_t* vec, const void* data);
 
-void vector_destroy(vector_t* v);
+void vector_erase(vector_t* vec, size_t i);
 
-void* vector_allocate(vector_t* v);
+void* vector_allocate(vector_t* vec);
 
-void vector_push_back(vector_t* v, const void* data);
+void* vector_at(vector_t* vec, size_t i);
 
-void vector_erase(vector_t* v, size_t i);
+void* vector_back(vector_t* vec);
 
-void vector_erase_back(vector_t* v);
+void* vector_front(vector_t* vec);
 
-int vector_is_empty(vector_t* v);
+void vector_pop_back(vector_t* vec, void* dst);
 
-void vector_insert(vector_t* v, const void* data, size_t i);
+void vector_pop_front(vector_t* vec, void* dst);
 
-void* vector_at(vector_t* v, size_t i);
+void vector_clear(vector_t* vec);
 
-void* vector_pop(vector_t* v, size_t i);
+vector_iterator_t vector_iter(vector_t* vec);
 
-void* vector_pop_back(vector_t* v);
 
-void* vector_pop_front(vector_t* v);
-
-void* vector_begin(vector_t* v);
-
-void vector_clear(vector_t* v);
-
-void* vector_end(vector_t* v);
-
-void* vector_back(vector_t* v);
-
-void* vector_front(vector_t* v);
-
-iterator_t vector_iter(vector_t* v);
-
-size_t vector_size(const vector_t* v);
+#endif
