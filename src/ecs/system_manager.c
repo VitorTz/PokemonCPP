@@ -29,10 +29,10 @@ void system_manager_init(system_manager_t* s) {
 	}
 
 	// Entities -> Drawable Components
-	s->entities_to_drawable_components = (set_t*)malloc(sizeof(set_t) * MAX_ENTITIES);
+	s->entities_to_drawable_components = (vector_t*)malloc(sizeof(vector_t) * MAX_ENTITIES);
 	assert(s->entities_to_drawable_components != NULL);
-	for (set_t* set = s->entities_to_drawable_components; set < s->entities_to_drawable_components + MAX_ENTITIES; set++) {
-		set_init(set, sizeof(component_t), NUM_DRAWABLE_COMPONENTS, hash_component_t);
+	for (vector_t* vec = s->entities_to_drawable_components; vec < s->entities_to_drawable_components + MAX_ENTITIES; vec++) {
+		vector_init(vec, sizeof(component_t), NUM_DRAWABLE_COMPONENTS);
 	}
 }
 
@@ -50,8 +50,8 @@ void system_manager_close(system_manager_t* s) {
 	free(s->component_to_entities);
 
 	// Entities -> Drawable Components
-	for (set_t* set = s->entities_to_drawable_components; set < s->entities_to_drawable_components + MAX_ENTITIES; set++) {
-		set_close(set);
+	for (vector_t* v = s->entities_to_drawable_components; v < s->entities_to_drawable_components + MAX_ENTITIES; v++) {
+		vector_close(v);
 	}
 	free(s->entities_to_drawable_components);
 }
@@ -59,13 +59,17 @@ void system_manager_close(system_manager_t* s) {
 void system_manager_insert(system_manager_t* s, const entity_t e, const component_t id) {
 	set_insert(s->component_to_entities + id, &e);
 	if (component_is_drawable(id)) {
-		set_insert(s->entities_to_drawable_components + e, &id);
+		vector_push_back(s->entities_to_drawable_components + e, &id);		
 	}	
+}
+
+static int equal_component(const void* l, const void* r) {
+	return *((component_t*)l) == *((component_t*)r);
 }
 
 void system_manager_erase(system_manager_t* s, const entity_t e, const component_t id) {
 	set_erase(s->component_to_entities + id, &e);
-	set_erase(s->entities_to_drawable_components + e, &id);
+	vector_remove(s->entities_to_drawable_components + e, &id, equal_component);	
 }
 
 void system_manager_destroy_entity(system_manager_t* s, const entity_t e) {
@@ -75,7 +79,7 @@ void system_manager_destroy_entity(system_manager_t* s, const entity_t e) {
 	}
 
 	// Entities -> Drawable Components
-	set_clear(s->entities_to_drawable_components + e);
+	vector_clear(s->entities_to_drawable_components + e);	
 }
 
 void system_manager_clear(system_manager_t* s) {
@@ -85,8 +89,8 @@ void system_manager_clear(system_manager_t* s) {
 	}
 
 	// Entities -> Drawable Components
-	for (set_t* set = s->entities_to_drawable_components; set < s->entities_to_drawable_components + MAX_ENTITIES; set++) {
-		set_clear(set);
+	for (vector_t* v = s->entities_to_drawable_components; v < s->entities_to_drawable_components + MAX_ENTITIES; v++) {
+		vector_clear(v);
 	}
 }
 

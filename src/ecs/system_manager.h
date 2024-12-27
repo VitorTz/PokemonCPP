@@ -14,7 +14,7 @@ typedef struct __system {
 typedef struct __system_manager {
 	system_t* system_arr;
 	set_t* component_to_entities;
-	set_t* entities_to_drawable_components;		
+	vector_t* entities_to_drawable_components;		
 } system_manager_t;
 
 

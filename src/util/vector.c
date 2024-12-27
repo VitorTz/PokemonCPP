@@ -60,6 +60,17 @@ void vector_erase(vector_t* vec, const size_t i) {
 	vec->size--;
 }
 
+void vector_remove(vector_t* vec, const void* data, int (*equal)(const void*, const void*)) {
+	size_t i = 0;
+	vector_iterator_t iter = vector_iter(vec);
+	for (char* p = iter.begin; p < iter.end; p += iter.step) {
+		if (equal(p, data)) {
+			vector_erase(vec, i);
+			return;
+		}
+	}
+}
+
 void* vector_allocate(vector_t* vec) {
 	vector_grow(vec);
 	return vec->data + vec->type_size * vec->size++;

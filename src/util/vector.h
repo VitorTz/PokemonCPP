@@ -31,6 +31,8 @@ void vector_push_back(vector_t* vec, const void* data);
 
 void vector_erase(vector_t* vec, size_t i);
 
+void vector_remove(vector_t* vec, const void* data, int (*equal)(const void*, const void*));
+
 void* vector_allocate(vector_t* vec);
 
 void* vector_at(vector_t* vec, size_t i);

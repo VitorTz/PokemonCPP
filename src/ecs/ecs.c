@@ -50,8 +50,28 @@ void ecs_rmv_component(ecs_t* ecs, const entity_t e, const component_t component
 	system_manager_erase(&ecs->system, e, component_id);
 }
 
-void ecs_update(ecs_t* ecs, const float dt) {
 
+void ecs_update(ecs_t* ecs, const float dt) {
+	ecs->system.system_arr[SPRITE_ANIMATION_ID].update(
+		set_iter(ecs->system.component_to_entities + SPRITE_ANIMATION_ID),
+		dt
+	);
+
+	if (ecs->should_destroy_all_entities) {
+		ecs->should_destroy_all_entities = 0;
+		entity_manager_clear(&ecs->entity);
+		system_manager_clear(&ecs->system);
+		camera_clear(&ecs->camera);
+		vector_clear(&ecs->entities_to_destroy);
+	}
+
+	while (ecs->entities_to_destroy.size > 0) {
+		entity_t e;
+		vector_pop_back(&ecs->entities_to_destroy, &e);
+		camera_erase(&ecs->camera, e, ecs_get_transform(ecs, e)->zindex);
+		entity_manager_destroy_entity(&ecs->entity, e);
+		system_manager_destroy_entity(&ecs->component, e);
+	}
 }
 
 void ecs_draw(ecs_t* ecs) {
@@ -68,6 +88,13 @@ void ecs_draw(ecs_t* ecs) {
 			vec->type_size,
 			entity_pair_compare
 		);
+		for (entity_pair_t* pair = iter.begin; pair < iter.end; pair++) {			
+			vector_t* v = ecs->system.entities_to_drawable_components + pair->e;
+			vector_iterator_t v_iter = vector_iter(v);
+			for (component_t* id = v_iter.begin; id < v_iter.end; id++) {
+				ecs->system.system_arr[*id].draw(pair->e);
+			}
+		}
 	}
 }
 
