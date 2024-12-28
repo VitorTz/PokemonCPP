@@ -16,10 +16,13 @@
 #define WINDOW_TITLE "Pokemon"
 #define WINDOW_FPS 60
 
+// Program
+#define DEBUG_MODE 1
 
 // Scenes
 #define MAIN_SCENE TestSceneID
 #define  SCENE_TRANSITION_TIME 1.0f
+
 // ECS
 #define MAX_ENTITIES 2048
 

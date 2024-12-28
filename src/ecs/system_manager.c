@@ -58,8 +58,10 @@ void system_manager_insert(system_manager_t* s, const entity_t e, const componen
 void system_manager_erase(system_manager_t* s, const entity_t e, const component_t component_id) {
 	set_erase(s->entities + component_id, &e);
 	vector_t* vec = s->drawable_components + e;
+	component_t* begin = (component_t*)vector_begin(vec);
+	component_t* end = (component_t*)vector_end(vec);
 	size_t i = 0;
-	for (component_t* id = vector_begin(vec); id < vector_end(vec); id++) {
+	for (component_t* id = begin; id < end; id++) {
 		if (*id == component_id) {
 			vector_erase(vec, i);
 			return;
@@ -79,14 +81,18 @@ void system_manager_update(system_manager_t* s, const component_t component_id, 
 ;	set_t* set = s->entities + component_id;
 	system_t* system = s->system + component_id;
 	for (vector_t* vec = set_begin(set); vec < set_end(set); vec++) {
-		system->update(vector_begin(vec), vector_end(vec), dt);
+		entity_t* begin = (entity_t*)vector_begin(vec);
+		entity_t* end = (entity_t*)vector_end(vec);
+		system->update(begin, end, dt);
 	}
 }
 
 void system_manager_draw(system_manager_t* s, entity_pair_t* begin, entity_pair_t* end) {
 	for (entity_pair_t* p = begin; p < end; p++) {
 		vector_t* vec = s->drawable_components + p->entity;
-		for (component_t* id = vector_begin(vec); id < vector_end(vec); id++) {
+		component_t* begin = (component_t*)vector_begin(vec);
+		component_t* end = (component_t*)vector_end(vec);
+		for (component_t* id = begin; id < end; id++) {
 			system_t* system = s->system + *id;
 			system->draw(p->entity);
 		}

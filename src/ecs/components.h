@@ -1,6 +1,5 @@
 #ifndef POKE_COMPONENTS_H
 #define POKE_COMPONENTS_H
-
 #include <raylib.h>
 #include "../util/types.h"
 

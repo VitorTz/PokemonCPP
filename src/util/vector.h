@@ -34,9 +34,11 @@ void vector_clear(vector_t* vec);
 
 void vector_cast(vector_t* vec, size_t type_size);
 
-void* vector_begin(vector_t* vec);
+char* vector_begin(vector_t* vec);
 
-void* vector_end(vector_t* vec);
+char* vector_end(vector_t* vec);
+
+int vector_is_empty(vector_t* vec);
 
 void vector_sort(vector_t* vec, int (*cmp)(const void*, const void*));
 

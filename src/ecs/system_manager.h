@@ -19,13 +19,13 @@ void system_manager_close(system_manager_t* s);
 
 void system_manager_insert(system_manager_t* s, entity_t e, component_t component_id);
 
-void system_manager_update(system_manager_t* s, component_t component_id, float dt);
-
-void system_manager_draw(system_manager_t* s, entity_pair_t* begin, entity_pair_t* end);
-
 void system_manager_erase(system_manager_t* s, entity_t e, component_t component_id);
 
 void system_manager_destroy_entity(system_manager_t* s, entity_t e);
+
+void system_manager_update(system_manager_t* s, component_t component_id, float dt);
+
+void system_manager_draw(system_manager_t* s, entity_pair_t* begin, entity_pair_t* end);
 
 void system_manager_clear(system_manager_t* s);
 

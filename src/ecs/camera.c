@@ -8,7 +8,7 @@ void camera_init(camera_t* camera) {
 		0.0f,
 		1.0f
 	};
-	camera->entities = (vector_t*)malloc(sizeof(vector_t) * CAMERA_ZINDEX_MAX + 1);
+	camera->entities = (vector_t*)malloc(sizeof(vector_t) * (CAMERA_ZINDEX_MAX + 1));
 	assert(camera->entities);
 	for (vector_t* v = camera->entities; v < camera->entities + CAMERA_ZINDEX_MAX + 1; v++) {
 		vector_init(v, sizeof(entity_pair_t), MAX_ENTITIES / 4);
@@ -55,7 +55,7 @@ void camera_insert(camera_t* camera, const entity_t e, const zindex_t zindex) {
 	assert(zindex >= CAMERA_ZINDEX_MIN && zindex <= CAMERA_ZINDEX_MAX);
 	if (camera->is_on_camera[e] == 0) {
 		camera->is_on_camera[e] = 1;
-		const entity_pair_t pair = { e, 0.0f };
+		const entity_pair_t pair = { 0.0f, e };
 		vector_t* vec = camera->entities + zindex;
 		vector_push_back(vec, &pair);
 		camera->size++;
@@ -68,7 +68,9 @@ void camera_erase(camera_t* camera, const entity_t e, const zindex_t zindex) {
 		camera->is_on_camera[e] = 0;
 		size_t i = 0;
 		vector_t* vec = camera->entities + zindex;		
-		for (entity_pair_t* p = vector_begin(vec); p < vector_end(vec); p++) {
+		entity_pair_t* begin = (entity_pair_t*)vector_begin(vec);
+		entity_pair_t* end = (entity_pair_t*)vector_end(vec);
+		for (entity_pair_t* p = begin; p < end; p++) {
 			if (p->entity == e) {
 				vector_erase(vec, i);
 				camera->size--;
@@ -104,11 +106,11 @@ Vector2 camera_get_target(const camera_t* camera) {
 }
 
 void camera_begin_drawing(const camera_t* camera) {
-	BeginDrawing(camera->camera2D);
+	BeginMode2D(camera->camera2D);
 }
 
 void camera_end_drawing() {
-	EndDrawing();
+	EndMode2D();
 }
 
 void camera_set_offset(camera_t* camera, const Vector2 offset) {

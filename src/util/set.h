@@ -26,6 +26,4 @@ vector_t* set_begin(set_t* set);
 
 vector_t* set_end(set_t* set);
 
-iter_t set_iter(set_t* set);
-
 #endif // !POKE_SET_H

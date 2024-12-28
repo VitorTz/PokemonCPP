@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include "util/texture_pool.h"
+#include "ecs/ecs_manager.h"
 #include "scene/scene.h"
 #include "util/config.h"
 #include "constants.h"
@@ -10,6 +11,7 @@ int main() {
 	SetTargetFPS(WINDOW_FPS);	
 
 	texture_pool_init();
+	ecs_manager_init();
 	scene_init();
 
 	while (!WindowShouldClose()) {
@@ -19,9 +21,13 @@ int main() {
 				ClearBackground(BLACK);
 			}
 			scene_draw();
+			if (DEBUG_MODE) {
+				DrawFPS(20, 20);
+			}
 		EndDrawing();
 	}
 
+	ecs_manager_close();
 	texture_pool_close();
 	CloseWindow();
 	return 0;

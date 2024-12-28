@@ -5,7 +5,7 @@ void set_init(
 	set_t* set,
 	const size_t type_size,
 	const size_t n_buckets,
-	const size_t(*hash)(const void*)
+	size_t(*hash)(const void*)
 ) {
 	set->size = 0;
 	set->type_size = type_size;
@@ -17,7 +17,6 @@ void set_init(
 	}
 }
 
-
 void set_close(set_t* set) {
 	for (vector_t* v = set->buckets; v < set->buckets + set->n_buckets; v++) {
 		vector_close(v);
@@ -27,11 +26,10 @@ void set_close(set_t* set) {
 
 void set_insert(set_t* set, const void* data) {
 	const size_t hash = set->hash(data);
-	vector_t* v = set->buckets + (hash & set->n_buckets);
-	iter_t iter = vector_iter(v);
-	for (char* p = iter.begin; p < iter.end; p += iter.step) {
+	vector_t* v = set->buckets + (hash % set->n_buckets);	
+	for (char* p = vector_begin(v); p < vector_end(v); p += v->type_size) {
 		const size_t* other_hash = (const size_t*) (p + set->type_size);
-		if (other_hash == hash) {
+		if (*other_hash == hash) {
 			return;
 		}
 	}
@@ -43,12 +41,11 @@ void set_insert(set_t* set, const void* data) {
 
 void set_erase(set_t* set, const void* data) {
 	const size_t hash = set->hash(data);
-	vector_t* v = set->buckets + (hash & set->n_buckets);
-	iter_t iter = vector_iter(v);
+	vector_t* v = set->buckets + (hash % set->n_buckets);	
 	size_t i = 0;
-	for (char* p = iter.begin; p < iter.end; p += iter.step) {
+	for (char* p = vector_begin(v); p < vector_end(v); p += v->type_size) {
 		const size_t* other_hash = (const size_t*)(p + set->type_size);
-		if (other_hash == hash) {
+		if (*other_hash == hash) {
 			vector_erase(v, i);
 			set->size--;
 			return;
@@ -69,13 +66,4 @@ vector_t* set_begin(set_t* set) {
 
 vector_t* set_end(set_t* set) {
 	return set->buckets + set->n_buckets;
-}
-
-iter_t set_iter(set_t* set) {
-	const iter_t iter = {
-		set->buckets,
-		set->buckets + set->n_buckets,
-		1
-	};
-	return iter;
 }

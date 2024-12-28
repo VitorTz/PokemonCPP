@@ -11,8 +11,7 @@ void texture_pool_init() {
 
 void texture_pool_close() {
 	for (vector_t* v = map_begin(&pool); v < map_end(&pool); v++) {
-		iter_t iter = vector_iter(v);
-		for (char* p = iter.begin; p < iter.end; p += iter.step) {
+		for (char* p = vector_begin(v); p < vector_end(v); p += v->type_size) {
 			UnloadTexture(*((Texture2D*)p));
 		}
 	}	
@@ -24,7 +23,7 @@ Texture2D* texture_pool_get(const char* filepath) {
 	if (p_texture == NULL) {
 		Texture2D t = LoadTexture(filepath);
 		map_insert(&pool, filepath, &t);
-		Texture2D* p_texture = (Texture2D*) map_at(&pool, filepath);
+		p_texture = (Texture2D*) map_at(&pool, filepath);
 	}
 	return p_texture;
 }

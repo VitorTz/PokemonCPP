@@ -28,7 +28,5 @@ vector_t* map_begin(map_t* map);
 
 vector_t* map_end(map_t* map);
 
-iter_t map_iter(map_t* map);
-
 
 #endif // !POKE_MAP_H

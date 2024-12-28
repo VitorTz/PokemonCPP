@@ -79,7 +79,7 @@ void ecs_update(ecs_t* ecs, const float dt) {
 		camera_clear(&ecs->camera);
 	}
 
-	if (ecs->entities_to_destroy.size) {
+	if (!vector_is_empty(&ecs->entities_to_destroy)) {
 		entity_t* begin = (entity_t*) vector_begin(&ecs->entities_to_destroy);
 		entity_t* end = (entity_t*) vector_end(&ecs->entities_to_destroy);
 		for (entity_t* e = begin; e < end; e++) {
@@ -94,12 +94,14 @@ void ecs_update(ecs_t* ecs, const float dt) {
 void ecs_draw(ecs_t* ecs) {
 	for (zindex_t zindex = CAMERA_ZINDEX_MIN; zindex <= CAMERA_ZINDEX_MAX; zindex++) {
 		vector_t* vec = ecs->camera.entities + zindex;		
-		for (entity_pair_t* p = vector_begin(vec); p < vector_end(vec); p++) {
+		entity_pair_t* begin = (entity_pair_t*) vector_begin(vec);
+		entity_pair_t* end = (entity_pair_t*) vector_end(vec);
+		for (entity_pair_t* p = begin; p < end; p++) {
 			const transform_t* transform = ecs_get_transform(ecs, p->entity);
 			p->centery = transform->pos.y + transform->size.y / 2.0f;
 		}
 		vector_sort(vec, entity_pair_compare);	
-		system_manager_draw(&ecs->system, vector_begin(vec), vector_end(vec));
+		system_manager_draw(&ecs->system, begin, end);
 	}
 }
 

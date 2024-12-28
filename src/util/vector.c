@@ -82,12 +82,16 @@ void vector_cast(vector_t* vec, const size_t new_type_size) {
 	vec->type_size = new_type_size;
 }
 
-void* vector_begin(vector_t* vec) {
+char* vector_begin(vector_t* vec) {
 	return vec->data;
 }
 
-void* vector_end(vector_t* vec) {
+char* vector_end(vector_t* vec) {
 	return vec->data + vec->type_size * vec->size;
+}
+
+int vector_is_empty(vector_t* vec) {
+	return vec->size == 0;
 }
 
 void vector_sort(vector_t* vec, int (*cmp)(const void*, const void*)) {
