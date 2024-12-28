@@ -100,7 +100,7 @@ void scene_update(const float dt) {
 
 	transition_time += dt;
 	const float t = fminf(transition_time / SCENE_TRANSITION_TIME, 1.0f);
-	transition_color.a = (unsigned char)transition_is_fading_to_black ? Lerp(0.0f, 255.f, t) : Lerp(255.f, 0.0f, t);
+	transition_color.a = (unsigned char)(transition_is_fading_to_black ? Lerp(0.0f, 255.f, t) : Lerp(255.f, 0.0f, t));
 
 	if (transition_is_fading_to_black) {
 		if (t == 1.0f) {

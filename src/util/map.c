@@ -1,69 +1,51 @@
 #include "map.h"
 
 
-map_iterator_t map_iter(map_t* map) {
-	const map_iterator_t iter = {
-		map->buckets,
-		map->buckets + map->n_buckets,
-		map->n_buckets
-	};
-	return iter;
-}
-
 void map_init(
 	map_t* map,
 	const size_t type_size,
 	const size_t n_buckets,
 	const size_t(*hash)(const void*)
 ) {
-	map->hash = hash;
-	map->n_buckets = n_buckets;
-	map->type_size = type_size;
 	map->size = 0;
+	map->type_size = type_size;
+	map->n_buckets = n_buckets;
 	map->buckets = (vector_t*)malloc(sizeof(vector_t) * n_buckets);
-	assert(map->buckets != NULL);
-	map_iterator_t iter = map_iter(map);
-	for (vector_t* v = iter.begin; v < iter.end; v++) {
-		vector_init(v, sizeof(size_t) + type_size, 4);
+	for (vector_t* v = map->buckets; v < map->buckets + map->n_buckets; v++) {
+		vector_init(v, sizeof(size_t) + map->type_size, 4);
 	}
 }
 
 void map_close(map_t* map) {
-	if (map == NULL) {
-		return;
-	}
-	map_iterator_t iter = map_iter(map);
-	for (vector_t* v = iter.begin; v < iter.end; v++) {
+	for (vector_t* v = map->buckets; v < map->buckets + map->n_buckets; v++) {
 		vector_close(v);
-	}
-	if (map->buckets != NULL) {
-		free(map->buckets);
 	}
 }
 
-void map_insert(map_t* map, const void* key, const void* value) {
+void map_insert(map_t* map, const void* key, const void* data) {
 	const size_t hash = map->hash(key);
-	const size_t ibucket = hash % map->n_buckets;
-	vector_t* vec = map->buckets + ibucket;
-	vector_iterator_t iter = vector_iter(vec);
+	vector_t* v = map->buckets + (hash & map->n_buckets);
+	iter_t iter = vector_iter(v);
 	for (char* p = iter.begin; p < iter.end; p += iter.step) {
-		if (*((size_t*)(p + map->type_size)) == hash) {
+		const size_t* other_hash = (const size_t*)(p + map->type_size);
+		if (other_hash == hash) {
 			return;
 		}
 	}
-	char* p = (char*)vector_allocate(vec);
-	memcpy(p, value, map->type_size);
-	memcpy(p + map->type_size, &hash, sizeof(size_t));	
-	map->size++;	
+	char* p = (char*)vector_allocate(v);
+	memcpy(p, data, map->type_size);
+	memcpy(p + sizeof(size_t), &hash, sizeof(size_t));
+	map->size++;
+	return;
 }
 
 void* map_at(map_t* map, const void* key) {
 	const size_t hash = map->hash(key);
-	const size_t ibucket = hash % map->n_buckets;
-	vector_t* vec = map->buckets + ibucket;
-	vector_iterator_t iter = vector_iter(vec);
+	vector_t* v = map->buckets + (hash & map->n_buckets);
+	iter_t iter = vector_iter(v);
 	for (char* p = iter.begin; p < iter.end; p += iter.step) {
-		if (*((size_t*)(p + map->type_size)) == hash) {
+		const size_t* other_hash = (const size_t*)(p + map->type_size);
+		if (other_hash == hash) {
 			return p;
 		}
 	}
@@ -72,13 +54,13 @@ void* map_at(map_t* map, const void* key) {
 
 void map_erase(map_t* map, const void* key) {
 	const size_t hash = map->hash(key);
-	const size_t ibucket = hash % map->n_buckets;
-	vector_t* vec = map->buckets + ibucket;
-	vector_iterator_t iter = vector_iter(vec);
+	vector_t* v = map->buckets + (hash & map->n_buckets);
 	size_t i = 0;
+	iter_t iter = vector_iter(v);
 	for (char* p = iter.begin; p < iter.end; p += iter.step) {
-		if (*((size_t*)(p + map->type_size)) == hash) {
-			vector_erase(vec, i);
+		const size_t* other_hash = (const size_t*)(p + map->type_size);
+		if (other_hash == hash) {
+			vector_erase(v, i);
 			map->size--;
 			return;
 		}
@@ -86,23 +68,18 @@ void map_erase(map_t* map, const void* key) {
 	}
 }
 
-int map_contains(map_t* map, const void* key) {
-	const size_t hash = map->hash(key);
-	const size_t ibucket = hash % map->n_buckets;
-	vector_t* vec = map->buckets + ibucket;
-	vector_iterator_t iter = vector_iter(vec);
-	for (char* p = iter.begin; p < iter.end; p += iter.step) {
-		if (*((size_t*)(p + map->type_size)) == hash) {
-			return 1;
-		}
-	}
-	return 0;
-}
-
 void map_clear(map_t* map) {
-	map_iterator_t iter = map_iter(map);
-	for (vector_t* v = iter.begin; v < iter.end; v++) {
+	for (vector_t* v = map->buckets; v < map->buckets + map->n_buckets; v++) {
 		vector_clear(v);
 	}
 	map->size = 0;
+}
+
+iter_t map_iter(map_t* map) {
+	const iter_t iter = {
+		map->buckets,
+		map->buckets + map->n_buckets,
+		1
+	};
+	return iter;
 }

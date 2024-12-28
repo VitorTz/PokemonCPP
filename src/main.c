@@ -9,7 +9,6 @@ int main() {
 	InitWindow(SCREEN_W, SCREEN_H, WINDOW_TITLE);
 	SetTargetFPS(WINDOW_FPS);	
 
-
 	texture_pool_init();
 	scene_init();
 
@@ -22,7 +21,7 @@ int main() {
 			scene_draw();
 		EndDrawing();
 	}
-	
+
 	texture_pool_close();
 	CloseWindow();
 	return 0;

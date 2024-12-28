@@ -2,9 +2,9 @@
 #define POKE_CAMERA_H
 #include <raylib.h>
 #include <stdlib.h>
-#include "types.h"
-#include "vector.h"
-#include "entity_pair.h"
+#include "../util/types.h"
+#include "../util/vector.h"
+#include "../util/entity_pair.h"
 #include "../constants.h"
 
 
@@ -36,13 +36,17 @@ void camera_set_target(camera_t* camera, Vector2 target);
 
 Vector2 camera_get_target(const camera_t* camera);
 
+void camera_begin_drawing(const camera_t* camera);
+
+void camera_end_drawing();
+
 void camera_set_offset(camera_t* camera, Vector2 offset);
 
 Vector2 camera_get_offset(const camera_t* camera);
 
 void camera_clear(camera_t* camera);
 
-size_t camera_num_entities(camera_t* camera);
+size_t camera_num_entities(const camera_t* camera);
 
 
 #endif // !POKE_CAMERA_H

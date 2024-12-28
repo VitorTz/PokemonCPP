@@ -4,32 +4,28 @@
 
 
 void component_manager_init(component_manager_t* c) {
-	c->components = (component_array_t*)malloc(sizeof(component_array_t) * NUM_COMPONENTS);
-	// TRANSFORM
-	c->components[TRANSFORM_ID].data = malloc(sizeof(transform_t) * MAX_ENTITIES);
-	c->components[TRANSFORM_ID].type_size = sizeof(transform_t);
-
-	// SPRITE
-	c->components[SPRITE_ID].data = malloc(sizeof(sprite_t) * MAX_ENTITIES);
-	c->components[SPRITE_ID].type_size = sizeof(sprite_t);
-
-	// SPRITE ANIMATION
-	c->components[SPRITE_ANIMATION_ID].data = malloc(sizeof(sprite_animation_t) * MAX_ENTITIES);
-	c->components[SPRITE_ANIMATION_ID].type_size = sizeof(sprite_animation_t);
-	
+	c->component = (vector_t*)malloc(sizeof(vector_t) * NUM_COMPONENTS);
+	vector_init(c->component + TRANSFORM_ID, sizeof(transform_t), MAX_ENTITIES);
+	vector_init(c->component + SPRITE_ID, sizeof(sprite_t), MAX_ENTITIES);
+	vector_init(c->component + SPRITE_ANIMATION_ID, sizeof(sprite_animation_t), MAX_ENTITIES);
+	for (vector_t* v = c->component; v < c->component + NUM_COMPONENTS; v++) {
+		v->size = MAX_ENTITIES;
+	}
 }
 
 void component_manager_close(component_manager_t* c) {
-	for (int i = 0; i < NUM_COMPONENTS; i++) {
-		free(c->components[i].data);
+	if (c != NULL) {
+		for (vector_t* v = c->component; v < c->component + NUM_COMPONENTS; v++) {
+			vector_close(v);
+		}
+		free(c->component);
 	}
 }
 
 void* component_manager_get_component(
 	component_manager_t* c,
-	const entity_t e,
-	const component_t id
+	const entity_t e, 
+	const component_t component_id
 ) {
-	component_array_t* arr = c->components + id;
-	return arr->data + arr->type_size * e;
+	return vector_at(c->component + component_id, e);
 }

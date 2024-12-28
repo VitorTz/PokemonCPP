@@ -2,44 +2,29 @@
 #include "map.h"
 #include "util.h"
 
-
-static map_t map;
+static map_t pool = { 0 };
 
 
 void texture_pool_init() {
-	map_init(&map, sizeof(Texture2D), 256, hash_str);
+	map_init(&pool, sizeof(Texture2D), 256, hash_str);
 }
 
 void texture_pool_close() {
-	map_iterator_t iter = map_iter(&map);
-	for (vector_t* v = iter.begin; v < iter.end; v++) {
-		vector_iterator_t v_iter = vector_iter(v);
-		for (char* p = v_iter.begin; p < v_iter.end; p += v_iter.step) {
+	for (vector_t* v = pool.buckets; v < pool.buckets + pool.n_buckets; v++) {
+		iter_t iter = vector_iter(v);
+		for (char* p = iter.begin; p < iter.end; p += iter.step) {
 			UnloadTexture(*((Texture2D*)p));
 		}
-	}
-	map_clear(&map);
+	}	
+	map_close(&pool);
 }
 
 Texture2D* texture_pool_get(const char* filepath) {
-	Texture2D* pTexture = (Texture2D*) map_at(&map, filepath);
-	if (pTexture == NULL) {
+	Texture2D* p_texture = (Texture2D*) map_at(&pool, filepath);
+	if (p_texture == NULL) {
 		Texture2D t = LoadTexture(filepath);
-		map_insert(&map, filepath, &t);		
-		pTexture = (Texture2D*) map_at(&map, filepath);
+		map_insert(&pool, filepath, &t);
+		Texture2D* p_texture = (Texture2D*) map_at(&pool, filepath);
 	}
-	return pTexture;
-}
-
-
-void texture_pool_erase(const char* filepath) {
-	Texture2D* pTexture = (Texture2D*)map_at(&map, filepath);
-	if (pTexture != NULL) {
-		UnloadTexture(*pTexture);
-		map_erase(&map, filepath);		
-	}
-}
-
-size_t texture_pool_num_textures() {
-	return map.size;
+	return p_texture;
 }

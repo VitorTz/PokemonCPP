@@ -34,9 +34,7 @@ void sprite_animation_init(
 ) {
 	*s = (sprite_animation_t){
 		texture_pool_get(filepath),
-		(Rectangle) {
- 0.0f, 0.0f, sprite_width, sprite_height
-},
-0, speed, 0, rows * cols, cols
+		(Rectangle) { 0.0f, 0.0f, sprite_width, sprite_height },
+		0, speed, 0, rows * cols, cols
 	};
 }

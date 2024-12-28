@@ -3,13 +3,13 @@
 #include "types.h"
 
 
-typedef struct entity_pair {
+typedef struct _entity_pair {
 	float centery;
-	entity_t e;
+	entity_t entity;
 } entity_pair_t;
 
 
 int entity_pair_compare(const void* l, const void* r);
 
 
-#endif
+#endif // !POKE_ENTITY_PAIR_H
