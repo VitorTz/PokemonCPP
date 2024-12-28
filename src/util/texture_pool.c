@@ -10,7 +10,7 @@ void texture_pool_init() {
 }
 
 void texture_pool_close() {
-	for (vector_t* v = pool.buckets; v < pool.buckets + pool.n_buckets; v++) {
+	for (vector_t* v = map_begin(&pool); v < map_end(&pool); v++) {
 		iter_t iter = vector_iter(v);
 		for (char* p = iter.begin; p < iter.end; p += iter.step) {
 			UnloadTexture(*((Texture2D*)p));

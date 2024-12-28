@@ -1,7 +1,9 @@
 #ifndef POKE_CAMERA_H
 #define POKE_CAMERA_H
-#include <raylib.h>
 #include <stdlib.h>
+#include <raylib.h>
+#include <assert.h>
+#include <raymath.h>
 #include "../util/types.h"
 #include "../util/vector.h"
 #include "../util/entity_pair.h"

@@ -1,6 +1,4 @@
 #include "camera.h"
-#include <assert.h>
-#include <raymath.h>
 
 
 void camera_init(camera_t* camera) {
@@ -15,20 +13,32 @@ void camera_init(camera_t* camera) {
 	for (vector_t* v = camera->entities; v < camera->entities + CAMERA_ZINDEX_MAX + 1; v++) {
 		vector_init(v, sizeof(entity_pair_t), MAX_ENTITIES / 4);
 	}
-	camera->size = 0;
 	camera->is_on_camera = (uint8_t*)calloc(MAX_ENTITIES, sizeof(uint8_t));
 	assert(camera->is_on_camera != NULL);
+	camera->size = 0;
 }
 
 void camera_close(camera_t* camera) {
 	if (camera == NULL) {
 		return;
 	}
-	for (vector_t* v = camera->entities; v < camera->entities + CAMERA_ZINDEX_MAX + 1; v++) {
-		vector_close(v);
+	for (zindex_t z = CAMERA_ZINDEX_MIN; z <= CAMERA_ZINDEX_MAX; z++) {
+		vector_t* vec = camera->entities + z;
+		vector_close(vec);
 	}
-	free(camera->is_on_camera);
 	free(camera->entities);
+	free(camera->is_on_camera);
+}
+
+void camera_clear(camera_t* camera) {
+	for (zindex_t z = CAMERA_ZINDEX_MIN; z <= CAMERA_ZINDEX_MAX; z++) {
+		vector_t* vec = camera->entities + z;
+		vector_clear(vec);
+	}
+	for (uint8_t* p = camera->is_on_camera; p < camera->is_on_camera + MAX_ENTITIES; p++) {
+		*p = 0;
+	}
+	camera->size = 0;
 }
 
 void camera_reset(camera_t* camera) {
@@ -107,16 +117,6 @@ void camera_set_offset(camera_t* camera, const Vector2 offset) {
 
 Vector2 camera_get_offset(const camera_t* camera) {
 	return camera->camera2D.offset;
-}
-
-void camera_clear(camera_t* camera) {
-	for (vector_t* v = camera->entities; v < camera->entities + CAMERA_ZINDEX_MAX + 1; v++) {
-		vector_clear(v);		
-	}
-	for (uint8_t* p = camera->is_on_camera; p < camera->is_on_camera + MAX_ENTITIES; p++) {
-		*p = 0;
-	}
-	camera->size = 0;
 }
 
 size_t camera_num_entities(const camera_t* camera) {

@@ -1,5 +1,6 @@
 #ifndef POKE_VECTOR_H
 #define POKE_VECTOR_H
+#include <assert.h>
 #include <stdlib.h>
 #include <string.h>
 #include "iterator.h"
@@ -36,6 +37,8 @@ void vector_cast(vector_t* vec, size_t type_size);
 void* vector_begin(vector_t* vec);
 
 void* vector_end(vector_t* vec);
+
+void vector_sort(vector_t* vec, int (*cmp)(const void*, const void*));
 
 iter_t vector_iter(vector_t* vec);
 

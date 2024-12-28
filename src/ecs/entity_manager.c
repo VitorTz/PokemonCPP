@@ -1,10 +1,9 @@
-#include <assert.h>
 #include "entity_manager.h"
-#include "../constants.h"
 
 
 void entity_manager_init(entity_manager_t* e) {
 	e->entities = (entity_t*)malloc(sizeof(entity_t) * MAX_ENTITIES);
+	assert(e->entities != NULL);
 	for (entity_t ent = 0; ent < MAX_ENTITIES; ent++) {
 		e->entities[ent] = MAX_ENTITIES - ent - 1;
 	}
@@ -32,4 +31,5 @@ void entity_manager_clear(entity_manager_t* e) {
 		e->entities[ent] = MAX_ENTITIES - ent - 1;
 	}
 	e->top = MAX_ENTITIES - 1;
+	e->size = 0;
 }

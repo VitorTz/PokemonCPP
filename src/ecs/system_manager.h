@@ -1,9 +1,9 @@
 #ifndef POKE_SYSTEM_MANAGER_H
 #define POKE_SYSTEM_MANAGER_H
+#include "system.h"
 #include "../util/vector.h"
 #include "../util/set.h"
 #include "../util/entity_pair.h"
-#include "system.h"
 
 
 typedef struct _system_manager {

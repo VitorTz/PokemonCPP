@@ -6,12 +6,11 @@ void vector_init(vector_t* vec, const size_t type_size, const size_t capacity) {
 	vec->type_size = type_size;
 	vec->capacity = capacity;
 	vec->data = (char*)calloc(capacity, type_size);
+	assert(vec->data != NULL);
 }
 
 void vector_close(vector_t* vec) {
-	if (vec == NULL) {
-		return;
-	}
+	if (vec == NULL) { return; }
 	free(vec->data);
 }
 
@@ -89,6 +88,10 @@ void* vector_begin(vector_t* vec) {
 
 void* vector_end(vector_t* vec) {
 	return vec->data + vec->type_size * vec->size;
+}
+
+void vector_sort(vector_t* vec, int (*cmp)(const void*, const void*)) {
+	qsort(vec->data, vec->size, vec->type_size, cmp);
 }
 
 iter_t vector_iter(vector_t* vec) {

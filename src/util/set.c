@@ -63,6 +63,14 @@ void set_clear(set_t* set) {
 	}
 }
 
+vector_t* set_begin(set_t* set) {
+	return set->buckets;
+}
+
+vector_t* set_end(set_t* set) {
+	return set->buckets + set->n_buckets;
+}
+
 iter_t set_iter(set_t* set) {
 	const iter_t iter = {
 		set->buckets,

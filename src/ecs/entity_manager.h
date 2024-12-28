@@ -1,5 +1,8 @@
 #ifndef POKE_ENTITY_MANAGER_H
 #define POKE_ENTITY_MANAGER_H
+#include <assert.h>
+#include <stdlib.h>
+#include "../constants.h"
 #include "../util/types.h"
 
 

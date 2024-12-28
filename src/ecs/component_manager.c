@@ -1,3 +1,4 @@
+#include <assert.h>
 #include "component_manager.h"
 #include "components.h"
 #include "../constants.h"
@@ -5,12 +6,10 @@
 
 void component_manager_init(component_manager_t* c) {
 	c->component = (vector_t*)malloc(sizeof(vector_t) * NUM_COMPONENTS);
+	assert(c->component != NULL);
 	vector_init(c->component + TRANSFORM_ID, sizeof(transform_t), MAX_ENTITIES);
 	vector_init(c->component + SPRITE_ID, sizeof(sprite_t), MAX_ENTITIES);
-	vector_init(c->component + SPRITE_ANIMATION_ID, sizeof(sprite_animation_t), MAX_ENTITIES);
-	for (vector_t* v = c->component; v < c->component + NUM_COMPONENTS; v++) {
-		v->size = MAX_ENTITIES;
-	}
+	vector_init(c->component + SPRITE_ANIMATION_ID, sizeof(sprite_animation_t), MAX_ENTITIES);	
 }
 
 void component_manager_close(component_manager_t* c) {

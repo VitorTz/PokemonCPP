@@ -39,19 +39,6 @@ void map_insert(map_t* map, const void* key, const void* data) {
 	return;
 }
 
-void* map_at(map_t* map, const void* key) {
-	const size_t hash = map->hash(key);
-	vector_t* v = map->buckets + (hash & map->n_buckets);
-	iter_t iter = vector_iter(v);
-	for (char* p = iter.begin; p < iter.end; p += iter.step) {
-		const size_t* other_hash = (const size_t*)(p + map->type_size);
-		if (other_hash == hash) {
-			return p;
-		}
-	}
-	return NULL;
-}
-
 void map_erase(map_t* map, const void* key) {
 	const size_t hash = map->hash(key);
 	vector_t* v = map->buckets + (hash & map->n_buckets);
@@ -68,11 +55,32 @@ void map_erase(map_t* map, const void* key) {
 	}
 }
 
+void* map_at(map_t* map, const void* key) {
+	const size_t hash = map->hash(key);
+	vector_t* v = map->buckets + (hash & map->n_buckets);
+	iter_t iter = vector_iter(v);
+	for (char* p = iter.begin; p < iter.end; p += iter.step) {
+		const size_t* other_hash = (const size_t*)(p + map->type_size);
+		if (other_hash == hash) {
+			return p;
+		}
+	}
+	return NULL;
+}
+
 void map_clear(map_t* map) {
 	for (vector_t* v = map->buckets; v < map->buckets + map->n_buckets; v++) {
 		vector_clear(v);
 	}
 	map->size = 0;
+}
+
+vector_t* map_begin(map_t* map) {
+	return map->buckets;
+}
+
+vector_t* map_end(map_t* map) {
+	return map->buckets + map->n_buckets;
 }
 
 iter_t map_iter(map_t* map) {

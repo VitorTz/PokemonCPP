@@ -24,6 +24,10 @@ void map_erase(map_t* map, const void* key);
 
 void map_clear(map_t* map);
 
+vector_t* map_begin(map_t* map);
+
+vector_t* map_end(map_t* map);
+
 iter_t map_iter(map_t* map);
 
 
