@@ -5,7 +5,7 @@ void vector_init(vector_t* vec, const size_t type_size, const size_t capacity) {
 	vec->size = 0;
 	vec->type_size = type_size;
 	vec->capacity = capacity;
-	vec->data = (char*)calloc(capacity, type_size);
+	vec->data = (char*) malloc(type_size * capacity);
 	assert(vec->data != NULL);
 }
 
@@ -18,7 +18,7 @@ void vector_reserve(vector_t* vec, const size_t new_capacity) {
 	if (new_capacity > vec->capacity) {
 		void* tmp = realloc(vec->data, vec->type_size * new_capacity);
 		if (tmp != NULL) {
-			vec->data = tmp;
+			vec->data = (char*) tmp;
 			vec->capacity = new_capacity;
 		}
 	}
@@ -28,7 +28,7 @@ inline static void vector_grow(vector_t* vec) {
 	if (vec->size >= vec->capacity) {
 		void* tmp = realloc(vec->data, vec->type_size * vec->capacity * 2);
 		if (tmp != NULL) {
-			vec->data = tmp;
+			vec->data = (char*) tmp;
 			vec->capacity *= 2;
 		}
 	}

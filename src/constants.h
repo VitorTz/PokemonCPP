@@ -24,7 +24,7 @@
 #define  SCENE_TRANSITION_TIME 1.0f
 
 // ECS
-#define MAX_ENTITIES 2048
+#define MAX_ENTITIES 4096
 
 // Camera
 #define CAMERA_ZINDEX_MIN 0

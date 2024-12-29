@@ -1,4 +1,5 @@
 #include "entity_manager.h"
+#include <stdio.h>
 
 
 void entity_manager_init(entity_manager_t* e) {
@@ -18,7 +19,7 @@ void entity_manager_close(entity_manager_t* e) {
 entity_t entity_manager_create_entity(entity_manager_t* e) {
 	assert(e->size < MAX_ENTITIES);
 	e->size++;
-	return e->entities[e->top--];
+	return e->entities[e->top--];	
 }
 
 void entity_manager_destroy_entity(entity_manager_t* e, const entity_t ent) {

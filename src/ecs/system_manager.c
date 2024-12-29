@@ -22,7 +22,7 @@ void system_manager_init(system_manager_t* s) {
 	s->entities = (set_t*)malloc(sizeof(set_t) * NUM_COMPONENTS);
 	assert(s->entities != NULL);
 	for (set_t* set = s->entities; set < s->entities + NUM_COMPONENTS; set++) {
-		set_init(set, sizeof(entity_t), MAX_ENTITIES / 4, hash_component_t);
+		set_init(set, sizeof(entity_t), MAX_ENTITIES / 4, hash_entity_t);
 	}
 	
 	// Entities -> Drawable Components
@@ -80,10 +80,8 @@ void system_manager_destroy_entity(system_manager_t* s, const entity_t e) {
 void system_manager_update(system_manager_t* s, const component_t component_id, const float dt) {
 ;	set_t* set = s->entities + component_id;
 	system_t* system = s->system + component_id;
-	for (vector_t* vec = set_begin(set); vec < set_end(set); vec++) {
-		entity_t* begin = (entity_t*)vector_begin(vec);
-		entity_t* end = (entity_t*)vector_end(vec);
-		system->update(begin, end, dt);
+	for (vector_t* vec = set_begin(set); vec < set_end(set); vec++) {		
+		system->update(vector_iter(vec), dt);
 	}
 }
 
@@ -106,4 +104,8 @@ void system_manager_clear(system_manager_t* s) {
 	for (vector_t* v = s->drawable_components; v < s->drawable_components + MAX_ENTITIES; v++) {
 		vector_clear(v);
 	}
+}
+
+set_t* system_manager_get_set_by_component(system_manager_t* s, component_t component_id) {
+	return s->entities + component_id;
 }

@@ -29,5 +29,7 @@ void system_manager_draw(system_manager_t* s, entity_pair_t* begin, entity_pair_
 
 void system_manager_clear(system_manager_t* s);
 
+set_t* system_manager_get_set_by_component(system_manager_t* s, component_t component_id);
+
 
 #endif // !POKE_SYSTEM_MANAGER_H

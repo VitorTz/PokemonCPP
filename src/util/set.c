@@ -12,6 +12,7 @@ void set_init(
 	set->n_buckets = n_buckets;
 	set->hash = hash;
 	set->buckets = (vector_t*)malloc(sizeof(vector_t) * n_buckets);
+	assert(set->buckets != NULL);
 	for (vector_t* v = set->buckets; v < set->buckets + n_buckets; v++) {
 		vector_init(v, sizeof(size_t) + type_size, 4);
 	}
@@ -35,7 +36,7 @@ void set_insert(set_t* set, const void* data) {
 	}
 	char* p = (char*) vector_allocate(v);
 	memcpy(p, data, set->type_size);
-	memcpy(p + sizeof(size_t), &hash, sizeof(size_t));
+	memcpy(p + set->type_size, &hash, sizeof(size_t));
 	set->size++;
 }
 

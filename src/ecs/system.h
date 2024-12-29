@@ -5,14 +5,14 @@
 
 
 typedef struct _system {
-	void (*update)(entity_t*, entity_t*, float);
+	void (*update)(iter_t iter, float);
 	void (*draw)(entity_t);
 } system_t;
 
 
 void sprite_draw(entity_t e);
 
-void sprite_animation_update(entity_t* begin, entity_t* end, float dt);
+void sprite_animation_update(iter_t iter, float dt);
 void sprite_animation_draw(entity_t e);
 
 

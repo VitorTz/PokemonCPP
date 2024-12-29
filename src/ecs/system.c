@@ -10,10 +10,11 @@ void sprite_draw(const entity_t e) {
 }
 
 
-void sprite_animation_update(entity_t* begin, entity_t* end, const float dt) {
+void sprite_animation_update(iter_t iter, const float dt) {
 	ecs_t* ecs = ecs_manager_get_current_ecs_instance();
-	for (entity_t* e = begin; e < end; e++) {
-		sprite_animation_t* s_animation = (sprite_animation_t*)ecs_get_component(ecs, *e, SPRITE_ANIMATION_ID);
+	for (char* p = iter.begin; p < iter.end; p += iter.step) {
+		const entity_t e = *((entity_t*)p);
+		sprite_animation_t* s_animation = (sprite_animation_t*)ecs_get_component(ecs, e, SPRITE_ANIMATION_ID);
 		s_animation->current_frame++;
 		if (s_animation->current_frame >= s_animation->max_frame) {
 			s_animation->current_frame = 0;
