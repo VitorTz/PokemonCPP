@@ -4,27 +4,29 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
+#include "vector.h"
 
 
 typedef struct _set_node {
 	struct _set_node* left;
 	struct _set_node* right;
-	size_t hash;
+	size_t key;
 	void* data;
 	int height;
 } set_node_t;
 
 
-typedef struct _set_info {
-	size_t(*hash)(const void*);
-	size_t type_size;
-	size_t size;
-} set_info;
-
+typedef struct _set_iterator {
+	vector node_arr;
+	set_node_t* begin;
+	set_node_t* end;	
+} set_iterator_t;
 
 typedef struct _set {
 	set_node_t* root;
-	set_info info;
+	size_t(*hash)(const void*);
+	size_t type_size;	
+	set_iterator_t iter;
 } set;
 
 
@@ -38,9 +40,9 @@ void set_erase(set* s, const void* key);
 
 void set_clear(set* s);
 
-void* set_begin(set* s);
+set_iterator_t* set_iter(set* s);
 
-void* set_end(set* s);
+void* set_iter_next(set_iterator_t* iter);
 
 
 #endif // !POKE_SET_H
