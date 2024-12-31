@@ -1,34 +1,37 @@
 #include <raylib.h>
-#include "util/texture_pool.h"
-#include "ecs/ecs_manager.h"
-#include "scene/scene.h"
-#include "util/config.h"
+#include <stdio.h>
 #include "constants.h"
+#include "util/hash.h"
+#include "util/unordered_set.h"
 
 
 int main() {
 	InitWindow(SCREEN_W, SCREEN_H, WINDOW_TITLE);
-	SetTargetFPS(WINDOW_FPS);	
+	SetTargetFPS(WINDOW_FPS);
 
-	texture_pool_init();
-	ecs_manager_init();
-	scene_init();
 
-	while (!WindowShouldClose()) {
-		scene_update(GetFrameTime());
+	unordered_set* set = unordered_set_create(sizeof(int), hash_int);
+
+	const int total = 100;
+	for (int i = 0; i < total; i++) {
+		unordered_set_insert(set, &i);
+	}
+
+	for (vector* v = unordered_set_begin(set); v < unordered_set_end(set); v++) {		
+		for (char* p = vector_begin(v); p < vector_end(v); p += v->type_size) {
+			printf("%d\n", *((int*)p));
+		}
+	}
+
+	while (!WindowShouldClose()) {		
 		BeginDrawing();
-			if (poke_config_should_clear_background()) {
-				ClearBackground(BLACK);
-			}
-			scene_draw();
+		ClearBackground(BLACK);
 			if (DEBUG_MODE) {
 				DrawFPS(20, 20);
 			}
 		EndDrawing();
 	}
-
-	ecs_manager_close();
-	texture_pool_close();
+	
 	CloseWindow();
 	return 0;
 }
