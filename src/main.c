@@ -2,26 +2,38 @@
 #include <stdio.h>
 #include "constants.h"
 #include "util/hash.h"
-#include "util/unordered_set.h"
+#include "util/set.h"
 
 
 int main() {
 	InitWindow(SCREEN_W, SCREEN_H, WINDOW_TITLE);
 	SetTargetFPS(WINDOW_FPS);
 
+	set* int_set = set_create(sizeof(int), hash_int);
 
-	unordered_set* set = unordered_set_create(sizeof(int), hash_int);
-
-	const int total = 100;
+	int total = 128;
+	int sorted[128];
 	for (int i = 0; i < total; i++) {
-		unordered_set_insert(set, &i);
+		set_insert(int_set, &i);
+		sorted[i] = 0;
 	}
 
-	for (vector* v = unordered_set_begin(set); v < unordered_set_end(set); v++) {		
-		for (char* p = vector_begin(v); p < vector_end(v); p += v->type_size) {
-			printf("%d\n", *((int*)p));
+	set_iterator_t* iter = set_iter(int_set);
+	
+	int* data;
+	while ((data = (int*) set_iter_next(iter)) != NULL) {
+		printf("%d\n", *data);
+		sorted[*data] = 1;
+	}
+
+	printf("==========================================\n");
+
+	for (int i = 0; i < total; i++) {
+		if (sorted[i] == 0) {
+			printf("%d\n", i);
 		}
 	}
+
 
 	while (!WindowShouldClose()) {		
 		BeginDrawing();
