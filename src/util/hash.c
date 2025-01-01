@@ -14,3 +14,7 @@ size_t hash_str(const void* p) {
     }
     return hash;
 }
+
+size_t hash_entity_id(const void* p) {
+    return (size_t)(*((entity_id*)p));
+}

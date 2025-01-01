@@ -27,7 +27,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raylib)
 
 # Add source to this project's executable.
-add_executable (PokemonC "src/main.c" "src/constants.h" "src/util/types.h" "src/util/vector.h" "src/util/vector.c" "src/util/hash.h" "src/util/hash.c" "src/util/unordered_set.h" "src/util/unordered_set.c" "src/util/set.h" "src/util/set.c")
+add_executable (PokemonC "src/main.c" "src/constants.h" "src/util/types.h" "src/util/vector.h" "src/util/vector.c" "src/util/hash.h" "src/util/hash.c"   "src/util/set.h" "src/util/set.c" "src/util/util.h" "src/util/util.c" "src/util/map.h" "src/util/map.c" "src/util/texture_pool.h" "src/util/texture_pool.c" "src/ecs/entity_manager.h" "src/ecs/entity_manager.c" "src/ecs/component_manager.h" "src/ecs/components.h" "src/ecs/component_manager.c" "src/ecs/system_manager.h" "src/ecs/system.h")
 
 
 add_custom_command(

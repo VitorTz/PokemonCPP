@@ -1,49 +1,28 @@
 #include <raylib.h>
-#include <stdio.h>
 #include "constants.h"
-#include "util/hash.h"
-#include "util/set.h"
+#include "util/texture_pool.h"
 
 
 int main() {
 	InitWindow(SCREEN_W, SCREEN_H, WINDOW_TITLE);
 	SetTargetFPS(WINDOW_FPS);
 
-	set* int_set = set_create(sizeof(int), hash_int);
+	texture_pool_init();
 
-	int total = 128;
-	int sorted[128];
-	for (int i = 0; i < total; i++) {
-		set_insert(int_set, &i);
-		sorted[i] = 0;
-	}
+	Texture2D* texture = NULL;
 
-	set_iterator_t* iter = set_iter(int_set);
-	
-	int* data;
-	while ((data = (int*) set_iter_next(iter)) != NULL) {
-		printf("%d\n", *data);
-		sorted[*data] = 1;
-	}
-
-	printf("==========================================\n");
-
-	for (int i = 0; i < total; i++) {
-		if (sorted[i] == 0) {
-			printf("%d\n", i);
-		}
-	}
-
-
-	while (!WindowShouldClose()) {		
+	while (!WindowShouldClose()) {
+		texture = texture_pool_get(ICONS_PATH "Atrox.png");
 		BeginDrawing();
 		ClearBackground(BLACK);
+			DrawTexture(*texture, 0, 0, WHITE);
 			if (DEBUG_MODE) {
 				DrawFPS(20, 20);
 			}
-		EndDrawing();
+		EndDrawing();		
 	}
 	
+	texture_pool_close();
 	CloseWindow();
 	return 0;
 }

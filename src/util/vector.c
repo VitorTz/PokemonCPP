@@ -1,7 +1,7 @@
 #include "vector.h"
 
 
-void vector_init(vector* vec, const size_t type_size, const size_t capacity) {
+void vector_init(Vector* vec, const size_t type_size, const size_t capacity) {
 	vec->size = 0;
 	vec->type_size = type_size;
 	vec->capacity = capacity;
@@ -9,13 +9,13 @@ void vector_init(vector* vec, const size_t type_size, const size_t capacity) {
 	assert(vec->data != NULL);
 }
 
-void vector_close(vector* vec) {
+void vector_close(Vector* vec) {
 	if (vec == NULL || vec->data == NULL) { return; }
 	free(vec->data);
 }
 
-void vector_reserve(vector* vec, const size_t new_capacity) {
-	if (new_capacity > new_capacity) {
+void vector_reserve(Vector* vec, const size_t new_capacity) {
+	if (new_capacity > vec->capacity) {
 		void* tmp = realloc(vec->data, vec->type_size * new_capacity);
 		if (tmp != NULL) {
 			vec->data = tmp;
@@ -24,7 +24,7 @@ void vector_reserve(vector* vec, const size_t new_capacity) {
 	}
 }
 
-inline static void vector_grow(vector* vec) {
+inline static void vector_grow(Vector* vec) {
 	if (vec->size >= vec->capacity) {
 		void* tmp = realloc(vec->data, vec->type_size * vec->capacity * 2);
 		if (tmp != NULL) {
@@ -34,7 +34,7 @@ inline static void vector_grow(vector* vec) {
 	}
 }
 
-void vector_cast(vector* vec, const size_t new_type_size) {
+void vector_cast(Vector* vec, const size_t new_type_size) {
 	if (vec->type_size * vec->capacity < new_type_size * vec->capacity) {
 		void* tmp = realloc(vec->data, new_type_size  * vec->capacity);
 		if (tmp != NULL) {
@@ -44,12 +44,12 @@ void vector_cast(vector* vec, const size_t new_type_size) {
 	vec->type_size = new_type_size;
 }
 
-void vector_push_back(vector* vec, const void* item) {
+void vector_push_back(Vector* vec, const void* item) {
 	vector_grow(vec);
 	memcpy(vec->data + vec->type_size * vec->size++, item, vec->type_size);
 }
 
-void vector_erase(vector* vec, const size_t i) {
+void vector_erase(Vector* vec, const size_t i) {
 	if (vec->size <= 0) {
 		return;
 	}
@@ -60,7 +60,7 @@ void vector_erase(vector* vec, const size_t i) {
 	);
 }
 
-void vector_rmv(vector* vec, const void* item, int (*cmp)(const void*, const void*)) {
+void vector_rmv(Vector* vec, const void* item, int (*cmp)(const void*, const void*)) {
 	size_t i = 0;
 	for (char* p = vec->data; p < vec->data + vec->type_size * vec->size; p += vec->type_size) {
 		if (cmp(p, item)) {
@@ -71,42 +71,42 @@ void vector_rmv(vector* vec, const void* item, int (*cmp)(const void*, const voi
 	}
 }
 
-void* vector_at(vector* vec, const size_t i) {
+void* vector_at(Vector* vec, const size_t i) {
 	return vec->data + vec->type_size * i;
 }
 
-void* vector_allocate(vector* vec) {
+void* vector_allocate(Vector* vec) {
 	vector_grow(vec);
 	return vec->data + vec->type_size * vec->size++;
 }
 
-char* vector_begin(vector* vec) {
+char* vector_begin(Vector* vec) {
 	return vec->data;
 }
 
-char* vector_end(vector* vec) {
+char* vector_end(Vector* vec) {
 	return vec->data + vec->type_size * vec->size;
 }
 
-void vector_pop(vector* vec, const size_t i, void* dst) {
+void vector_pop(Vector* vec, const size_t i, void* dst) {
 	memcpy(dst, vec->data + vec->type_size * i, vec->type_size);
 	vec->size--;
 }
 
-void vector_pop_back(vector* vec, void* dst) {
+void vector_pop_back(Vector* vec, void* dst) {
 	memcpy(dst, vec->data + vec->type_size * --vec->size, vec->type_size);
 }
 
-void vector_pop_front(vector* vec, void* dst) {
+void vector_pop_front(Vector* vec, void* dst) {
 	memcpy(dst, vec->data, vec->type_size);
 	vec->size--;
 }
 
-void vector_clear(vector* vec) {
+void vector_clear(Vector* vec) {
 	vec->size = 0;
 }
 
-iter_t vector_iter(vector* vec) {
+iter_t vector_iter(Vector* vec) {
 	const iter_t iter = {
 		vec->data,
 		vec->data + vec->type_size * vec->size,

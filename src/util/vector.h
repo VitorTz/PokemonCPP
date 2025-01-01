@@ -11,42 +11,40 @@ typedef struct _vector {
 	size_t size;
 	size_t type_size;
 	size_t capacity;
-} vector;
+} Vector;
 
 
+void vector_init(Vector* vec, size_t type_size, size_t capacity);
 
-void vector_init(vector* vec, size_t type_size, size_t capacity);
+void vector_close(Vector* vec);
 
-void vector_close(vector* vec);
+void vector_reserve(Vector* vec, size_t new_capacity);
 
-void vector_reserve(vector* vec, size_t new_capacity);
+void vector_cast(Vector* vec, size_t new_type_size);
 
-void vector_cast(vector* vec, size_t new_type_size);
+void vector_push_back(Vector* vec, const void* item);
 
-void vector_push_back(vector* vec, const void* item);
+void vector_erase(Vector* vec, size_t i);
 
-void vector_erase(vector* vec, size_t i);
+void vector_rmv(Vector* vec, const void* item, int (*cmp)(const void*, const void*));
 
-void vector_rmv(vector* vec, const void* item, int (*cmp)(const void*, const void*));
+void* vector_at(Vector* vec, size_t i);
 
-void* vector_at(vector* vec, size_t i);
+void* vector_allocate(Vector* vec);
 
-void* vector_allocate(vector* vec);
+char* vector_begin(Vector* vec);
 
-char* vector_begin(vector* vec);
+char* vector_end(Vector* vec);
 
-char* vector_end(vector* vec);
+void vector_pop(Vector* vec, size_t i, void* dst);
 
-void vector_pop(vector* vec, size_t i, void* dst);
+void vector_pop_back(Vector* vec, void* dst);
 
-void vector_pop_back(vector* vec, void* dst);
+void vector_pop_front(Vector* vec, void* dst);
 
-void vector_pop_front(vector* vec, void* dst);
+void vector_clear(Vector* vec);
 
-void vector_clear(vector* vec);
-
-iter_t vector_iter(vector* vec);
+iter_t vector_iter(Vector* vec);
 
 
 #endif // !POKE_VECTOR_H
-

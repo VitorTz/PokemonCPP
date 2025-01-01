@@ -18,7 +18,7 @@ typedef struct _iter {
 typedef struct _entity_pair {
 	entity_id entity;
 	float centery;
-} entity_pair;
+} EntityPair;
 
 
 typedef enum _scene_id {
