@@ -16,9 +16,9 @@ EntityManager* entity_manager_create();
 
 void entity_manager_destroy(EntityManager* e);
 
-entity_id entity_manager_create_entity(EntityManager* e);
+entity_t entity_manager_create_entity(EntityManager* e);
 
-void entity_manager_destroy_entity(EntityManager* e, entity_id ent);
+void entity_manager_destroy_entity(EntityManager* e, entity_t ent);
 
 void entity_manager_clear(EntityManager* e);
 

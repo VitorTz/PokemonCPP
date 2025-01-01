@@ -12,10 +12,10 @@ void component_manager_destroy(ComponentManager* c) {
 	}
 }
 
-void component_manager_register_component(ComponentManager* c, const component_id id, const size_t component_size) {
+void component_manager_register_component(ComponentManager* c, const component_t id, const size_t component_size) {
 	vector_init(c->component + id, component_size, MAX_ENTITIES);
 }
 
-void* component_manager_at(ComponentManager* c, const entity_id e, const component_id id) {
+void* component_manager_at(ComponentManager* c, const entity_t e, const component_t id) {
 	return vector_at(c->component + id, e);
 }

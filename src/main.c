@@ -1,5 +1,7 @@
 #include <raylib.h>
 #include "constants.h"
+#include "scene/scene.h"
+#include "ecs/ecs_manager.h"
 #include "util/texture_pool.h"
 
 
@@ -8,20 +10,21 @@ int main() {
 	SetTargetFPS(WINDOW_FPS);
 
 	texture_pool_init();
-
-	Texture2D* texture = NULL;
+	ecs_manager_init();
+	scene_manager_init();
 
 	while (!WindowShouldClose()) {
-		texture = texture_pool_get(ICONS_PATH "Atrox.png");
+		scene_manager_update(GetFrameTime());
 		BeginDrawing();
-		ClearBackground(BLACK);
-			DrawTexture(*texture, 0, 0, WHITE);
+		ClearBackground(BLACK);			
+			scene_manager_draw();
 			if (DEBUG_MODE) {
 				DrawFPS(20, 20);
 			}
 		EndDrawing();		
 	}
 	
+	ecs_manager_close();
 	texture_pool_close();
 	CloseWindow();
 	return 0;

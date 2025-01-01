@@ -7,16 +7,20 @@
 #define NUM_COMPONENTS 3
 #define NUM_DRAWABLE_COMPONENTS 2
 
+#define TRANSFORM_ID 0
+#define SPRITE_ID 1
+#define SPRITE_ANIMATION_ID 2
+
 
 typedef struct _transform {
 	Vector2 pos;
 	Vector2 size;
 	zindex_t zindex;
-} Transform;
+} transform_t;
 
 typedef struct _sprite {
 	Texture2D* texture;
-} Sprite;
+} sprite_t;
 
 
 typedef struct _sprite_animation {
@@ -27,15 +31,15 @@ typedef struct _sprite_animation {
 	uint8_t current_sprite;
 	uint8_t max_sprite;
 	uint8_t cols;
-} SpriteAnimation;
+} sprite_animation_t;
 
 
-void tranform_init(Transform* transform, zindex_t zindex);
+void tranform_init(transform_t* transform, zindex_t zindex);
 
-void sprite_init(Sprite* sprite, const char* filepath);
+void sprite_init(sprite_t* sprite, const char* filepath);
 
 void sprite_animation_init(
-	SpriteAnimation* sprite_animation,
+	sprite_animation_t* sprite_animation,
 	const char* filepath,
 	uint8_t speed,
 	uint8_t cols,

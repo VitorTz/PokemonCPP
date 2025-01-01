@@ -4,8 +4,8 @@
 #include <stdint.h>
 
 
-typedef uint32_t entity_id;
-typedef uint8_t component_id;
+typedef uint32_t entity_t;
+typedef uint8_t component_t;
 typedef int8_t zindex_t;
 
 
@@ -16,7 +16,7 @@ typedef struct _iter {
 } iter_t;
 
 typedef struct _entity_pair {
-	entity_id entity;
+	entity_t entity;
 	float centery;
 } EntityPair;
 

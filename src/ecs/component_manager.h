@@ -14,9 +14,9 @@ ComponentManager* component_manager_create();
 
 void component_manager_destroy(ComponentManager* c);
 
-void component_manager_register_component(ComponentManager* c, component_id id, size_t component_size);
+void component_manager_register_component(ComponentManager* c, component_t id, size_t component_size);
 
-void* component_manager_at(ComponentManager* c, entity_id e, component_id id);
+void* component_manager_at(ComponentManager* c, entity_t e, component_t id);
 
 
 #endif // !POKE_COMPONENT_MANAGER_H

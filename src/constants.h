@@ -14,8 +14,8 @@
 // Window
 #define SCREEN_W 1280
 #define SCREEN_H 720
-#define SCREEN_CENTERX 640
-#define SCREEN_CENTERY 360
+#define SCREEN_CENTERX 640.0f
+#define SCREEN_CENTERY 360.0f
 #define WINDOW_TITLE "Pokemon"
 #define WINDOW_FPS 60
 
