@@ -14,6 +14,10 @@ typedef struct _vector {
 } Vector;
 
 
+Vector* vector_create(size_t type_size, size_t capacity);
+
+void vector_destroy(Vector* vec);
+
 void vector_init(Vector* vec, size_t type_size, size_t capacity);
 
 void vector_close(Vector* vec);

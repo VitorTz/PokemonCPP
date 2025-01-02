@@ -1,5 +1,4 @@
 #include "set.h"
-#include <math.h>
 
 
 static SetNode* set_node_create(const size_t key, const size_t type_size, const void* data) {
@@ -23,13 +22,12 @@ void set_init(Set* set, size_t type_size, size_t(*hash)(const void*)) {
 	set->size = 0;
 
 	// Set Iter
-	vector_init(&set->iter.node_arr, sizeof(SetNode), 256);
-	set->iter.begin = (SetNode*)vector_begin(&set->iter.node_arr);
-	set->iter.end = (SetNode*)vector_end(&set->iter.node_arr);
+	set->iter.node_arr = vector_create(sizeof(SetNode), 256);	
+	set->iter.begin = (SetNode*)vector_begin(set->iter.node_arr);
+	set->iter.end = (SetNode*)vector_end(set->iter.node_arr);
 }
 
-Set* set_create(const size_t type_size, size_t (*hash)(const void*)) {
-	// Set
+Set* set_create(const size_t type_size, size_t (*hash)(const void*)) {	
 	Set* set = (Set*) malloc(sizeof(Set));
 	set_init(set, type_size, hash);
 	return set;
@@ -44,8 +42,8 @@ static void set_destroy_aux(SetNode* node) {
 }
 
 void set_close(Set* set) {
-	if (set == NULL) { return; }
-	vector_close(&set->iter.node_arr);
+	if (set == NULL) { return; }	
+	vector_destroy(set->iter.node_arr);
 	set_destroy_aux(set->root);
 	set->root = NULL;
 	set->size = 0;
@@ -236,13 +234,13 @@ void set_clear(Set* set) {
 }
 
 SetIterator* set_iter(Set* set) {
-	vector_clear(&set->iter.node_arr);
-	vector_reserve(&set->iter.node_arr, set->size);
+	vector_clear(set->iter.node_arr);
+	vector_reserve(set->iter.node_arr, set->size);
 	if (set->root != NULL) {
-		vector_push_back(&set->iter.node_arr, set->root);
+		vector_push_back(set->iter.node_arr, set->root);
 	}
-	set->iter.begin = (SetNode*) vector_begin(&set->iter.node_arr);
-	set->iter.end = (SetNode*) vector_end(&set->iter.node_arr);
+	set->iter.begin = (SetNode*) vector_begin(set->iter.node_arr);
+	set->iter.end = (SetNode*) vector_end(set->iter.node_arr);
 	return &set->iter;
 }
 
@@ -252,12 +250,12 @@ void* set_iter_next(SetIterator* iter) {
 	}
 	void* data = iter->begin->data;
 	if (iter->begin->left != NULL) {
-		vector_push_back(&iter->node_arr, iter->begin->left);
+		vector_push_back(iter->node_arr, iter->begin->left);
 	}
 	if (iter->begin->right != NULL) {
-		vector_push_back(&iter->node_arr, iter->begin->right);
+		vector_push_back(iter->node_arr, iter->begin->right);
 	}
 	iter->begin++;
-	iter->end = (SetNode*) vector_end(&iter->node_arr);
+	iter->end = (SetNode*) vector_end(iter->node_arr);
 	return data;	
 }

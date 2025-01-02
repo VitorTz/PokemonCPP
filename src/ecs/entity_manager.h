@@ -6,7 +6,7 @@
 
 
 typedef struct _entity_manager {
-	Vector entities;
+	Vector* entities;
 	size_t top;
 	size_t size;
 } EntityManager;
@@ -14,15 +14,15 @@ typedef struct _entity_manager {
 
 EntityManager* entity_manager_create();
 
-void entity_manager_destroy(EntityManager* e);
+void entity_manager_destroy(EntityManager* entity_manager);
 
-entity_t entity_manager_create_entity(EntityManager* e);
+entity_t entity_manager_create_entity(EntityManager* entity_manager);
 
-void entity_manager_destroy_entity(EntityManager* e, entity_t ent);
+void entity_manager_destroy_entity(EntityManager* entity_manager, entity_t entity);
 
-void entity_manager_clear(EntityManager* e);
+void entity_manager_clear(EntityManager* entity_manager);
 
-size_t entity_manager_num_entities(EntityManager* e);
+size_t entity_manager_num_entities(EntityManager* entity_manager);
 
 
 #endif // !POKE_ENTITY_H

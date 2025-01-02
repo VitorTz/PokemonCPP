@@ -1,35 +1,42 @@
 #include "ecs.h"
 
 
-void ecs_init(ECS* ecs) {
+ECS* ecs_create() {
+	ECS* ecs = (ECS*)malloc(sizeof(ECS));
+	assert(ecs != NULL);
+
 	ecs->entity = entity_manager_create();
 	ecs->component = component_manager_create();
 	ecs->system = system_manager_create();
 	ecs->camera = camera_create();
-	vector_init(&ecs->entities_to_destroy, sizeof(entity_t), MAX_ENTITIES);
+	ecs->entities_to_destroy = vector_create(sizeof(entity_t), MAX_ENTITIES);
+	ecs->static_collisions = vector_create(sizeof(Rectangle), 1024);
 	ecs->should_destroy_all_entities = 0;
 
-	// Components
+	// Component
 	component_manager_register_component(ecs->component, TRANSFORM_ID, sizeof(EntityTransform));
 	component_manager_register_component(ecs->component, SPRITE_ID, sizeof(Sprite));
 	component_manager_register_component(ecs->component, SPRITE_ANIMATION_ID, sizeof(SpriteAnimation));
 
-	// Systems
+	// System
 	system_manager_register_system(ecs->system, TRANSFORM_ID, NULL, NULL);
 	system_manager_register_system(ecs->system, SPRITE_ID, NULL, sprite_draw);
 	system_manager_register_system(ecs->system, SPRITE_ANIMATION_ID, sprite_animation_update, sprite_animation_draw);
+
+	return ecs;
 }
 
-void ecs_close(ECS* ecs) {
+void ecs_destroy(ECS* ecs) {
 	entity_manager_destroy(ecs->entity);
 	component_manager_destroy(ecs->component);
 	system_manager_destroy(ecs->system);
 	camera_destroy(ecs->camera);
-	vector_close(&ecs->entities_to_destroy);	
+	vector_destroy(ecs->entities_to_destroy);
+	free(ecs);
 }
 
-void ecs_create_entity(ECS* ecs, const zindex_t zindex, const int should_add_to_camera) {
-	const entity_t e = entity_manager_create_entity(&ecs->entity);
+entity_t ecs_create_entity(ECS* ecs, const zindex_t zindex, const int should_add_to_camera) {
+	const entity_t e = entity_manager_create_entity(ecs->entity);
 	entity_tranform_init(ecs_get_transform(ecs, e), zindex);
 	if (should_add_to_camera) {
 		camera_insert(ecs->camera, e, zindex);
@@ -38,7 +45,7 @@ void ecs_create_entity(ECS* ecs, const zindex_t zindex, const int should_add_to_
 }
 
 void ecs_destroy_entity(ECS* ecs, const entity_t e) {
-	vector_push_back(ecs->entity, &e);
+	vector_push_back(ecs->entities_to_destroy, &e);
 }
 
 void ecs_destroy_all_entities(ECS* ecs) {
@@ -58,25 +65,42 @@ void ecs_rmv_component(ECS* ecs, const entity_t e, const component_t component_i
 	system_manager_erase(ecs->system, e, component_id);
 }
 
+void ecs_add_static_collision(ECS* ecs, const Rectangle rect) {
+	vector_push_back(ecs->static_collisions, &rect);
+}
+
+int ecs_check_static_collision(ECS* ecs, const Rectangle rect) {
+	Rectangle* begin = (Rectangle*)vector_begin(ecs->static_collisions);
+	Rectangle* end = (Rectangle*)vector_end(ecs->static_collisions);
+	for (Rectangle* p = begin; p < end; p++) {
+		if (CheckCollisionRecs(rect, *p)) {
+			return 1;
+		}
+	}
+	return 0;
+}
+
 void ecs_update(ECS* ecs, const float dt) {
-	system_manager_update(&ecs->system, dt);
+	system_manager_update(ecs->system, dt);
 
 	if (ecs->should_destroy_all_entities) {
-		ecs->should_destroy_all_entities = 0;
-		entity_manager_clear(&ecs->entity);
-		system_manager_clear(&ecs->system);
+		entity_manager_clear(ecs->entity);
+		system_manager_clear(ecs->system);
 		camera_clear(ecs->camera);
-		vector_clear(&ecs->entities_to_destroy);
+		vector_clear(ecs->entities_to_destroy);
+		ecs->should_destroy_all_entities = 0;
 	}
 
-	entity_t* begin = (entity_t*)vector_begin(&ecs->entities_to_destroy);
-	entity_t* end = (entity_t*)vector_end(&ecs->entities_to_destroy);
-	for (entity_t* p = begin; p < end; p++) {
-		camera_erase(ecs->camera, *p, ecs_get_transform(ecs, *p)->zindex);
-		entity_manager_destroy_entity(ecs->entity, *p);
-		system_manager_destroy_entity(ecs->system, *p);
+	if (ecs->entities_to_destroy->size > 0) {
+		entity_t* begin = (entity_t*) vector_begin(ecs->entities_to_destroy);
+		entity_t* end = (entity_t*) vector_end(ecs->entities_to_destroy);
+		for (entity_t* p = begin; p < end; p++) {
+			camera_erase(ecs->camera, *p, ecs_get_transform(ecs, *p)->zindex);
+			entity_manager_destroy_entity(ecs->entity, *p);
+			system_manager_destroy_entity(ecs->system, *p);
+		}
+		ecs->entities_to_destroy->size = 0;
 	}
-	vector_clear(&ecs->entities_to_destroy);
 }
 
 static int cmp_entity_pair(const void* l, const void* r) {
@@ -86,20 +110,22 @@ static int cmp_entity_pair(const void* l, const void* r) {
 	return a->centery < b->centery ? -1 : 1;	
 }
 
-void ecs_draw(ECS* ecs) {
-	for (zindex_t z = CAMERA_ZINDEX_MIN; z <= CAMERA_ZINDEX_MAX; z++) {
-		Vector* vec = ecs->camera->zindex + z;
-		EntityPair* begin = (EntityPair*)vector_begin(vec);
-		EntityPair* end = (EntityPair*)vector_end(vec);
-		for (EntityPair* p = begin; p < end; p++) {
-			const EntityTransform* transform = component_manager_at(ecs->component, p->entity, TRANSFORM_ID);
-			p->centery = transform->pos.y + transform->size.y / 2.0f;
+void ecs_draw(ECS* ecs) {	
+	camera_begin_drawing(ecs->camera);
+		for (zindex_t z = CAMERA_ZINDEX_MIN; z <= CAMERA_ZINDEX_MAX; z++) {
+			Vector* vec = ecs->camera->zindex + z;
+			EntityPair* begin = (EntityPair*) vector_begin(vec);
+			EntityPair* end = (EntityPair*) vector_end(vec);
+			for (EntityPair* p = begin; p < end; p++) {
+				const EntityTransform* transform = component_manager_at(ecs->component, p->entity, TRANSFORM_ID);
+				p->centery = transform->pos.y + transform->size.y / 2.0f;
+			}
+			qsort(begin, vec->size, sizeof(EntityPair), cmp_entity_pair);
+			system_manager_draw(ecs->system, begin, end);
 		}
-		qsort(begin, vec->size, sizeof(EntityPair), cmp_entity_pair);
-		system_manager_draw(ecs->system, begin, end);
-	}
+	camera_end_drawing();
 }
 
 EntityTransform* ecs_get_transform(ECS* ecs, const entity_t e) {
-	return component_manager_at(&ecs->component, e, TRANSFORM_ID);
+	return (EntityTransform*) component_manager_at(ecs->component, e, TRANSFORM_ID);
 }

@@ -1,10 +1,11 @@
 #include "scene.h"
 
 
-static Scene scene;
-static SceneID current_scene_id;
-static SceneID next_scene_id;
+static Scene scene = { 0 };
+static SceneID current_scene_id = MAIN_SCENE;
+static SceneID next_scene_id = MAIN_SCENE;
 static int should_change_scene = 0;
+
 
 static void load_next_scene() {
 	switch (current_scene_id) {
@@ -82,8 +83,7 @@ static void load_next_scene() {
 			break;
 	}
 	scene.init();
-	current_scene_id = next_scene_id;
-	should_change_scene = 0;
+	current_scene_id = next_scene_id;	
 }
 
 void scene_manager_init() {
@@ -101,4 +101,8 @@ void scene_manager_update(const float dt) {
 
 void scene_manager_draw() {
 	scene.draw();
+	if (should_change_scene) {
+		should_change_scene = 0;
+		load_next_scene();
+	}
 }

@@ -9,7 +9,7 @@ void texture_pool_init() {
 }
 
 void texture_pool_close() {
-	map_iterator_t* iter = map_iter(pool);
+	MapIterator* iter = map_iter(pool);
 	Texture2D* t;
 	while ((t = (Texture2D*)map_iter_next(iter)) != NULL) {
 		UnloadTexture(*t);
@@ -36,7 +36,7 @@ void texture_pool_erase(const char* filepath) {
 }
 
 void texture_pool_clear() {
-	map_iterator_t* iter = map_iter(pool);
+	MapIterator* iter = map_iter(pool);
 	Texture2D* t;
 	while ((t = (Texture2D*) map_iter_next(iter)) != NULL) {
 		UnloadTexture(*t);

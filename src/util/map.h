@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
+#include <math.h>
 #include "vector.h"
 
 
@@ -16,7 +17,7 @@ typedef struct _map_node {
 } MapNode;
 
 typedef struct _map_iterator {
-	Vector node_arr;
+	Vector* node_arr;
 	MapNode* begin;
 	MapNode* end;
 } MapIterator;
@@ -24,7 +25,7 @@ typedef struct _map_iterator {
 
 typedef struct _map {
 	MapNode* root;	
-	size_t(*hash)(const void*);
+	size_t (*hash)(const void*);
 	size_t type_size;
 	size_t size;
 	MapIterator iter;

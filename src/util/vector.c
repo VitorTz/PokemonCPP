@@ -14,6 +14,19 @@ void vector_close(Vector* vec) {
 	free(vec->data);
 }
 
+Vector* vector_create(const size_t type_size, const size_t capacity) {
+	Vector* vec = (Vector*)malloc(sizeof(Vector));
+	assert(vec != NULL);
+	vector_init(vec, type_size, capacity);
+	return vec;
+}
+
+void vector_destroy(Vector* vec) {
+	if (vec == NULL) { return; }
+	vector_close(vec);
+	free(vec);
+}
+
 void vector_reserve(Vector* vec, const size_t new_capacity) {
 	if (new_capacity > vec->capacity) {
 		void* tmp = realloc(vec->data, vec->type_size * new_capacity);
@@ -106,8 +119,8 @@ void vector_clear(Vector* vec) {
 	vec->size = 0;
 }
 
-iter_t vector_iter(Vector* vec) {
-	const iter_t iter = {
+Iterator vector_iter(Vector* vec) {
+	const Iterator iter = {
 		vec->data,
 		vec->data + vec->type_size * vec->size,
 		vec->type_size

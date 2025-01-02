@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
+#include <math.h>
 #include "vector.h"
 
 
@@ -17,7 +18,7 @@ typedef struct _set_node {
 
 
 typedef struct _set_iterator {
-	Vector node_arr;
+	Vector* node_arr;
 	SetNode* begin;
 	SetNode* end;
 } SetIterator;

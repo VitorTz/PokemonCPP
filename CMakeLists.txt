@@ -27,7 +27,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raylib)
 
 # Add source to this project's executable.
-add_executable (PokemonC "src/main.c" "src/constants.h" "src/util/types.h" "src/util/vector.h" "src/util/vector.c" "src/util/hash.h" "src/util/hash.c"   "src/util/set.h" "src/util/set.c" "src/util/util.h" "src/util/util.c" "src/util/map.h" "src/util/map.c" "src/util/texture_pool.h" "src/util/texture_pool.c" "src/ecs/entity_manager.h" "src/ecs/entity_manager.c" "src/ecs/component_manager.h" "src/ecs/components.h" "src/ecs/component_manager.c" "src/ecs/system_manager.h" "src/ecs/system.h" "src/ecs/system_manager.c" "src/ecs/ecs.h" "src/ecs/ecs.c" "src/ecs/components.c" "src/util/camera.h" "src/util/camera.c" "src/ecs/ecs_manager.h" "src/ecs/ecs_manager.c" "src/scene/scene.h" "src/scene/scene.c")
+add_executable (PokemonC "src/main.c" "src/constants.h" "src/util/types.h" "src/util/vector.h" "src/util/vector.c" "src/util/hash.h" "src/util/hash.c"   "src/util/set.h" "src/util/set.c" "src/util/util.h" "src/util/util.c" "src/util/map.h" "src/util/map.c" "src/util/texture_pool.h" "src/util/texture_pool.c" "src/ecs/entity_manager.h" "src/ecs/entity_manager.c" "src/ecs/component_manager.h" "src/ecs/components.h" "src/ecs/component_manager.c" "src/ecs/system_manager.h" "src/ecs/system.h" "src/ecs/system_manager.c" "src/ecs/ecs.h" "src/ecs/ecs.c" "src/ecs/components.c" "src/util/camera.h" "src/util/camera.c" "src/ecs/ecs_manager.h" "src/ecs/ecs_manager.c" "src/scene/scene.h" "src/scene/scene.c" "src/scene/world.c" "src/scene/title_screen.c" "src/scene/fire_arena.c" "src/scene/water_arena.c" "src/scene/plant_arena.c" "src/scene/hospital.c" "src/scene/house.c" "src/scene/test_scene.c" "src/ecs/system.c")
 
 
 add_custom_command(

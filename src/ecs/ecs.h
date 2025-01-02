@@ -12,15 +12,16 @@ typedef struct _ecs {
 	ComponentManager* component;
 	SystemManager* system;
 	PokeCamera* camera;
-	Vector entities_to_destroy;
+	Vector* entities_to_destroy;
+	Vector* static_collisions;
 	int should_destroy_all_entities;
 } ECS;
 
-void ecs_init(ECS* ecs);
+ECS* ecs_create();
 
-void ecs_close(ECS* ecs);
+void ecs_destroy(ECS* ecs);
 
-void ecs_create_entity(ECS* ecs, zindex_t zindex, int should_all_to_camera);
+entity_t ecs_create_entity(ECS* ecs, zindex_t zindex, int should_all_to_camera);
 
 void ecs_destroy_entity(ECS* ecs, entity_t e);
 
@@ -31,6 +32,10 @@ void* ecs_add_component(ECS* ecs, entity_t e, component_t component_id);
 void* ecs_get_component(ECS* ecs, entity_t e, component_t component_id);
 
 void ecs_rmv_component(ECS* ecs, entity_t e, component_t component_id);
+
+void ecs_add_static_collision(ECS* ecs, Rectangle rect);
+
+int ecs_check_static_collision(ECS* ecs, Rectangle rect);
 
 void ecs_update(ECS* ecs, float dt);
 
