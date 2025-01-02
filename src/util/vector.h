@@ -44,7 +44,7 @@ void vector_pop_front(Vector* vec, void* dst);
 
 void vector_clear(Vector* vec);
 
-iter_t vector_iter(Vector* vec);
+Iterator vector_iter(Vector* vec);
 
 
 #endif // !POKE_VECTOR_H

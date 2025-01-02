@@ -10,9 +10,9 @@ void ecs_init(ECS* ecs) {
 	ecs->should_destroy_all_entities = 0;
 
 	// Components
-	component_manager_register_component(ecs->component, TRANSFORM_ID, sizeof(transform_t));
-	component_manager_register_component(ecs->component, SPRITE_ID, sizeof(sprite_t));
-	component_manager_register_component(ecs->component, SPRITE_ANIMATION_ID, sizeof(sprite_animation_t));
+	component_manager_register_component(ecs->component, TRANSFORM_ID, sizeof(EntityTransform));
+	component_manager_register_component(ecs->component, SPRITE_ID, sizeof(Sprite));
+	component_manager_register_component(ecs->component, SPRITE_ANIMATION_ID, sizeof(SpriteAnimation));
 
 	// Systems
 	system_manager_register_system(ecs->system, TRANSFORM_ID, NULL, NULL);
@@ -30,7 +30,7 @@ void ecs_close(ECS* ecs) {
 
 void ecs_create_entity(ECS* ecs, const zindex_t zindex, const int should_add_to_camera) {
 	const entity_t e = entity_manager_create_entity(&ecs->entity);
-	tranform_init(ecs_get_transform(ecs, e), zindex);
+	entity_tranform_init(ecs_get_transform(ecs, e), zindex);
 	if (should_add_to_camera) {
 		camera_insert(ecs->camera, e, zindex);
 	}
@@ -45,17 +45,17 @@ void ecs_destroy_all_entities(ECS* ecs) {
 	ecs->should_destroy_all_entities = 1;
 }
 
-void* ecs_add_component(ECS* ecs, const entity_t e, const component_t id) {
-	system_manager_insert(ecs->system, e, id);
-	return component_manager_at(ecs->component, e, id);
+void* ecs_add_component(ECS* ecs, const entity_t e, const component_t component_id) {
+	system_manager_insert(ecs->system, e, component_id);
+	return component_manager_at(ecs->component, e, component_id);
 }
 
-void* ecs_get_component(ECS* ecs, const entity_t e, const component_t id) {
-	return component_manager_at(ecs->component, e, id);
+void* ecs_get_component(ECS* ecs, const entity_t e, const component_t component_id) {
+	return component_manager_at(ecs->component, e, component_id);
 }
 
-void ecs_rmv_component(ECS* ecs, const entity_t e, const component_t id) {	
-	system_manager_erase(ecs->system, e, id);
+void ecs_rmv_component(ECS* ecs, const entity_t e, const component_t component_id) {
+	system_manager_erase(ecs->system, e, component_id);
 }
 
 void ecs_update(ECS* ecs, const float dt) {
@@ -92,7 +92,7 @@ void ecs_draw(ECS* ecs) {
 		EntityPair* begin = (EntityPair*)vector_begin(vec);
 		EntityPair* end = (EntityPair*)vector_end(vec);
 		for (EntityPair* p = begin; p < end; p++) {
-			const transform_t* transform = component_manager_at(ecs->component, p->entity, TRANSFORM_ID);
+			const EntityTransform* transform = component_manager_at(ecs->component, p->entity, TRANSFORM_ID);
 			p->centery = transform->pos.y + transform->size.y / 2.0f;
 		}
 		qsort(begin, vec->size, sizeof(EntityPair), cmp_entity_pair);
@@ -100,6 +100,6 @@ void ecs_draw(ECS* ecs) {
 	}
 }
 
-transform_t* ecs_get_transform(ECS* ecs, const entity_t e) {
+EntityTransform* ecs_get_transform(ECS* ecs, const entity_t e) {
 	return component_manager_at(&ecs->component, e, TRANSFORM_ID);
 }

@@ -26,17 +26,17 @@ void ecs_destroy_entity(ECS* ecs, entity_t e);
 
 void ecs_destroy_all_entities(ECS* ecs);
 
-void* ecs_add_component(ECS* ecs, entity_t e, component_t id);
+void* ecs_add_component(ECS* ecs, entity_t e, component_t component_id);
 
-void* ecs_get_component(ECS* ecs, entity_t e, component_t id);
+void* ecs_get_component(ECS* ecs, entity_t e, component_t component_id);
 
-void ecs_rmv_component(ECS* ecs, entity_t e, component_t id);
+void ecs_rmv_component(ECS* ecs, entity_t e, component_t component_id);
 
 void ecs_update(ECS* ecs, float dt);
 
 void ecs_draw(ECS* ecs);
 
-transform_t* ecs_get_transform(ECS* ecs, entity_t e);
+EntityTransform* ecs_get_transform(ECS* ecs, entity_t e);
 
 
 #endif // !POKE_ECS_H

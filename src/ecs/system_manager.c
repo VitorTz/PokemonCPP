@@ -20,7 +20,7 @@ SystemManager* system_manager_create() {
 void system_manager_register_system(
 	SystemManager* s,
 	component_t id,
-	void (*update)(set_iterator_t*, float),
+	void (*update)(SetIterator*, float),
 	void (*draw)(entity_t)
 ) {
 	s->system[id] = (System){ update, draw };
@@ -40,16 +40,16 @@ void system_manager_destroy(SystemManager* s) {
 	free(s);
 }
 
-void system_manager_insert(SystemManager* s, const entity_t e, const component_t id) {
-	set_insert(s->entities + id, &e);
-	if (s->is_drawable_component[id]) {
-		set_insert(s->drawable_components + e, &id);
+void system_manager_insert(SystemManager* s, const entity_t e, const component_t component_id) {
+	set_insert(s->entities + component_id, &e);
+	if (s->is_drawable_component[component_id]) {
+		set_insert(s->drawable_components + e, &component_id);
 	}
 }
 
-void system_manager_erase(SystemManager* s, const entity_t e, const component_t id) {
-	set_erase(s->entities + id, &e);
-	set_erase(s->drawable_components + e, &id);
+void system_manager_erase(SystemManager* s, const entity_t e, const component_t component_id) {
+	set_erase(s->entities + component_id, &e);
+	set_erase(s->drawable_components + e, &component_id);
 }
 
 void system_manager_destroy_entity(SystemManager* s, entity_t e) {
@@ -65,7 +65,7 @@ void system_manager_update(SystemManager* s, const float dt) {
 
 void system_manager_draw(SystemManager* s, EntityPair* begin, EntityPair* end) {
 	for (EntityPair* p = begin; p < end; p++) {
-		set_iterator_t* iter = set_iter(s->drawable_components + p->entity);
+		SetIterator* iter = set_iter(s->drawable_components + p->entity);
 		component_t* id;
 		while ((id = (component_t*)set_iter_next(iter)) != NULL) {
 			s->system[*id].draw(p->entity);

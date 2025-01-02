@@ -13,21 +13,21 @@ typedef struct _set_node {
 	size_t key;	
 	void* data;
 	int height;
-} set_node_t;
+} SetNode;
 
 
 typedef struct _set_iterator {
 	Vector node_arr;
-	set_node_t* begin;
-	set_node_t* end;
-} set_iterator_t;
+	SetNode* begin;
+	SetNode* end;
+} SetIterator;
 
 typedef struct _set {
-	set_node_t* root;
+	SetNode* root;
 	size_t(*hash)(const void*);
 	size_t type_size;	
 	size_t size;
-	set_iterator_t iter;
+	SetIterator iter;
 } Set;
 
 
@@ -45,9 +45,9 @@ void set_erase(Set* s, const void* key);
 
 void set_clear(Set* s);
 
-set_iterator_t* set_iter(Set* s);
+SetIterator* set_iter(Set* s);
 
-void* set_iter_next(set_iterator_t* iter);
+void* set_iter_next(SetIterator* iter);
 
 
 #endif // !POKE_SET_H

@@ -2,8 +2,8 @@
 #include <math.h>
 
 
-static set_node_t* set_node_create(const size_t key, const size_t type_size, const void* data) {
-	set_node_t* node = (set_node_t*) malloc(sizeof(set_node_t));
+static SetNode* set_node_create(const size_t key, const size_t type_size, const void* data) {
+	SetNode* node = (SetNode*) malloc(sizeof(SetNode));
 	assert(node != NULL);
 
 	node->data = malloc(type_size);
@@ -23,9 +23,9 @@ void set_init(Set* set, size_t type_size, size_t(*hash)(const void*)) {
 	set->size = 0;
 
 	// Set Iter
-	vector_init(&set->iter.node_arr, sizeof(set_node_t), 256);
-	set->iter.begin = (set_node_t*)vector_begin(&set->iter.node_arr);
-	set->iter.end = (set_node_t*)vector_end(&set->iter.node_arr);
+	vector_init(&set->iter.node_arr, sizeof(SetNode), 256);
+	set->iter.begin = (SetNode*)vector_begin(&set->iter.node_arr);
+	set->iter.end = (SetNode*)vector_end(&set->iter.node_arr);
 }
 
 Set* set_create(const size_t type_size, size_t (*hash)(const void*)) {
@@ -35,7 +35,7 @@ Set* set_create(const size_t type_size, size_t (*hash)(const void*)) {
 	return set;
 }
 
-static void set_destroy_aux(set_node_t* node) {
+static void set_destroy_aux(SetNode* node) {
 	if (node == NULL) { return; }
 	set_destroy_aux(node->left);
 	set_destroy_aux(node->right);
@@ -57,14 +57,14 @@ void set_destroy(Set* set) {
 	free(set);
 }
 
-inline static int set_height(set_node_t* node) {
+inline static int set_height(SetNode* node) {
 	if (node == NULL) return 0;
 	else return node->height;
 }
 
-static set_node_t* set_right_rotate(set_node_t* y) {
-	set_node_t* x = y->left;
-	set_node_t* T2 = x->right;
+static SetNode* set_right_rotate(SetNode* y) {
+	SetNode* x = y->left;
+	SetNode* T2 = x->right;
 	
 	x->right = y;
 	y->left = T2;
@@ -75,9 +75,9 @@ static set_node_t* set_right_rotate(set_node_t* y) {
 	return x;
 }
 
-static set_node_t* set_left_rotate(set_node_t* x) {
-	set_node_t* y = x->right;
-	set_node_t* T2 = y->left;
+static SetNode* set_left_rotate(SetNode* x) {
+	SetNode* y = x->right;
+	SetNode* T2 = y->left;
 
 	y->left = x;
 	x->right = T2;
@@ -89,12 +89,12 @@ static set_node_t* set_left_rotate(set_node_t* x) {
 }
 
 
-inline static int set_get_balance(set_node_t* node) {
+inline static int set_get_balance(SetNode* node) {
 	if (node == NULL) return 0;
 	else return set_height(node->left) - set_height(node->right);	
 }
 
-static set_node_t* set_insert_aux(Set* set, set_node_t* node, const size_t key, const void* data) {	
+static SetNode* set_insert_aux(Set* set, SetNode* node, const size_t key, const void* data) {	
 	if (node == NULL) { 
 		set->size++;
 		return set_node_create(key, set->type_size, data);
@@ -143,14 +143,14 @@ void set_insert(Set* set, const void* key) {
 	set->root = set_insert_aux(set, set->root, set->hash(key), key);
 }
 
-inline static set_node_t* set_min_left_subtree(set_node_t* node) {
-	set_node_t* aux = node;
+inline static SetNode* set_min_left_subtree(SetNode* node) {
+	SetNode* aux = node;
 	while (aux->left != NULL)
 		aux = aux->left;
 	return aux;
 }
 
-static set_node_t* set_erase_aux(Set* set, set_node_t* node, const size_t hash) {
+static SetNode* set_erase_aux(Set* set, SetNode* node, const size_t hash) {
 	if (node == NULL) {
 		return node;
 	}
@@ -163,21 +163,21 @@ static set_node_t* set_erase_aux(Set* set, set_node_t* node, const size_t hash) 
 			return NULL;
 		} 
 		else if (node->left == NULL) {
-			set_node_t* tmp = node->right;
+			SetNode* tmp = node->right;
 			free(node->data);
 			free(node);
 			set->size--;
 			return tmp;
 		}
 		else if (node->right == NULL) {
-			set_node_t* tmp = node->left;
+			SetNode* tmp = node->left;
 			free(node->data);
 			free(node);
 			set->size--;
 			return tmp;
 		}
 		else {
-			set_node_t* tmp = set_min_left_subtree(node->right);			
+			SetNode* tmp = set_min_left_subtree(node->right);			
 			
 			node->key = tmp->key;
 			memcpy(node->data, tmp->data, set->type_size);
@@ -220,7 +220,7 @@ void set_erase(Set* set, const void* key) {
 	set->root = set_erase_aux(set, set->root, set->hash(key));
 }
 
-static void set_clear_aux(set_node_t* node) {
+static void set_clear_aux(SetNode* node) {
 	if (node == NULL) { return; }
 	set_clear_aux(node->left);
 	set_clear_aux(node->right);
@@ -235,18 +235,18 @@ void set_clear(Set* set) {
 	set->size = 0;
 }
 
-set_iterator_t* set_iter(Set* set) {
+SetIterator* set_iter(Set* set) {
 	vector_clear(&set->iter.node_arr);
 	vector_reserve(&set->iter.node_arr, set->size);
 	if (set->root != NULL) {
 		vector_push_back(&set->iter.node_arr, set->root);
 	}
-	set->iter.begin = (set_node_t*) vector_begin(&set->iter.node_arr);
-	set->iter.end = (set_node_t*) vector_end(&set->iter.node_arr);
+	set->iter.begin = (SetNode*) vector_begin(&set->iter.node_arr);
+	set->iter.end = (SetNode*) vector_end(&set->iter.node_arr);
 	return &set->iter;
 }
 
-void* set_iter_next(set_iterator_t* iter) {		
+void* set_iter_next(SetIterator* iter) {		
 	if (iter->begin >= iter->end) {
 		return NULL;
 	}
@@ -258,6 +258,6 @@ void* set_iter_next(set_iterator_t* iter) {
 		vector_push_back(&iter->node_arr, iter->begin->right);
 	}
 	iter->begin++;
-	iter->end = (set_node_t*) vector_end(&iter->node_arr);
+	iter->end = (SetNode*) vector_end(&iter->node_arr);
 	return data;	
 }

@@ -24,13 +24,13 @@ void system_manager_destroy(SystemManager* s);
 void system_manager_register_system(
 	SystemManager* s, 
 	component_t id,
-	void (*update)(set_iterator_t*, float),
+	void (*update)(SetIterator*, float),
 	void (*draw)(entity_t)
 );
 
-void system_manager_insert(SystemManager* s, entity_t e, component_t id);
+void system_manager_insert(SystemManager* s, entity_t e, component_t component_id);
 
-void system_manager_erase(SystemManager* s, entity_t e, component_t id);
+void system_manager_erase(SystemManager* s, entity_t e, component_t component_id);
 
 void system_manager_destroy_entity(SystemManager* s, entity_t e);
 

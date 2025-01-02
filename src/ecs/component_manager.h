@@ -1,5 +1,6 @@
 #ifndef POKE_COMPONENT_MANAGER_H
 #define POKE_COMPONENT_MANAGER_H
+#include <assert.h>
 #include "components.h"
 #include "../constants.h"
 #include "../util/vector.h"
@@ -14,9 +15,9 @@ ComponentManager* component_manager_create();
 
 void component_manager_destroy(ComponentManager* c);
 
-void component_manager_register_component(ComponentManager* c, component_t id, size_t component_size);
+void component_manager_register_component(ComponentManager* c, component_t component_id, size_t component_size);
 
-void* component_manager_at(ComponentManager* c, entity_t e, component_t id);
+void* component_manager_at(ComponentManager* c, entity_t e, component_t component_id);
 
 
 #endif // !POKE_COMPONENT_MANAGER_H

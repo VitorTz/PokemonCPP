@@ -13,7 +13,7 @@ typedef struct _iter {
 	char* begin;
 	char* end;
 	size_t step;
-} iter_t;
+} Iterator;
 
 typedef struct _entity_pair {
 	entity_t entity;

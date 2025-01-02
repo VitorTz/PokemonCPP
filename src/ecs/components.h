@@ -16,11 +16,11 @@ typedef struct _transform {
 	Vector2 pos;
 	Vector2 size;
 	zindex_t zindex;
-} transform_t;
+} EntityTransform;
 
 typedef struct _sprite {
 	Texture2D* texture;
-} sprite_t;
+} Sprite;
 
 
 typedef struct _sprite_animation {
@@ -31,15 +31,15 @@ typedef struct _sprite_animation {
 	uint8_t current_sprite;
 	uint8_t max_sprite;
 	uint8_t cols;
-} sprite_animation_t;
+} SpriteAnimation;
 
 
-void tranform_init(transform_t* transform, zindex_t zindex);
+void entity_tranform_init(EntityTransform* transform, zindex_t zindex);
 
-void sprite_init(sprite_t* sprite, const char* filepath);
+void sprite_init(Sprite* sprite, const char* filepath);
 
 void sprite_animation_init(
-	sprite_animation_t* sprite_animation,
+	SpriteAnimation* sprite_animation,
 	const char* filepath,
 	uint8_t speed,
 	uint8_t cols,

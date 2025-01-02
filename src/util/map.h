@@ -13,21 +13,21 @@ typedef struct _map_node {
 	size_t key;	
 	void* data;
 	int height;
-} map_node_t;
+} MapNode;
 
 typedef struct _map_iterator {
 	Vector node_arr;
-	map_node_t* begin;
-	map_node_t* end;
-} map_iterator_t;
+	MapNode* begin;
+	MapNode* end;
+} MapIterator;
 
 
 typedef struct _map {
-	map_node_t* root;	
+	MapNode* root;	
 	size_t(*hash)(const void*);
 	size_t type_size;
 	size_t size;
-	map_iterator_t iter;
+	MapIterator iter;
 } Map;
 
 
@@ -45,9 +45,9 @@ void map_erase(Map* map, const void* key);
 
 void map_clear(Map* map);
 
-map_iterator_t* map_iter(Map* map);
+MapIterator* map_iter(Map* map);
 
-void* map_iter_next(map_iterator_t* iter);
+void* map_iter_next(MapIterator* iter);
 
 
 #endif // !POKE_MAP_H
