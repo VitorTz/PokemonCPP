@@ -17,6 +17,8 @@ PokeCamera* camera_create() {
 	for (int i = 0; i < MAX_ENTITIES; i++) {
 		camera->is_on_camera[i] = 0;
 	}
+	camera->horizontal_limit = (Vector2){ -SCREEN_W, SCREEN_W };
+	camera->vertical_limit = (Vector2){ -SCREEN_H, SCREEN_H };
 	camera->size = 0;
 	return camera;
 }
@@ -80,9 +82,13 @@ void camera_set_zoom(PokeCamera* camera, const float zoom) {
 	);
 }
 
+void camera_handle_zoom(PokeCamera* camera, const float dt) {
+	camera_add_zoom(camera, GetMouseWheelMove() * 2.0f * dt);
+}
+
 void camera_set_target(PokeCamera* camera, const float x, const float y) {
-	camera->camera2D.target.x = x;
-	camera->camera2D.target.y = y;
+	camera->camera2D.target.x = Clamp(x, camera->horizontal_limit.x, camera->horizontal_limit.y);
+	camera->camera2D.target.y = Clamp(y, camera->vertical_limit.x, camera->vertical_limit.y);
 }
 
 void camera_begin_drawing(PokeCamera* camera) {
@@ -91,4 +97,14 @@ void camera_begin_drawing(PokeCamera* camera) {
 
 void camera_end_drawing() {
 	EndMode2D();
+}
+
+void camera_set_horizontal_limit(PokeCamera* camera, const float min_left, const float max_right) {
+	camera->horizontal_limit.x = min_left;
+	camera->horizontal_limit.y = max_right;
+}
+
+void camera_set_vertical_limit(PokeCamera* camera, const float min_top, const float min_bottom) {
+	camera->vertical_limit.x = min_top;
+	camera->vertical_limit.y = min_bottom;
 }

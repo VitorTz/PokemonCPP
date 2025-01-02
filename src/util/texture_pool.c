@@ -22,7 +22,7 @@ Texture2D* texture_pool_get(const char* filepath) {
 	if (t == NULL) {
 		const Texture2D new_texture = LoadTexture(filepath);
 		map_insert(pool, filepath, &new_texture);
-		t = (Texture2D*)map_at(pool, filepath);
+		t = (Texture2D*) map_at(pool, filepath);
 	}
 	return t;
 }

@@ -14,7 +14,7 @@ int main() {
 
 	texture_pool_init();
 	ecs_manager_init();
-	scene_manager_init();
+	scene_manager_init();	
 
 	while (!WindowShouldClose()) {
 		scene_manager_update(GetFrameTime());
@@ -35,11 +35,13 @@ int main() {
 
 
 static void debug() {
-	ECS* ecs = ecs_manager_get_ecs_instance();
+	ECS* ecs = ecs_manager_get_current_ecs_instance();
+	if (ecs == NULL) { return; }
 	const int y = 10;
 	const int y_offset = 18;
 
 	DrawFPS(10, y);
+
 	DrawText(
 		TextFormat("ENTITIES: %d", ecs->entity->size),
 		10,
@@ -57,7 +59,7 @@ static void debug() {
 	);
 
 	DrawText(
-		TextFormat("CAMERA ZOOM: %.2f, %.2f", ecs->camera->camera2D.zoom),
+		TextFormat("CAMERA ZOOM: %.2f", ecs->camera->camera2D.zoom),
 		10,
 		y + y_offset * 3,
 		16,

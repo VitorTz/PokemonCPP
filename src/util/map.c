@@ -13,8 +13,7 @@ Map* map_create(size_t type_size, size_t(*hash)(const void*)) {
 	// Map Iter
 	map->iter.node_arr = vector_create(sizeof(MapNode), 256);	
 	map->iter.begin = (MapNode*)vector_begin(map->iter.node_arr);
-	map->iter.end = (MapNode*)vector_end(map->iter.node_arr);
-	map->iter.size = 0;
+	map->iter.end = (MapNode*)vector_end(map->iter.node_arr);	
 	return map;
 }
 
@@ -144,15 +143,12 @@ void* map_at(Map* map, const void* key) {
 	MapNode* node = map->root;
 
 	while (node != NULL) {		
-		if (hash < node->key) {
-			node = node->left;
-		} 
-		else if (node->key > hash) {
+		if (hash < node->key)
+			node = node->left;		
+		else if (hash > node->key)
 			node = node->right;
-		}
-		else {
+		else 
 			return node->data;
-		}
 	}
 	return NULL;
 }
@@ -267,8 +263,7 @@ MapIterator* map_iter(Map* map) {
 		vector_push_back(map->iter.node_arr, map->root);
 	}
 	map->iter.begin = (MapNode*)vector_begin(map->iter.node_arr);
-	map->iter.end = (MapNode*)vector_end(map->iter.node_arr);
-	map->iter.size = map->size;
+	map->iter.end = (MapNode*)vector_end(map->iter.node_arr);	
 	return &map->iter;
 }
 

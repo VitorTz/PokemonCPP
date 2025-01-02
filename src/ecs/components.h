@@ -4,12 +4,12 @@
 #include "../util/types.h"
 
 
-#define NUM_COMPONENTS 3
-#define NUM_DRAWABLE_COMPONENTS 2
+#define NUM_COMPONENTS 4
 
 #define TRANSFORM_ID 0
 #define SPRITE_ID 1
 #define SPRITE_ANIMATION_ID 2
+#define SHADOW_ID 3
 
 
 typedef struct _transform {
@@ -20,6 +20,7 @@ typedef struct _transform {
 
 typedef struct _sprite {
 	Texture2D* texture;
+	Vector2 size;
 } Sprite;
 
 
@@ -34,6 +35,12 @@ typedef struct _sprite_animation {
 } SpriteAnimation;
 
 
+typedef struct _shadow {
+	Sprite sprite;	
+	Vector2 offset;
+} Shadow;
+
+
 void entity_tranform_init(EntityTransform* transform, zindex_t zindex);
 
 void sprite_init(Sprite* sprite, const char* filepath);
@@ -45,6 +52,8 @@ void sprite_animation_init(
 	uint8_t cols,
 	uint8_t rows
 );
+
+void shadow_init(Shadow* shadow, Vector2 offset, const char* filepath);
 
 
 #endif // !POKE_COMPONENTS_H

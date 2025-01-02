@@ -10,6 +10,10 @@ void entity_tranform_init(EntityTransform* transform, const zindex_t zindex) {
 
 void sprite_init(Sprite* sprite, const char* filepath) {
 	sprite->texture = texture_pool_get(filepath);
+	sprite->size = (Vector2) {
+		(float) sprite->texture->width,
+		(float) sprite->texture->height
+	};
 }
 
 void sprite_animation_init(
@@ -31,4 +35,10 @@ void sprite_animation_init(
 	sprite->current_sprite = 0;
 	sprite->max_sprite = rows * cols;
 	sprite->cols = cols;
+}
+
+void shadow_init(Shadow* shadow, const Vector2 offset, const char* filepath) {
+	sprite_init(&shadow->sprite, filepath);	
+	shadow->offset.x = offset.x - shadow->sprite.size.x / 2.0f;;
+	shadow->offset.y = offset.y - shadow->sprite.size.y / 2.0f;;
 }

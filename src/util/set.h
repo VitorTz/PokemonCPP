@@ -20,8 +20,7 @@ typedef struct _set_node {
 typedef struct _set_iterator {
 	Vector* node_arr;
 	SetNode* begin;
-	SetNode* end;
-	size_t size;
+	SetNode* end;	
 } SetIterator;
 
 typedef struct _set {

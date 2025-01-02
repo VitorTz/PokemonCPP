@@ -10,6 +10,7 @@
 #define ICONS_PATH "./resources/graphics/icons/"
 #define MONSTERS_PATH "./resources/graphics/monsters/"
 #define CHARACTERS_PATH "./resources/graphics/characters/"
+#define MAPS_PATH "./resources/data/maps/"
 
 // Window
 #define SCREEN_W 1280
@@ -29,7 +30,7 @@
 #define POKE_DOWN_KEY KEY_S
 
 // Scenes
-#define MAIN_SCENE TestScene1ID
+#define MAIN_SCENE TestScene3ID
 #define  SCENE_TRANSITION_TIME 1.0f
 
 // ECS

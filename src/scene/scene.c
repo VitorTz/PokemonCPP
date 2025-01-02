@@ -8,7 +8,7 @@ static int should_change_scene = 0;
 
 
 static void load_next_scene() {
-	switch (current_scene_id) {
+	switch (next_scene_id) {
 		case TitleScreenID:
 			scene = (Scene){
 				scene_title_screen_init,
@@ -91,8 +91,10 @@ void scene_manager_init() {
 }
 
 void scene_manager_change_scene(const SceneID scene_id) {
-	should_change_scene = 1;
-	next_scene_id = scene_id;
+	if (scene_id != current_scene_id) {
+		should_change_scene = 1;
+		next_scene_id = scene_id;
+	}
 }
 
 void scene_manager_update(const float dt) {
