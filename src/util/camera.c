@@ -17,6 +17,7 @@ PokeCamera* camera_create() {
 	for (int i = 0; i < MAX_ENTITIES; i++) {
 		camera->is_on_camera[i] = 0;
 	}
+	camera->size = 0;
 	return camera;
 }
 

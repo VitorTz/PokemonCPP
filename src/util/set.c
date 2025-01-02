@@ -25,6 +25,7 @@ void set_init(Set* set, size_t type_size, size_t(*hash)(const void*)) {
 	set->iter.node_arr = vector_create(sizeof(SetNode), 256);	
 	set->iter.begin = (SetNode*)vector_begin(set->iter.node_arr);
 	set->iter.end = (SetNode*)vector_end(set->iter.node_arr);
+	set->iter.size = 0;
 }
 
 Set* set_create(const size_t type_size, size_t (*hash)(const void*)) {	
@@ -241,6 +242,7 @@ SetIterator* set_iter(Set* set) {
 	}
 	set->iter.begin = (SetNode*) vector_begin(set->iter.node_arr);
 	set->iter.end = (SetNode*) vector_end(set->iter.node_arr);
+	set->iter.size = set->size;
 	return &set->iter;
 }
 

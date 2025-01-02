@@ -2,18 +2,17 @@
 #include "../util/hash.h"
 
 
-
 SystemManager* system_manager_create() {
 	SystemManager* system_manager = (SystemManager*)malloc(sizeof(SystemManager));
 	assert(system_manager != NULL);
 	
 	for (int i = 0; i < NUM_COMPONENTS; i++) {
-		set_init(system_manager->entities + i, sizeof(entity_t), hash_component_id);
+		set_init(system_manager->entities + i, sizeof(entity_t), hash_entity_id);
 		system_manager->is_drawable_component[i] = 0;
 	}
 
 	for (int i = 0; i < MAX_ENTITIES; i++) {
-		set_init(system_manager->drawable_components + i, sizeof(component_t), hash_entity_id);
+		set_init(system_manager->drawable_components + i, sizeof(component_t), hash_component_id);
 	}
 	return system_manager;
 }
@@ -41,7 +40,7 @@ void system_manager_destroy(SystemManager* system_manager) {
 	free(system_manager);
 }
 
-void system_manager_insert(SystemManager* system_manager, const entity_t entity, const component_t component_id) {
+void system_manager_insert(SystemManager* system_manager, const entity_t entity, const component_t component_id) {	
 	set_insert(system_manager->entities + component_id, &entity);
 	if (system_manager->is_drawable_component[component_id]) {
 		set_insert(system_manager->drawable_components + entity, &component_id);

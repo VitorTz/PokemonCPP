@@ -14,6 +14,7 @@ Map* map_create(size_t type_size, size_t(*hash)(const void*)) {
 	map->iter.node_arr = vector_create(sizeof(MapNode), 256);	
 	map->iter.begin = (MapNode*)vector_begin(map->iter.node_arr);
 	map->iter.end = (MapNode*)vector_end(map->iter.node_arr);
+	map->iter.size = 0;
 	return map;
 }
 
@@ -267,6 +268,7 @@ MapIterator* map_iter(Map* map) {
 	}
 	map->iter.begin = (MapNode*)vector_begin(map->iter.node_arr);
 	map->iter.end = (MapNode*)vector_end(map->iter.node_arr);
+	map->iter.size = map->size;
 	return &map->iter;
 }
 

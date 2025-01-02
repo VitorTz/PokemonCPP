@@ -1,7 +1,8 @@
 #include "ecs.h"
+#include "ecs_manager.h"
 
 
-ECS* ecs_create() {
+ECS* ecs_create(const SceneID scene_id) {
 	ECS* ecs = (ECS*)malloc(sizeof(ECS));
 	assert(ecs != NULL);
 
@@ -12,6 +13,7 @@ ECS* ecs_create() {
 	ecs->entities_to_destroy = vector_create(sizeof(entity_t), MAX_ENTITIES);
 	ecs->static_collisions = vector_create(sizeof(Rectangle), 1024);
 	ecs->should_destroy_all_entities = 0;
+	ecs->scene_id = scene_id;
 
 	// Component
 	component_manager_register_component(ecs->component, TRANSFORM_ID, sizeof(EntityTransform));
@@ -41,6 +43,19 @@ entity_t ecs_create_entity(ECS* ecs, const zindex_t zindex, const int should_add
 	if (should_add_to_camera) {
 		camera_insert(ecs->camera, e, zindex);
 	}
+	return e;
+}
+
+entity_t ecs_create_sprite(ECS* ecs, const zindex_t zindex, const char* filepath) {
+	assert(zindex >= CAMERA_ZINDEX_MIN && zindex <= CAMERA_ZINDEX_MAX);
+	const entity_t e = ecs_create_entity(ecs, zindex, 1);
+	EntityTransform* trasnform = ecs_get_transform(ecs, e);
+	Sprite* sprite = (Sprite*) ecs_add_component(ecs, e, SPRITE_ID);
+	sprite_init(sprite, filepath);
+	trasnform->size = (Vector2){
+		(float) sprite->texture->width,
+		(float)sprite->texture->height
+	};
 	return e;
 }
 
@@ -81,6 +96,8 @@ int ecs_check_static_collision(ECS* ecs, const Rectangle rect) {
 }
 
 void ecs_update(ECS* ecs, const float dt) {
+	ecs_manager_set_ecs_instance(ecs->scene_id);
+
 	system_manager_update(ecs->system, dt);
 
 	if (ecs->should_destroy_all_entities) {
@@ -111,6 +128,7 @@ static int cmp_entity_pair(const void* l, const void* r) {
 }
 
 void ecs_draw(ECS* ecs) {	
+	ecs_manager_set_ecs_instance(ecs->scene_id);
 	camera_begin_drawing(ecs->camera);
 		for (zindex_t z = CAMERA_ZINDEX_MIN; z <= CAMERA_ZINDEX_MAX; z++) {
 			Vector* vec = ecs->camera->zindex + z;
@@ -124,6 +142,10 @@ void ecs_draw(ECS* ecs) {
 			system_manager_draw(ecs->system, begin, end);
 		}
 	camera_end_drawing();
+}
+
+SetIterator* ecs_get_entities_by_component(ECS* ecs, component_t component_id) {
+	return set_iter(ecs->system->entities + component_id);
 }
 
 EntityTransform* ecs_get_transform(ECS* ecs, const entity_t e) {

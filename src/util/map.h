@@ -20,6 +20,7 @@ typedef struct _map_iterator {
 	Vector* node_arr;
 	MapNode* begin;
 	MapNode* end;
+	size_t size;
 } MapIterator;
 
 

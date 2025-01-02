@@ -15,13 +15,16 @@ typedef struct _ecs {
 	Vector* entities_to_destroy;
 	Vector* static_collisions;
 	int should_destroy_all_entities;
+	SceneID scene_id;
 } ECS;
 
-ECS* ecs_create();
+ECS* ecs_create(SceneID scene_id);
 
 void ecs_destroy(ECS* ecs);
 
 entity_t ecs_create_entity(ECS* ecs, zindex_t zindex, int should_all_to_camera);
+
+entity_t ecs_create_sprite(ECS* ecs, zindex_t zindex, const char* filepath);
 
 void ecs_destroy_entity(ECS* ecs, entity_t e);
 
@@ -34,6 +37,8 @@ void* ecs_get_component(ECS* ecs, entity_t e, component_t component_id);
 void ecs_rmv_component(ECS* ecs, entity_t e, component_t component_id);
 
 void ecs_add_static_collision(ECS* ecs, Rectangle rect);
+
+SetIterator* ecs_get_entities_by_component(ECS* ecs, component_t component_id);
 
 int ecs_check_static_collision(ECS* ecs, Rectangle rect);
 

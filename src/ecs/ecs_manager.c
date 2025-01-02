@@ -22,7 +22,7 @@ void ecs_manager_close() {
 
 void ecs_manager_create_ecs_instance(const SceneID scene_id) {
 	if (instances[scene_id] == NULL) {
-		instances[scene_id] = ecs_create();		
+		instances[scene_id] = ecs_create(scene_id);
 	}
 }
 

@@ -1,8 +1,7 @@
 #include "system.h"
 #include "ecs_manager.h"
 
-
-void sprite_draw(const entity_t e) {
+void sprite_draw(const entity_t e) {	
 	ECS* ecs = ecs_manager_get_ecs_instance();
 	const Sprite* sprite = (Sprite*)ecs_get_component(ecs, e, SPRITE_ID);
 	const EntityTransform* transform = ecs_get_transform(ecs, e);

@@ -21,11 +21,12 @@ typedef struct _set_iterator {
 	Vector* node_arr;
 	SetNode* begin;
 	SetNode* end;
+	size_t size;
 } SetIterator;
 
 typedef struct _set {
 	SetNode* root;
-	size_t(*hash)(const void*);
+	size_t (*hash)(const void*);
 	size_t type_size;	
 	size_t size;
 	SetIterator iter;
