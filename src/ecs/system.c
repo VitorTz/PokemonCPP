@@ -1,6 +1,7 @@
+#include <raylib.h>
+#include <raymath.h>
 #include "system.h"
 #include "ecs_manager.h"
-#include <raymath.h>
 
 
 void sprite_draw(const entity_t e) {	

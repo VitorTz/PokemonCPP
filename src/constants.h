@@ -20,7 +20,7 @@
 #define WINDOW_TITLE "Pokemon"
 #define WINDOW_FPS 60
 
-// Program
+// Debug
 #define DEBUG_MODE 1
 
 // Keyboard
@@ -31,14 +31,14 @@
 
 // Scenes
 #define MAIN_SCENE TestScene3ID
-#define  SCENE_TRANSITION_TIME 1.0f
+#define SCENE_TRANSITION_TIME 1.0f
 
 // ECS
 #define MAX_ENTITIES 4096
-#define CHARACTER_SIZE 128.0f
 #define TILE_SIZE 64.0f
+#define CHARACTER_SIZE 128.0f
 
-// Camera
+// Camera ZINDEX
 #define CAMERA_ZINDEX_MIN 0
 #define CAMERA_ZINDEX_GROUND 0
 #define CAMERA_ZINDEX_WATER 1
@@ -49,10 +49,11 @@
 #define CAMERA_ZINDEX_OVERLAY 6
 #define CAMERA_ZINDEX_MAX 6
 
+// Camera ZOOM
 #define CAMERA_ZOOM_MIN 0.5f
 #define CAMERA_ZOOM_MAX 2.5f
 
-// Sprite Animation
+// Sprite Animation Speed
 #define SPRITE_ANIMATION_SPEED_SLOW 12
 #define SPRITE_ANIMATION_SPEED_NORMAL 8
 #define SPRITE_ANIMATION_SPEED_FAST 4

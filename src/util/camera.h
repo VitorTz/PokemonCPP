@@ -38,9 +38,9 @@ void camera_begin_drawing(PokeCamera* camera);
 
 void camera_end_drawing();
 
-void camera_set_horizontal_limit(PokeCamera* camera, const float min_left, const float max_right);
+void camera_set_horizontal_limit(PokeCamera* camera, float min_left, float max_right);
 
-void camera_set_vertical_limit(PokeCamera* camera, const float min_top, const float min_down);
+void camera_set_vertical_limit(PokeCamera* camera, float min_top, float min_down);
 
 
 #endif // !POKE_CAMERA_H

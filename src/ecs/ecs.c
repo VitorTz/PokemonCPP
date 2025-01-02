@@ -1,5 +1,6 @@
 #include "ecs.h"
 #include "ecs_manager.h"
+#include "../util/debug.h"
 
 
 ECS* ecs_create(const SceneID scene_id) {
@@ -161,7 +162,8 @@ void ecs_draw(ECS* ecs) {
 			qsort(begin, vec->size, sizeof(EntityPair), cmp_entity_pair);
 			system_manager_draw(ecs->system, begin, end);
 		}
-	camera_end_drawing();
+	camera_end_drawing();	
+	debug_ecs(ecs);
 }
 
 SetIterator* ecs_get_entities_by_component(ECS* ecs, component_t component_id) {

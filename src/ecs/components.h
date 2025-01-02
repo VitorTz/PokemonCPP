@@ -5,7 +5,6 @@
 
 
 #define NUM_COMPONENTS 4
-
 #define TRANSFORM_ID 0
 #define SPRITE_ID 1
 #define SPRITE_ANIMATION_ID 2
