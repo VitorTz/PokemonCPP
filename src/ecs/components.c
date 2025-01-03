@@ -1,5 +1,6 @@
 #include "components.h"
 #include "../util/texture_pool.h"
+#include "../constants.h"
 
 
 void entity_tranform_init(EntityTransform* transform, const zindex_t zindex) {
@@ -34,11 +35,22 @@ void sprite_animation_init(
 	sprite->max_frame = speed;
 	sprite->current_sprite = 0;
 	sprite->max_sprite = rows * cols;
+	sprite->rows = rows;
 	sprite->cols = cols;
 }
 
-void shadow_init(Shadow* shadow, const Vector2 offset, const char* filepath) {
+void shadow_init(Shadow* shadow, const float x_offset, const float y_offset, const char* filepath) {
 	sprite_init(&shadow->sprite, filepath);	
-	shadow->offset.x = offset.x - shadow->sprite.size.x / 2.0f;;
-	shadow->offset.y = offset.y - shadow->sprite.size.y / 2.0f;;
+	shadow->offset.x = x_offset - shadow->sprite.size.x / 2.0f;;
+	shadow->offset.y = y_offset - shadow->sprite.size.y / 2.0f;;
+}
+
+void player_init(Player* player) {
+	player->direction[0] = 'i';
+	player->direction[1] = 'd';
+	player->last_direction[0] = 'i';
+	player->last_direction[1] = 'd';
+	
+	player->action_box = (Rectangle) { 0.0f, 0.0f, 0.0f, 0.0f };
+	player->collide_box = (Rectangle) { 0.0f, 0.0f, TILE_SIZE * 0.8f, TILE_SIZE * 0.8f };
 }

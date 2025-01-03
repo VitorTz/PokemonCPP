@@ -13,6 +13,8 @@ typedef struct _camera {
 	int8_t is_on_camera[MAX_ENTITIES];
 	Vector2 horizontal_limit;
 	Vector2 vertical_limit;
+	entity_t target_entity;
+	int have_target;
 } PokeCamera;
 
 
@@ -37,6 +39,8 @@ void camera_handle_zoom(PokeCamera* camera, float dt);
 void camera_begin_drawing(PokeCamera* camera);
 
 void camera_end_drawing();
+
+void camera_set_target_entity(PokeCamera* camera, entity_t e);
 
 void camera_set_horizontal_limit(PokeCamera* camera, float min_left, float max_right);
 

@@ -19,6 +19,8 @@ PokeCamera* camera_create() {
 	}
 	camera->horizontal_limit = (Vector2){ -SCREEN_W, SCREEN_W };
 	camera->vertical_limit = (Vector2){ -SCREEN_H, SCREEN_H };
+	camera->have_target = 0;
+	camera->target_entity = 0;
 	camera->size = 0;
 	return camera;
 }
@@ -97,6 +99,11 @@ void camera_begin_drawing(PokeCamera* camera) {
 
 void camera_end_drawing() {
 	EndMode2D();
+}
+
+void camera_set_target_entity(PokeCamera* camera, const entity_t e) {
+	camera->target_entity = e;
+	camera->have_target = 1;
 }
 
 void camera_set_horizontal_limit(PokeCamera* camera, const float min_left, const float max_right) {

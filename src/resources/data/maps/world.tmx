@@ -18,7 +18,7 @@
   </tile>
  </tileset>
  <tileset firstgid="254" source="../tilesets/coast.tsx"/>
- <layer id="1" name="Terrain" width="86" height="86" visible="0">
+ <layer id="1" name="Terrain" width="86" height="86">
   <data encoding="csv">
 195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,196,132,132,136,132,132,132,136,132,123,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,
 195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,195,196,132,132,147,126,132,132,136,132,132,123,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,
@@ -108,7 +108,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="3" name="Entities" visible="0">
+ <objectgroup id="3" name="Entities">
   <properties>
    <property name="group-id" type="int" value="0"/>
   </properties>
@@ -120,7 +120,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="9" name="Coast" visible="0">
+ <objectgroup id="9" name="Coast">
   <properties>
    <property name="group-id" type="int" value="1"/>
   </properties>
@@ -2061,7 +2061,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="6" name="Monsters" visible="0">
+ <objectgroup id="6" name="Monsters">
   <properties>
    <property name="group-id" type="int" value="2"/>
   </properties>
@@ -4530,7 +4530,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="2" name="GameObjs" visible="0">
+ <objectgroup id="2" name="GameObjs">
   <properties>
    <property name="group-id" type="int" value="3"/>
   </properties>
@@ -6148,7 +6148,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="14" name="Collision" visible="0">
+ <objectgroup id="14" name="Collision">
   <properties>
    <property name="group-id" type="int" value="5"/>
   </properties>
@@ -6564,7 +6564,7 @@
   <object id="2243" x="3234" y="2274" width="31" height="20"/>
   <object id="2244" x="3275" y="2253" width="34" height="8"/>
  </objectgroup>
- <objectgroup id="15" name="Water" visible="0">
+ <objectgroup id="15" name="Water">
   <properties>
    <property name="group-id" type="int" value="6"/>
   </properties>

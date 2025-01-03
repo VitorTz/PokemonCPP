@@ -17,4 +17,6 @@ void sprite_animation_draw(entity_t e);
 
 void shadow_draw(entity_t e);
 
+void player_update(SetIterator* iter, float dt);
+
 #endif // !POKE_SYSTEM_H

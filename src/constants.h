@@ -38,6 +38,9 @@
 #define TILE_SIZE 64.0f
 #define CHARACTER_SIZE 128.0f
 
+// PLAYER
+#define PLAYER_SPEED 150.0f
+
 // Camera ZINDEX
 #define CAMERA_ZINDEX_MIN 0
 #define CAMERA_ZINDEX_GROUND 0

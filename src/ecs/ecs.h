@@ -16,7 +16,7 @@ typedef struct _ecs {
 	Vector* static_collisions;
 	int should_destroy_all_entities;
 	int mouse_zoom_is_enable;
-	SceneID scene_id;
+	SceneID scene_id;	
 } ECS;
 
 ECS* ecs_create(SceneID scene_id);
@@ -28,6 +28,12 @@ entity_t ecs_create_entity(ECS* ecs, zindex_t zindex, int should_all_to_camera);
 entity_t ecs_create_sprite(ECS* ecs, zindex_t zindex, const char* filepath);
 
 entity_t ecs_create_ground_sprite(ECS* ecs, const char* filepath);
+
+entity_t ecs_create_player(ECS* ecs, float pos_x, float pos_y);
+
+void ecs_enable_mouse_zoom(ECS* ecs);
+
+void ecs_disable_mouse_zoom(ECS* ecs);
 
 void ecs_add_shadow(ECS* ecs, entity_t e, float x_offset, float y_offset);
 

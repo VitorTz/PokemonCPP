@@ -60,9 +60,14 @@ void system_manager_destroy_entity(SystemManager* system_manager, const entity_t
 }
 
 void system_manager_update(SystemManager* system_manager, const float dt) {
+	// SPRITE ANIMATION
 	system_manager->system[SPRITE_ANIMATION_ID].update(
-		set_iter(system_manager->entities + SPRITE_ANIMATION_ID), 
-		dt
+		set_iter(system_manager->entities + SPRITE_ANIMATION_ID),  dt
+	);
+
+	// PLAYER 
+	system_manager->system[PLAYER_ID].update(
+		set_iter(system_manager->entities + PLAYER_ID), dt
 	);
 }
 
