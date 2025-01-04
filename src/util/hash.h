@@ -1,7 +1,6 @@
 #ifndef POKE_HASH_H
 #define POKE_HASH_H
 #include <stddef.h>
-#include "types.h"
 
 
 size_t hash_entity_id(const void* p);

@@ -555,268 +555,268 @@ Monsters 308 2
 3776.0 4352.0 64.0 64.0 -1 3
 3712.0 4352.0 64.0 64.0 -1 3
 GameObjs 262 3
-4352.0 3456.0 320.0 320.0 0 3
-3455.33 3591.33 128.0 192.0 1 3
-3264.0 3520.0 128.0 192.0 1 3
-3264.0 3200.0 128.0 192.0 1 3
-4424.0 4626.0 128.0 192.0 1 3
-4198.67 4512.0 64.0 128.0 1 3
-4574.0 4448.0 64.0 128.0 1 3
-4494.67 4353.33 128.0 192.0 1 3
-4096.0 3008.0 384.0 384.0 0 3
-3776.0 3456.0 320.0 320.0 0 3
-3520.0 3520.0 128.0 192.0 1 3
-3956.0 3018.0 128.0 192.0 1 3
-3904.0 3136.0 128.0 192.0 1 3
-3328.0 3136.0 128.0 192.0 1 3
-1152.0 3456.0 448.0 448.0 0 3
-4096.0 960.0 448.0 448.0 0 3
-512.0 448.0 448.0 448.0 0 3
-1504.0 3870.5 64.0 104.0 1 3
-1190.0 3783.0 64.0 192.0 1 3
-1920.0 1984.0 448.0 448.0 0 3
-1600.0 1792.0 384.0 384.0 0 3
-1969.33 1762.67 128.0 192.0 1 3
-2385.33 1770.67 128.0 192.0 1 3
-2304.0 448.0 128.0 192.0 1 3
-2688.0 1216.0 128.0 192.0 1 3
-1740.66 922.0 128.0 192.0 1 3
-1677.33 2566.67 128.0 192.0 1 3
-2390.67 2500.0 64.0 128.0 1 3
-2489.33 2445.33 64.0 128.0 1 3
-2704.0 1921.33 64.0 128.0 1 3
-1042.67 2537.33 128.0 192.0 1 3
-1152.0 2240.0 128.0 192.0 1 3
-896.0 384.0 128.0 192.0 1 3
-1930.67 1832.0 128.0 192.0 1 3
-1216.0 1216.0 128.0 192.0 1 3
-2334.67 1872.0 128.0 192.0 1 3
-1568.0 2268.0 128.0 192.0 1 3
-1344.0 2560.0 128.0 192.0 1 3
-1152.0 1664.0 128.0 192.0 1 3
-1240.0 1580.0 128.0 192.0 1 3
-1240.0 1092.0 128.0 192.0 1 3
-1302.67 1146.67 128.0 192.0 1 3
-1746.18 2635.39 128.0 192.0 1 3
-949.212 1786.91 128.0 192.0 1 3
-837.091 1580.85 128.0 192.0 1 3
-2649.21 1999.0300000000002 128.0 192.0 1 3
-1929.7 2624.97 64.0 128.0 1 3
-2317.58 2624.97 64.0 128.0 1 3
-2566.06 2364.36 64.0 128.0 1 3
-2629.7 2124.97 64.0 128.0 1 3
-2666.06 1497.7 64.0 128.0 1 3
-2697.7 1520.24 128.0 192.0 1 3
-2764.36 1150.55 128.0 192.0 1 3
-2112.0 384.0 128.0 192.0 1 3
-1788.61 2505.09 128.0 192.0 1 3
-2137.09 2508.12 128.0 192.0 1 3
-1280.0 2496.0 128.0 192.0 1 3
-1088.0 2304.0 128.0 192.0 1 3
-4140.12 1280.85 128.0 192.0 1 3
-4115.0 1288.0 64.0 128.0 1 3
-4396.0 1266.0 128.0 192.0 1 3
-4474.0 1230.0 128.0 192.0 1 3
-3961.0 1043.0 128.0 192.0 1 3
-4039.0 1018.0 64.0 128.0 1 3
-4459.0 886.0 64.0 128.0 1 3
-3974.0 836.0 64.0 128.0 1 3
-4284.0 722.0 64.0 128.0 1 3
-4661.0 1017.0 64.0 128.0 1 3
-4730.0 1286.0 64.0 128.0 1 3
-4605.0 1323.0 64.0 128.0 1 3
-4597.0 761.0 64.0 128.0 1 3
-3947.0 693.0 64.0 128.0 1 3
-3735.0 1181.0 64.0 128.0 1 3
-4445.33 2068.0 64.0 128.0 1 3
-4003.0 1607.0 64.0 128.0 1 3
-3930.0 1338.0 64.0 128.0 1 3
-4639.0 1324.0 128.0 192.0 1 3
-4701.0 1061.0 128.0 192.0 1 3
-4015.0 1444.0 128.0 192.0 1 3
-4078.0 1369.0 128.0 192.0 1 3
-4229.0 1667.0 128.0 192.0 1 3
-4014.0 813.0 128.0 192.0 1 3
-4256.0 738.0 128.0 192.0 1 3
-3723.0 1195.0 128.0 192.0 1 3
-4606.0 1057.0 128.0 192.0 1 3
-4437.0 656.0 128.0 192.0 1 3
-3930.0 855.0 128.0 192.0 1 3
-3998.0 1298.0 128.0 192.0 1 3
-4509.0 1351.0 128.0 192.0 1 3
-1152.0 2752.0 128.0 192.0 1 3
-960.0 2880.0 128.0 192.0 1 3
-1088.0 2816.0 128.0 192.0 1 3
-4292.0 4463.5 64.0 128.0 1 3
-4448.0 4463.5 64.0 128.0 1 3
-4288.0 4400.0 232.0 80.0 2 5
-1267.0 3939.75 64.0 128.0 1 3
-1421.67 3941.08 64.0 128.0 1 3
-1261.67 3877.58 232.0 80.0 2 4
-3078.67 2632.0 128.0 192.0 1 3
-2928.0 2484.0 128.0 192.0 1 3
-2737.33 2733.33 128.0 192.0 1 3
-3010.67 2425.33 64.0 128.0 1 3
-1482.67 3354.67 128.0 192.0 1 3
-1036.0 4022.67 128.0 192.0 1 3
-1724.0 3908.0 128.0 192.0 1 3
-1673.33 4590.67 128.0 192.0 1 3
-597.333 4210.67 128.0 192.0 1 3
-673.333 4354.67 64.0 104.0 1 3
-3072.0 2880.0 128.0 192.0 1 3
-2624.0 2880.0 128.0 192.0 1 3
-2688.0 2944.0 128.0 192.0 1 3
-448.0 384.0 128.0 192.0 1 3
-960.0 448.0 128.0 192.0 1 3
-1024.0 512.0 128.0 192.0 1 3
-832.0 832.0 128.0 192.0 1 3
-576.0 768.0 128.0 192.0 1 3
-448.0 704.0 128.0 192.0 1 3
-1280.0 896.0 128.0 192.0 1 3
-320.0 1216.0 128.0 192.0 1 3
-256.0 1344.0 64.0 128.0 1 3
-415.64 1302.54 128.0 192.0 1 3
-1024.0 1152.0 128.0 192.0 1 3
-128.0 1088.0 128.0 192.0 1 3
-4352.0 2048.0 128.0 192.0 1 3
-3532.0 1070.0 64.0 128.0 1 3
-3366.0 1211.0 64.0 128.0 1 3
-3173.0 1577.0 64.0 128.0 1 3
-3420.0 1071.0 128.0 192.0 1 3
-3599.0 1777.0 128.0 192.0 1 3
-3111.0 1871.0 128.0 192.0 1 3
-3200.0 1664.0 128.0 192.0 1 3
-3008.0 1408.0 128.0 192.0 1 3
-4593.0 3664.0 128.0 192.0 1 3
-4437.0 3035.0 128.0 192.0 1 3
-4038.0 3650.0 128.0 192.0 1 3
-4060.0 3255.0 128.0 192.0 1 3
-4367.0 3313.0 128.0 192.0 1 3
-4443.0 3244.0 128.0 192.0 1 3
-3840.0 3264.0 128.0 192.0 1 3
-320.0 1344.0 128.0 192.0 1 3
-448.0 2560.0 128.0 192.0 1 3
-384.0 2496.0 128.0 192.0 1 3
-1920.0 448.0 128.0 192.0 1 3
-1728.0 512.0 128.0 192.0 1 3
-2176.0 448.0 128.0 192.0 1 3
-1856.0 512.0 64.0 128.0 1 3
-2624.0 640.0 128.0 192.0 1 3
-1984.0 384.0 128.0 192.0 1 3
-2048.0 320.0 128.0 192.0 1 3
-2560.0 576.0 128.0 192.0 1 3
-2176.0 576.0 64.0 128.0 1 3
-1984.0 576.0 64.0 128.0 1 3
-1920.0 448.0 64.0 128.0 1 3
-2496.0 4736.0 128.0 192.0 1 3
-2481.33 3996.0 128.0 192.0 1 3
-2688.0 4032.0 64.0 128.0 1 3
-1734.0 4039.0 64.0 128.0 1 3
-1134.0 3786.5 64.0 128.0 1 3
-1190.33 3949.5 64.0 128.0 1 3
-1497.5 4098.17 128.0 192.0 1 3
-1549.33 3721.33 128.0 192.0 1 3
-1117.33 3450.67 64.0 192.0 1 3
-900.0 3725.33 128.0 192.0 1 3
-1031.67 4088.17 60.0 60.0 1 3
-1118.5 3890.17 56.0 60.0 1 3
-1822.17 4123.83 56.0 60.0 1 3
-1185.67 4200.67 56.0 60.0 1 3
-1660.0 4201.33 56.0 60.0 1 3
-1119.0 4181.33 60.0 60.0 1 3
-1848.0 4098.0 60.0 60.0 1 3
-1001.33 4048.0 60.0 60.0 1 3
-935.5 3901.0 64.0 104.0 1 3
-1650.0 3649.5 64.0 192.0 1 3
-904.0 3874.0 56.0 60.0 1 3
-862.5 3746.5 56.0 60.0 1 3
-773.5 3682.0 60.0 60.0 1 3
-847.5 4231.5 60.0 60.0 1 3
-1728.5 4150.5 56.0 60.0 1 3
-1271.83 4162.75 64.0 128.0 1 3
-1418.83 4162.75 64.0 128.0 1 3
-1261.83 4098.58 232.0 80.0 2 4
-2222.0 3991.0 56.0 60.0 1 3
-1874.0 3436.0 56.0 60.0 1 3
-2546.0 3919.0 56.0 60.0 1 3
-2093.0 4616.0 60.0 60.0 1 3
-1078.0 4422.0 60.0 60.0 1 3
-4211.33 4503.33 60.0 60.0 1 3
-4479.33 4560.67 60.0 60.0 1 3
-4264.33 4441.0 56.0 60.0 1 3
-4265.0 4555.0 56.0 60.0 1 3
-3081.33 3038.0 60.0 60.0 1 3
-3139.33 2812.67 60.0 60.0 1 3
-3733.33 3034.0 60.0 60.0 1 3
-3361.33 2960.0 56.0 60.0 1 3
-2771.33 2581.33 60.0 60.0 1 3
-2963.33 3175.33 56.0 60.0 1 3
-2813.33 2614.67 56.0 60.0 1 3
-4692.0 2974.67 128.0 192.0 1 3
-4780.0 3081.33 128.0 192.0 1 3
-4866.67 3624.0 128.0 192.0 1 3
-5372.0 3549.33 128.0 192.0 1 3
-4764.0 3256.0 64.0 128.0 1 3
-4838.67 3572.0 64.0 128.0 1 3
-4869.33 3550.0 56.0 60.0 1 3
-4917.33 3048.67 56.0 60.0 1 3
-4881.33 3886.0 56.0 60.0 1 3
-4747.67 3851.67 128.0 192.0 1 3
-4839.0 4027.0 56.0 60.0 1 3
-4810.0 4009.33 56.0 60.0 1 3
-4918.67 4235.33 56.0 60.0 1 3
-4821.0 4087.67 60.0 60.0 1 3
-4786.67 4054.33 60.0 60.0 1 3
-4744.33 3836.67 64.0 128.0 1 3
-4934.0 4185.0 60.0 60.0 1 3
-1780.0 2744.5 128.0 192.0 1 3
-1761.33 3336.0 64.0 128.0 1 3
-832.0 1984.0 128.0 192.0 1 3
-532.97 2157.45 128.0 192.0 1 3
-466.303 2078.67 128.0 192.0 1 3
-905.333 1197.27 56.0 60.0 1 3
-644.0 1936.67 56.0 60.0 1 3
-612.667 1896.67 60.0 60.0 1 3
-762.0 2602.0 60.0 60.0 1 3
-1101.33 2459.33 56.0 60.0 1 3
-4373.0 1465.0 128.0 192.0 1 3
-4903.33 1888.67 128.0 192.0 1 3
-4868.0 2170.67 128.0 192.0 1 3
-4986.67 1670.67 128.0 192.0 1 3
-4986.66 1022.6700000000001 128.0 192.0 1 3
-4951.33 1304.67 128.0 192.0 1 3
-5070.0 804.667 128.0 192.0 1 3
-4851.99 413.33299999999997 128.0 192.0 1 3
-4816.66 695.333 128.0 192.0 1 3
-4935.33 195.33300000000003 128.0 192.0 1 3
-5013.33 1424.0 64.0 128.0 1 3
-5052.0 1194.67 64.0 128.0 1 3
-4885.33 853.333 64.0 128.0 1 3
-5097.33 1294.67 64.0 128.0 1 3
-4956.0 1398.67 64.0 128.0 1 3
-5104.0 1978.67 64.0 128.0 1 3
-5276.0 1574.67 64.0 128.0 1 3
-5037.33 1540.0 64.0 128.0 1 3
-5224.0 1449.33 64.0 128.0 1 3
-4948.0 1112.0 64.0 128.0 1 3
-4552.0 386.66700000000003 64.0 128.0 1 3
-4061.33 256.0 64.0 128.0 1 3
-3718.67 220.0 64.0 128.0 1 3
-4241.33 268.0 64.0 128.0 1 3
-4920.0 540.0 64.0 128.0 1 3
-5042.67 1741.33 128.0 192.0 1 3
-4932.0 1421.33 128.0 192.0 1 3
-4930.67 2221.33 128.0 192.0 1 3
-4817.33 3262.67 128.0 192.0 1 3
-4929.33 3521.33 128.0 192.0 1 3
-4279.0 1730.0 128.0 192.0 1 3
-4614.0 2118.0 128.0 192.0 1 3
-4739.0 1455.0 64.0 128.0 1 3
-4702.0 1501.0 64.0 128.0 1 3
-4735.0 1716.0 64.0 128.0 1 3
-4669.0 1894.0 64.0 128.0 1 3
-4623.0 1961.0 64.0 128.0 1 3
-4678.0 1978.0 128.0 192.0 1 3
+4352.0 3456.0 320.0 320.0 2 3 ./resources/graphics/objects/house_small_alt.png
+3455.33 3591.33 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+3264.0 3520.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+3264.0 3200.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4424.0 4626.0 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+4198.67 4512.0 64.0 128.0 1 3 ./resources/graphics/objects/palm_small.png
+4574.0 4448.0 64.0 128.0 1 3 ./resources/graphics/objects/palm_small.png
+4494.67 4353.33 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+4096.0 3008.0 384.0 384.0 3 3 ./resources/graphics/objects/hospital.png
+3776.0 3456.0 320.0 320.0 0 3 ./resources/graphics/objects/house_small.png
+3520.0 3520.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3956.0 3018.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3904.0 3136.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3328.0 3136.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+1152.0 3456.0 448.0 448.0 6 3 ./resources/graphics/objects/arean_fire.png
+4096.0 960.0 448.0 448.0 4 3 ./resources/graphics/objects/arena_plant.png
+512.0 448.0 448.0 448.0 5 3 ./resources/graphics/objects/arena_water.png
+1504.0 3870.5 64.0 104.0 1 3 ./resources/graphics/objects/ruin_pillar_broke.png
+1190.0 3783.0 64.0 192.0 1 3 ./resources/graphics/objects/ruin_pillar.png
+1920.0 1984.0 448.0 448.0 1 3 ./resources/graphics/objects/house_large.png
+1600.0 1792.0 384.0 384.0 3 3 ./resources/graphics/objects/hospital.png
+1969.33 1762.67 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+2385.33 1770.67 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+2304.0 448.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+2688.0 1216.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1740.66 922.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1677.33 2566.67 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+2390.67 2500.0 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+2489.33 2445.33 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+2704.0 1921.33 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+1042.67 2537.33 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+1152.0 2240.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+896.0 384.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+1930.67 1832.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1216.0 1216.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+2334.67 1872.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1568.0 2268.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1344.0 2560.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1152.0 1664.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1240.0 1580.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1240.0 1092.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1302.67 1146.67 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1746.18 2635.39 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+949.212 1786.91 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+837.091 1580.85 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+2649.21 1999.0300000000002 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+1929.7 2624.97 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+2317.58 2624.97 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+2566.06 2364.36 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+2629.7 2124.97 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+2666.06 1497.7 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+2697.7 1520.24 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+2764.36 1150.55 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+2112.0 384.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+1788.61 2505.09 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+2137.09 2508.12 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+1280.0 2496.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+1088.0 2304.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+4140.12 1280.85 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4115.0 1288.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4396.0 1266.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4474.0 1230.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3961.0 1043.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4039.0 1018.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4459.0 886.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+3974.0 836.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4284.0 722.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4661.0 1017.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4730.0 1286.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4605.0 1323.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4597.0 761.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+3947.0 693.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+3735.0 1181.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4445.33 2068.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4003.0 1607.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+3930.0 1338.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4639.0 1324.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4701.0 1061.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4015.0 1444.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4078.0 1369.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4229.0 1667.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4014.0 813.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4256.0 738.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3723.0 1195.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4606.0 1057.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4437.0 656.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+3930.0 855.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+3998.0 1298.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4509.0 1351.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+1152.0 2752.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+960.0 2880.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+1088.0 2816.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4292.0 4463.5 64.0 128.0 1 3 ./resources/graphics/objects/gate_pillar.png
+4448.0 4463.5 64.0 128.0 1 3 ./resources/graphics/objects/gate_pillar.png
+4288.0 4400.0 232.0 80.0 2 5 ./resources/graphics/objects/gate_top.png
+1267.0 3939.75 64.0 128.0 1 3 ./resources/graphics/objects/gate_pillar.png
+1421.67 3941.08 64.0 128.0 1 3 ./resources/graphics/objects/gate_pillar.png
+1261.67 3877.58 232.0 80.0 2 4 ./resources/graphics/objects/gate_top.png
+3078.67 2632.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+2928.0 2484.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+2737.33 2733.33 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3010.67 2425.33 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+1482.67 3354.67 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+1036.0 4022.67 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+1724.0 3908.0 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+1673.33 4590.67 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+597.333 4210.67 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+673.333 4354.67 64.0 104.0 1 3 ./resources/graphics/objects/ruin_pillar_broke.png
+3072.0 2880.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+2624.0 2880.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+2688.0 2944.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+448.0 384.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+960.0 448.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+1024.0 512.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+832.0 832.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+576.0 768.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+448.0 704.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1280.0 896.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+320.0 1216.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+256.0 1344.0 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+415.64 1302.54 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+1024.0 1152.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+128.0 1088.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+4352.0 2048.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3532.0 1070.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+3366.0 1211.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+3173.0 1577.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+3420.0 1071.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3599.0 1777.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3111.0 1871.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3200.0 1664.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3008.0 1408.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4593.0 3664.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4437.0 3035.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4038.0 3650.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4060.0 3255.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4367.0 3313.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4443.0 3244.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+3840.0 3264.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+320.0 1344.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+448.0 2560.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+384.0 2496.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+1920.0 448.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+1728.0 512.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+2176.0 448.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1856.0 512.0 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+2624.0 640.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+1984.0 384.0 128.0 192.0 1 3 ./resources/graphics/objects/ice_tree.png
+2048.0 320.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+2560.0 576.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+2176.0 576.0 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+1984.0 576.0 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+1920.0 448.0 64.0 128.0 1 3 ./resources/graphics/objects/teal_tree_small.png
+2496.0 4736.0 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+2481.33 3996.0 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+2688.0 4032.0 64.0 128.0 1 3 ./resources/graphics/objects/palm_small.png
+1734.0 4039.0 64.0 128.0 1 3 ./resources/graphics/objects/palm_small.png
+1134.0 3786.5 64.0 128.0 1 3 ./resources/graphics/objects/palm_small.png
+1190.33 3949.5 64.0 128.0 1 3 ./resources/graphics/objects/palm_small.png
+1497.5 4098.17 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+1549.33 3721.33 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+1117.33 3450.67 64.0 192.0 1 3 ./resources/graphics/objects/ruin_pillar.png
+900.0 3725.33 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+1031.67 4088.17 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+1118.5 3890.17 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+1822.17 4123.83 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+1185.67 4200.67 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+1660.0 4201.33 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+1119.0 4181.33 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+1848.0 4098.0 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+1001.33 4048.0 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+935.5 3901.0 64.0 104.0 1 3 ./resources/graphics/objects/ruin_pillar_broke.png
+1650.0 3649.5 64.0 192.0 1 3 ./resources/graphics/objects/ruin_pillar.png
+904.0 3874.0 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+862.5 3746.5 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+773.5 3682.0 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+847.5 4231.5 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+1728.5 4150.5 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+1271.83 4162.75 64.0 128.0 1 3 ./resources/graphics/objects/gate_pillar.png
+1418.83 4162.75 64.0 128.0 1 3 ./resources/graphics/objects/gate_pillar.png
+1261.83 4098.58 232.0 80.0 2 4 ./resources/graphics/objects/gate_top.png
+2222.0 3991.0 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+1874.0 3436.0 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+2546.0 3919.0 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+2093.0 4616.0 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+1078.0 4422.0 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+4211.33 4503.33 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+4479.33 4560.67 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+4264.33 4441.0 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+4265.0 4555.0 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+3081.33 3038.0 60.0 60.0 1 3 ./resources/graphics/objects/grassrock1.png
+3139.33 2812.67 60.0 60.0 1 3 ./resources/graphics/objects/grassrock1.png
+3733.33 3034.0 60.0 60.0 1 3 ./resources/graphics/objects/grassrock1.png
+3361.33 2960.0 56.0 60.0 1 3 ./resources/graphics/objects/grassrock2.png
+2771.33 2581.33 60.0 60.0 1 3 ./resources/graphics/objects/grassrock1.png
+2963.33 3175.33 56.0 60.0 1 3 ./resources/graphics/objects/grassrock2.png
+2813.33 2614.67 56.0 60.0 1 3 ./resources/graphics/objects/grassrock2.png
+4692.0 2974.67 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4780.0 3081.33 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4866.67 3624.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+5372.0 3549.33 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4764.0 3256.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4838.67 3572.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4869.33 3550.0 56.0 60.0 1 3 ./resources/graphics/objects/grassrock2.png
+4917.33 3048.67 56.0 60.0 1 3 ./resources/graphics/objects/grassrock2.png
+4881.33 3886.0 56.0 60.0 1 3 ./resources/graphics/objects/grassrock2.png
+4747.67 3851.67 128.0 192.0 1 3 ./resources/graphics/objects/palm.png
+4839.0 4027.0 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+4810.0 4009.33 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+4918.67 4235.33 56.0 60.0 1 3 ./resources/graphics/objects/sandrock2.png
+4821.0 4087.67 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+4786.67 4054.33 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+4744.33 3836.67 64.0 128.0 1 3 ./resources/graphics/objects/palm_small.png
+4934.0 4185.0 60.0 60.0 1 3 ./resources/graphics/objects/sandrock1.png
+1780.0 2744.5 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+1761.33 3336.0 64.0 128.0 1 3 ./resources/graphics/objects/palm_small.png
+832.0 1984.0 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+532.97 2157.45 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree_bushy.png
+466.303 2078.67 128.0 192.0 1 3 ./resources/graphics/objects/teal_tree.png
+905.333 1197.27 56.0 60.0 1 3 ./resources/graphics/objects/icerock2.png
+644.0 1936.67 56.0 60.0 1 3 ./resources/graphics/objects/icerock2.png
+612.667 1896.67 60.0 60.0 1 3 ./resources/graphics/objects/icerock1.png
+762.0 2602.0 60.0 60.0 1 3 ./resources/graphics/objects/icerock1.png
+1101.33 2459.33 56.0 60.0 1 3 ./resources/graphics/objects/icerock2.png
+4373.0 1465.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4903.33 1888.67 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4868.0 2170.67 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4986.67 1670.67 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4986.66 1022.6700000000001 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4951.33 1304.67 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+5070.0 804.667 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4851.99 413.33299999999997 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4816.66 695.333 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4935.33 195.33300000000003 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+5013.33 1424.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+5052.0 1194.67 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4885.33 853.333 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+5097.33 1294.67 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4956.0 1398.67 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+5104.0 1978.67 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+5276.0 1574.67 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+5037.33 1540.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+5224.0 1449.33 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4948.0 1112.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4552.0 386.66700000000003 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4061.33 256.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+3718.67 220.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4241.33 268.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4920.0 540.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+5042.67 1741.33 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4932.0 1421.33 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4930.67 2221.33 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4817.33 3262.67 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4929.33 3521.33 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4279.0 1730.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
+4614.0 2118.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree.png
+4739.0 1455.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4702.0 1501.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4735.0 1716.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4669.0 1894.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4623.0 1961.0 64.0 128.0 1 3 ./resources/graphics/objects/green_tree_small.png
+4678.0 1978.0 128.0 192.0 1 3 ./resources/graphics/objects/green_tree_bushy.png
 Transition 6 4
 1343.64 3812.36 64.1818 91.6364 2 5
 704.0 803.75 64.0 84.0 4 5

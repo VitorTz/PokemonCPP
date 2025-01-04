@@ -18,7 +18,7 @@ void texture_pool_close() {
 }
 
 Texture2D* texture_pool_get(const char* filepath) {
-	Texture2D* t = (Texture2D*) map_at(pool, filepath);
+	Texture2D* t = map_at(pool, filepath);
 	if (t == NULL) {
 		const Texture2D new_texture = LoadTexture(filepath);
 		map_insert(pool, filepath, &new_texture);
@@ -28,7 +28,7 @@ Texture2D* texture_pool_get(const char* filepath) {
 }
 
 void texture_pool_erase(const char* filepath) {
-	Texture2D* t = (Texture2D*)map_at(pool, filepath);
+	const Texture2D* t = map_at(pool, filepath);
 	if (t != NULL) {
 		UnloadTexture(*t);
 		map_erase(pool, filepath);

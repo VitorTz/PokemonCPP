@@ -1,8 +1,9 @@
 #include "hash.h"
+#include "types.h"
 
 
 size_t hash_int(const void* p) {
-	return (size_t)(*((int*)p));
+	return *((int*)p);
 }
 
 size_t hash_str(const void* p) {
@@ -16,9 +17,9 @@ size_t hash_str(const void* p) {
 }
 
 size_t hash_entity_id(const void* p) {
-    return (size_t)(*((entity_t*)p));
+    return *((entity_t*)p);
 }
 
 size_t hash_component_id(const void* p) {
-    return (size_t)(*((component_t*)p));
+    return *((component_t*)p);
 }

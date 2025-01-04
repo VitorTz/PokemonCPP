@@ -7,7 +7,7 @@
 
 
 static SetNode* set_node_create(const size_t key, const size_t type_size, const void* data) {
-	SetNode* node = (SetNode*) malloc(sizeof(SetNode));
+	SetNode* node = malloc(sizeof(SetNode));
 	assert(node != NULL);
 
 	node->data = malloc(type_size);

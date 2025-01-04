@@ -5,7 +5,7 @@
 
 
 SystemManager* system_manager_create() {
-	SystemManager* system_manager = (SystemManager*)malloc(sizeof(SystemManager));
+	SystemManager* system_manager = malloc(sizeof(SystemManager));
 	assert(system_manager != NULL);
 	
 	for (int i = 0; i < NUM_COMPONENTS; i++) {
@@ -21,7 +21,7 @@ SystemManager* system_manager_create() {
 
 void system_manager_register_system(
 	SystemManager* system_manager,
-	component_t component_id,
+	const component_t component_id,
 	void (*update)(SetIterator*, float),
 	void (*draw)(entity_t)
 ) {
@@ -73,9 +73,9 @@ void system_manager_update(SystemManager* system_manager, const float dt) {
 	);
 }
 
-void system_manager_draw(SystemManager* system_manager, EntityPair* begin, const EntityPair* end) {
-	component_t* id = NULL;
-	for (EntityPair* p = begin; p < end; p++) {
+void system_manager_draw(SystemManager* system_manager, const EntityPair* begin, const EntityPair* end) {
+	const component_t* id = NULL;
+	for (const EntityPair* p = begin; p < end; p++) {
 		SetIterator* iter = set_iter(system_manager->drawable_components + p->entity);
 		while ((id = (component_t*)set_iter_next(iter)) != NULL) {
 			system_manager->system[*id].draw(p->entity);

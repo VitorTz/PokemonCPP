@@ -3,7 +3,7 @@
 #include "../constants.h"
 
 
-void entity_tranform_init(EntityTransform* transform, const zindex_t zindex) {
+void entity_transform_init(EntityTransform* transform, const zindex_t zindex) {
 	transform->pos = (Vector2){ 0.0f, 0.0f };
 	transform->size = (Vector2){ 0.0f, 0.0f };
 	transform->zindex = zindex;
@@ -18,25 +18,25 @@ void sprite_init(Sprite* sprite, const char* filepath) {
 }
 
 void sprite_animation_init(
-	SpriteAnimation* sprite,
+	SpriteAnimation* sprite_animation,
 	const char* filepath,
 	const uint8_t speed,
 	const uint8_t rows,
 	const uint8_t cols
 ) {
-	sprite->texture = texture_pool_get(filepath);
-	sprite->texture_rect = (Rectangle){
+	sprite_animation->texture = texture_pool_get(filepath);
+	sprite_animation->texture_rect = (Rectangle){
 		0.0f,
 		0.0f,
-		(float)(sprite->texture->width / cols),
-		(float)(sprite->texture->height / rows)
+		(float)(sprite_animation->texture->width / cols),
+		(float)(sprite_animation->texture->height / rows)
 	};
-	sprite->current_frame = 0;
-	sprite->max_frame = speed;
-	sprite->current_sprite = 0;
-	sprite->max_sprite = rows * cols;
-	sprite->rows = rows;
-	sprite->cols = cols;
+	sprite_animation->current_frame = 0;
+	sprite_animation->max_frame = speed;
+	sprite_animation->current_sprite = 0;
+	sprite_animation->max_sprite = rows * cols;
+	sprite_animation->rows = rows;
+	sprite_animation->cols = cols;
 }
 
 void shadow_init(Shadow* shadow, const float x_offset, const float y_offset, const char* filepath) {

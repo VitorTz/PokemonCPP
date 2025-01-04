@@ -1,10 +1,11 @@
-#include <stdlib.h>
 #include <assert.h>
+#include <stdlib.h>
 #include <string.h>
 #include "vector.h"
 
 
 void vector_init(Vector* vec, const size_t type_size, const size_t capacity) {
+	assert(vec != NULL);
 	vec->size = 0;
 	vec->type_size = type_size;
 	vec->capacity = capacity;
@@ -18,7 +19,7 @@ void vector_close(const Vector* vec) {
 }
 
 Vector* vector_create(const size_t type_size, const size_t capacity) {
-	Vector* vec = (Vector*)malloc(sizeof(Vector));
+	Vector* vec = malloc(sizeof(Vector));
 	assert(vec != NULL);
 	vector_init(vec, type_size, capacity);
 	return vec;
@@ -78,7 +79,9 @@ void vector_erase(Vector* vec, const size_t i) {
 
 void vector_rmv(Vector* vec, const void* item, int (*cmp)(const void*, const void*)) {
 	size_t i = 0;
-	for (char* p = vec->data; p < vec->data + vec->type_size * vec->size; p += vec->type_size) {
+	const char* begin = vec->data;
+	const char* end = vec->data + vec->type_size * vec->size;
+	for (const char* p = begin; p < end; p += vec->type_size) {
 		if (cmp(p, item)) {
 			vector_erase(vec, i);
 			return;

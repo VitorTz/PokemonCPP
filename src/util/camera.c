@@ -46,9 +46,9 @@ void camera_erase(PokeCamera* camera, const entity_t e, const zindex_t zindex) {
 		camera->is_on_camera[e] = 0;
 		size_t i = 0;
 		Vector* v = camera->zindex + zindex;
-		EntityPair* begin = (EntityPair*)vector_begin(v);
+		const EntityPair* begin = (EntityPair*)vector_begin(v);
 		const EntityPair* end = (EntityPair*)vector_end(v);
-		for (EntityPair* p = begin; p < end; p++) {
+		for (const EntityPair* p = begin; p < end; p++) {
 			if (p->entity == e) {
 				vector_erase(v, i);
 				camera->size--;

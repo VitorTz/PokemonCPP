@@ -8,8 +8,9 @@
 
 Map* map_create(const size_t type_size, size_t(*hash)(const void*)) {
 	// Map
-	Map* map = (Map*)malloc(sizeof(Map));
+	Map* map = malloc(sizeof(Map));
 	assert(map != NULL);
+	
 	map->root = NULL;
 	map->hash = hash;
 	map->type_size = type_size;
@@ -37,7 +38,7 @@ void map_destroy(Map* map) {
 }
 
 static MapNode* map_node_create(const size_t key, const size_t type_size, const void* data) {
-	MapNode* node = (MapNode*) malloc(sizeof(MapNode));
+	MapNode* node = malloc(sizeof(MapNode));
 	assert(node != NULL);
 
 	node->data = malloc(type_size);

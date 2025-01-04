@@ -34,7 +34,7 @@ void system_manager_destroy_entity(SystemManager* system_manager, entity_t e);
 
 void system_manager_update(SystemManager* system_manager, float dt);
 
-void system_manager_draw(SystemManager* system_manager, EntityPair* begin, const EntityPair* end);
+void system_manager_draw(SystemManager* system_manager, const EntityPair* begin, const EntityPair* end);
 
 void system_manager_clear(SystemManager* system_manager);
 

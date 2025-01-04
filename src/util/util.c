@@ -1,5 +1,6 @@
 #include "util.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 
 void print_vec(const Vector2 vec) {
@@ -12,4 +13,8 @@ void print_rect(const Rectangle rect) {
 
 int max_int(const int a, const int b) {
 	return a > b ? a : b;
+}
+
+int randint(const int start, const int end) {
+	return start + (rand() % (end - start));
 }

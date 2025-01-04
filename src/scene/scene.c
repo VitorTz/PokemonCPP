@@ -1,6 +1,7 @@
 #include "scene.h"
 #include "../constants.h"
 
+
 static Scene scene = { 0 };
 static SceneID current_scene_id = MAIN_SCENE;
 static SceneID next_scene_id = MAIN_SCENE;

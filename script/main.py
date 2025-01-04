@@ -3,6 +3,7 @@ from pytmx import load_pygame, TiledMap, TiledObjectGroup, TiledObject, TiledTil
 
 
 COAST_ID = 1
+GAME_OBJS = 3
 
 
 def main() -> None:
@@ -25,6 +26,8 @@ def main() -> None:
                 output.write(f"{obj.x} {obj.y} {obj.width} {obj.height} {obj.properties['obj-id']} {obj.properties['zindex']}")
                 if (layer.properties['group-id'] == COAST_ID):
                     output.write(f" {obj.properties['n']} {obj.properties['terrain']}")
+                if (layer.properties['group-id'] == GAME_OBJS):
+                    output.write(f" {obj.properties['source'].replace('../tilesets/../../', './resources/')}")
                 output.write('\n')
             except Exception as e:
                 print(layer.properties["group-id"], e)

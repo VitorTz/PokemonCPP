@@ -3,11 +3,10 @@
 #include <stdio.h>
 #include "system.h"
 #include "ecs_manager.h"
-#include "../util/util.h"
 
 
-void sprite_draw(const entity_t e) {	
-	ECS* ecs = ecs_manager_get_current_ecs_instance();
+void sprite_draw(const entity_t e) {
+	const ECS* ecs = ecs_manager_get_current_ecs_instance();
 	const Sprite* sprite = (Sprite*)ecs_get_component(ecs, e, SPRITE_ID);
 	const EntityTransform* transform = ecs_get_transform(ecs, e);
 	DrawTextureV(*sprite->texture, transform->pos, WHITE);
@@ -15,10 +14,11 @@ void sprite_draw(const entity_t e) {
 
 
 void sprite_animation_update(SetIterator* iter, const float dt) {
-	EntityPair* pair = NULL;
-	ECS* ecs = ecs_manager_get_current_ecs_instance();
+	const ECS* ecs = ecs_manager_get_current_ecs_instance();
+
+	const EntityPair* pair = NULL;
 	while ((pair = (EntityPair*)set_iter_next(iter)) != NULL) {
-		SpriteAnimation* sprite_animation = (SpriteAnimation*)ecs_get_component(ecs, pair->entity, SPRITE_ANIMATION_ID);
+		SpriteAnimation* sprite_animation = ecs_get_component(ecs, pair->entity, SPRITE_ANIMATION_ID);
 		sprite_animation->current_frame++;
 		if (sprite_animation->current_frame > sprite_animation->max_frame) {
 			sprite_animation->current_frame = 0;
@@ -30,7 +30,7 @@ void sprite_animation_update(SetIterator* iter, const float dt) {
 }
 
 void sprite_animation_draw(const entity_t e) {
-	ECS* ecs = ecs_manager_get_current_ecs_instance();
+	const ECS* ecs = ecs_manager_get_current_ecs_instance();
 	const EntityTransform* transform = ecs_get_transform(ecs, e);
 	const SpriteAnimation* sprite_animation = (SpriteAnimation*)ecs_get_component(ecs, e, SPRITE_ANIMATION_ID);
 	DrawTextureRec(
@@ -42,7 +42,7 @@ void sprite_animation_draw(const entity_t e) {
 }
 
 void shadow_draw(const entity_t e) {
-	ECS* ecs = ecs_manager_get_current_ecs_instance();
+	const ECS* ecs = ecs_manager_get_current_ecs_instance();
 	const EntityTransform* transform = ecs_get_transform(ecs, e);
 	const Shadow* shadow = (Shadow*)ecs_get_component(ecs, e, SHADOW_ID);	
 	DrawTextureV(*shadow->sprite.texture, Vector2Add(transform->pos, shadow->offset), WHITE);
@@ -50,22 +50,18 @@ void shadow_draw(const entity_t e) {
 
 
 void player_update(SetIterator* iter, const float dt) {	
-	EntityPair* pair = NULL;
-	Vector2 direction = { 0.0f, 0.0f };
-	ECS* ecs = ecs_manager_get_current_ecs_instance();
+	const ECS* ecs = ecs_manager_get_current_ecs_instance();
 
+	const EntityPair* pair = NULL;
 	while ((pair = (EntityPair*)set_iter_next(iter)) != NULL) {
-		Player* player = (Player*) ecs_get_component(ecs, pair->entity, PLAYER_ID);
-		SpriteAnimation* sprite_animation = (SpriteAnimation*)ecs_get_component(ecs, pair->entity, SPRITE_ANIMATION_ID);
+		Vector2 direction = { 0.0f, 0.0f };
+		Player* player = ecs_get_component(ecs, pair->entity, PLAYER_ID);
+		SpriteAnimation* sprite_animation = ecs_get_component(ecs, pair->entity, SPRITE_ANIMATION_ID);
 		EntityTransform* transform = ecs_get_transform(ecs, pair->entity);
 
 		// MOVEMENT
-
 			player->last_direction[0] = player->direction[0];
 			player->last_direction[1] = player->direction[1];
-
-			direction.x = 0.0f;
-			direction.y = 0.0;
 			player->direction[0] = 'i';
 
 			if (IsKeyDown(POKE_UP_KEY)) {

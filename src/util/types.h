@@ -35,12 +35,40 @@ typedef enum _scene_id {
 	NumScenes
 } SceneID;
 
+typedef enum _obj_id {
+	SmallGreenHouseObjID,
+	LargeGreenHouseObjID,
+	SmallPurpleHouseObjID,
+	HospitalObjID,
+	PlantArenaObjID,
+	WaterArenaObjID,
+	FireArenaObjID,
+	TreeObjID,
+	SmallTreeObjID,
+	WinterTreeObjID,
+	SmallWinterTreeObjID,
+	RockObjID,
+	PalmObjID,
+	SmallPalmObjID,
+	PillarObjID,
+	PillarTopObjID
+} ObjID;
 
 typedef enum _character_id {
 	PlayerCharacterID,
 	NurseCharacterID,
 	NumCharactersIDs
 } CharacterID;
+
+typedef enum _tile_obj_group_id {
+	EntitiesGroupID,
+	CoastGroupID,
+	MonstersGroupID,
+	GameObjsGroupID,
+	TransitionGroupID,
+	CollisionGroupID,
+	WaterGroupID
+} TiledObjectGroupID;
 
 
 #endif // !POKE_TYPES_H

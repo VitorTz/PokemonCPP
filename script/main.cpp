@@ -116,6 +116,10 @@ void txt_to_bin(const char* input_path, const char* output_path) {
                 fwrite(&coast_n, sizeof(int), 1, output);
                 fwrite(&cost_terrain, sizeof(int), 1, output);
                 printf(" %d %d", coast_n, cost_terrain);                
+            } else if (groupid == 3) {
+                file >> str;
+                fwrite(str.c_str(), sizeof(char), str.size() + 1, output);
+                printf(" %s", str.c_str());
             }
             printf("\n");            
         }

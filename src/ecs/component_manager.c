@@ -5,7 +5,7 @@
 
 
 ComponentManager* component_manager_create() {
-	ComponentManager* c = (ComponentManager*) malloc(sizeof(ComponentManager));
+	ComponentManager* c = malloc(sizeof(ComponentManager));
 	assert(c != NULL);
 	return c;
 }

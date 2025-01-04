@@ -49,7 +49,7 @@ typedef struct _player {
 } Player;
 
 
-void entity_tranform_init(EntityTransform* transform, zindex_t zindex);
+void entity_transform_init(EntityTransform* transform, zindex_t zindex);
 
 void sprite_init(Sprite* sprite, const char* filepath);
 
