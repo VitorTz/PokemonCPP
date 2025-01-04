@@ -1,9 +1,7 @@
 #include "scene.h"
-
+#include "../ecs/ecs_manager.h"
 
 static ECS* ecs = NULL;
-
-static entity_t player_entity;
 
 
 void scene_test_3_init() {
@@ -18,7 +16,7 @@ void scene_test_3_init() {
 	// Ground
 	ecs_create_ground_sprite(ecs, MAPS_PATH "world.png");
 	
-	entity_t player_entity = ecs_create_player(ecs, 1200.0f, 1200.0f);
+	ecs_create_player(ecs, 1200.0f, 1200.0f);
 
 }
 

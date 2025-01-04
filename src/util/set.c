@@ -1,3 +1,8 @@
+#include <assert.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stddef.h>
+#include "util.h"
 #include "set.h"
 
 
@@ -15,7 +20,8 @@ static SetNode* set_node_create(const size_t key, const size_t type_size, const 
 	return node;
 }
 
-void set_init(Set* set, size_t type_size, size_t(*hash)(const void*)) {
+void set_init(Set* set, const size_t type_size, size_t(*hash)(const void*)) {
+	assert(set != NULL);
 	set->root = NULL;
 	set->hash = hash;
 	set->type_size = type_size;
@@ -55,7 +61,7 @@ void set_destroy(Set* set) {
 	free(set);
 }
 
-inline static int set_height(SetNode* node) {
+static int set_height(const SetNode* node) {
 	if (node == NULL) return 0;
 	else return node->height;
 }
@@ -67,8 +73,8 @@ static SetNode* set_right_rotate(SetNode* y) {
 	x->right = y;
 	y->left = T2;
 
-	y->height = 1 + max(set_height(y->left), set_height(y->right));
-	x->height = 1 + max(set_height(x->left), set_height(x->right));
+	y->height = 1 + max_int(set_height(y->left), set_height(y->right));
+	x->height = 1 + max_int(set_height(x->left), set_height(x->right));
 	
 	return x;
 }
@@ -80,8 +86,8 @@ static SetNode* set_left_rotate(SetNode* x) {
 	y->left = x;
 	x->right = T2;
 	
-	x->height = 1 + max(set_height(x->left), set_height(x->right));
-	y->height = 1 + max(set_height(y->left), set_height(y->right));
+	x->height = 1 + max_int(set_height(x->left), set_height(x->right));
+	y->height = 1 + max_int(set_height(y->left), set_height(y->right));
 	
 	return y;
 }
@@ -108,16 +114,16 @@ static SetNode* set_insert_aux(Set* set, SetNode* node, const size_t key, const 
 		return node;
 	}
 	
-	node->height = 1 + max(set_height(node->left), set_height(node->right));
+	node->height = 1 + max_int(set_height(node->left), set_height(node->right));
 	
 	const int balance = set_get_balance(node);
 	
-	// Left Left Case 
+	// Left Case
 	if (balance > 1 && key < node->left->key) {
 		return set_right_rotate(node);
 	}
 
-	// Right Right Case 
+	// Right Case
 	if (balance < -1 && key > node->right->key) {
 		return set_left_rotate(node);
 	}
@@ -159,28 +165,26 @@ static SetNode* set_erase_aux(Set* set, SetNode* node, const size_t hash) {
 			free(node);
 			set->size--;
 			return NULL;
-		} 
-		else if (node->left == NULL) {
+		}
+		if (node->left == NULL) {
 			SetNode* tmp = node->right;
 			free(node->data);
 			free(node);
 			set->size--;
 			return tmp;
 		}
-		else if (node->right == NULL) {
+		if (node->right == NULL) {
 			SetNode* tmp = node->left;
 			free(node->data);
 			free(node);
 			set->size--;
 			return tmp;
 		}
-		else {
-			SetNode* tmp = set_min_left_subtree(node->right);			
+		const SetNode* tmp = set_min_left_subtree(node->right);
 			
-			node->key = tmp->key;
-			memcpy(node->data, tmp->data, set->type_size);
-			node->right = set_erase_aux(set, node->right, tmp->key);
-		}
+		node->key = tmp->key;
+		memcpy(node->data, tmp->data, set->type_size);
+		node->right = set_erase_aux(set, node->right, tmp->key);
 	} 
 	else if (hash < node->key) {
 		node->left = set_erase_aux(set, node->left, hash);
@@ -189,7 +193,7 @@ static SetNode* set_erase_aux(Set* set, SetNode* node, const size_t hash) {
 		node->right = set_erase_aux(set, node->right, hash);
 	}
 	
-	node->height = 1 + max(set_height(node->left), set_height(node->right));
+	node->height = 1 + max_int(set_height(node->left), set_height(node->right));
 	
 	const int balance = set_get_balance(node);
 	

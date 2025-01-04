@@ -37,27 +37,27 @@ void ecs_disable_mouse_zoom(ECS* ecs);
 
 void ecs_add_shadow(ECS* ecs, entity_t e, float x_offset, float y_offset);
 
-void ecs_destroy_entity(ECS* ecs, entity_t e);
+void ecs_destroy_entity(const ECS* ecs, entity_t e);
 
 void ecs_destroy_all_entities(ECS* ecs);
 
-void* ecs_add_component(ECS* ecs, entity_t e, component_t component_id);
+void* ecs_add_component(const ECS* ecs, entity_t e, component_t component_id);
 
-void* ecs_get_component(ECS* ecs, entity_t e, component_t component_id);
+void* ecs_get_component(const ECS* ecs, entity_t e, component_t component_id);
 
-void ecs_rmv_component(ECS* ecs, entity_t e, component_t component_id);
+void ecs_rmv_component(const ECS* ecs, entity_t e, component_t component_id);
 
-void ecs_add_static_collision(ECS* ecs, Rectangle rect);
+void ecs_add_static_collision(const ECS* ecs, Rectangle rect);
 
-SetIterator* ecs_get_entities_by_component(ECS* ecs, component_t component_id);
+SetIterator* ecs_get_entities_by_component(const ECS* ecs, component_t component_id);
 
-int ecs_check_static_collision(ECS* ecs, Rectangle rect);
+int ecs_check_static_collision(const ECS* ecs, Rectangle rect);
 
 void ecs_update(ECS* ecs, float dt);
 
 void ecs_draw(ECS* ecs);
 
-EntityTransform* ecs_get_transform(ECS* ecs, entity_t e);
+EntityTransform* ecs_get_transform(const ECS* ecs, entity_t e);
 
 
 #endif // !POKE_ECS_H

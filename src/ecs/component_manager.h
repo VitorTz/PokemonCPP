@@ -1,15 +1,13 @@
 #ifndef POKE_COMPONENT_MANAGER_H
 #define POKE_COMPONENT_MANAGER_H
-#include <assert.h>
 #include "components.h"
-#include "../constants.h"
+#include "../util/types.h"
 #include "../util/vector.h"
 
 
 typedef struct _component_manager {
 	Vector component[NUM_COMPONENTS];
 } ComponentManager;
-
 
 ComponentManager* component_manager_create();
 

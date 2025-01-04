@@ -1,7 +1,7 @@
 #ifndef POKE_SYSTEM_H
 #define POKE_SYSTEM_H
 #include "../util/set.h"
-
+#include "../util/types.h"
 
 typedef struct _system {
 	void (*update)(SetIterator*, float);

@@ -20,7 +20,7 @@ typedef struct _camera {
 
 PokeCamera* camera_create();
 
-void camera_destroy(PokeCamera* camera);
+void camera_destroy(const PokeCamera* camera);
 
 void camera_insert(PokeCamera* camera, entity_t e, zindex_t zindex);
 
@@ -36,7 +36,7 @@ void camera_set_target(PokeCamera* camera, float x, float y);
 
 void camera_handle_zoom(PokeCamera* camera, float dt);
 
-void camera_begin_drawing(PokeCamera* camera);
+void camera_begin_drawing(const PokeCamera* camera);
 
 void camera_end_drawing();
 
@@ -44,7 +44,7 @@ void camera_set_target_entity(PokeCamera* camera, entity_t e);
 
 void camera_set_horizontal_limit(PokeCamera* camera, float min_left, float max_right);
 
-void camera_set_vertical_limit(PokeCamera* camera, float min_top, float min_down);
+void camera_set_vertical_limit(PokeCamera* camera, float min_top, float min_bottom);
 
 
 #endif // !POKE_CAMERA_H

@@ -1,11 +1,6 @@
 #ifndef POKE_SCENE_H
 #define POKE_SCENE_H
-#include <raylib.h>
-#include <raymath.h>
-#include <stdio.h>
 #include "../util/types.h"
-#include "../ecs/ecs_manager.h"
-#include "../util/texture_pool.h"
 
 
 typedef struct _scene {

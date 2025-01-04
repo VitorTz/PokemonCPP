@@ -1,10 +1,11 @@
+#include <stdlib.h>
 #include "ecs.h"
 #include "ecs_manager.h"
 #include "../util/debug.h"
 
 
 ECS* ecs_create(const SceneID scene_id) {
-	ECS* ecs = (ECS*)malloc(sizeof(ECS));
+	ECS* ecs = (ECS*) malloc(sizeof(ECS));
 	assert(ecs != NULL);
 	
 	// ECS
@@ -58,10 +59,10 @@ entity_t ecs_create_entity(ECS* ecs, const zindex_t zindex, const int should_add
 
 entity_t ecs_create_sprite(ECS* ecs, const zindex_t zindex, const char* filepath) {	
 	const entity_t e = ecs_create_entity(ecs, zindex, 1);
-	EntityTransform* trasnform = ecs_get_transform(ecs, e);
+	EntityTransform* transform = ecs_get_transform(ecs, e);
 	Sprite* sprite = (Sprite*) ecs_add_component(ecs, e, SPRITE_ID);
 	sprite_init(sprite, filepath);
-	trasnform->size = sprite->size;	
+	transform->size = sprite->size;
 	return e;
 }
 
@@ -117,7 +118,7 @@ void ecs_add_shadow(ECS* ecs, const entity_t e, const float x_offset, const floa
 	shadow_init(shadow, x_offset, y_offset, GRAPHICS_PATH "other/shadow.png");
 }
 
-void ecs_destroy_entity(ECS* ecs, const entity_t e) {
+void ecs_destroy_entity(const ECS* ecs, const entity_t e) {
 	vector_push_back(ecs->entities_to_destroy, &e);
 }
 
@@ -125,24 +126,24 @@ void ecs_destroy_all_entities(ECS* ecs) {
 	ecs->should_destroy_all_entities = 1;
 }
 
-void ecs_add_static_collision(ECS* ecs, const Rectangle rect) {
+void ecs_add_static_collision(const ECS* ecs, const Rectangle rect) {
 	vector_push_back(ecs->static_collisions, &rect);
 }
 
-void* ecs_add_component(ECS* ecs, const entity_t e, const component_t component_id) {
+void* ecs_add_component(const ECS* ecs, const entity_t e, const component_t component_id) {
 	system_manager_insert(ecs->system, e, component_id);
 	return component_manager_at(ecs->component, e, component_id);
 }
 
-void* ecs_get_component(ECS* ecs, const entity_t e, const component_t component_id) {
+void* ecs_get_component(const ECS* ecs, const entity_t e, const component_t component_id) {
 	return component_manager_at(ecs->component, e, component_id);
 }
 
-void ecs_rmv_component(ECS* ecs, const entity_t e, const component_t component_id) {
+void ecs_rmv_component(const ECS* ecs, const entity_t e, const component_t component_id) {
 	system_manager_erase(ecs->system, e, component_id);
 }
 
-int ecs_check_static_collision(ECS* ecs, const Rectangle rect) {
+int ecs_check_static_collision(const ECS* ecs, const Rectangle rect) {
 	Rectangle* begin = (Rectangle*)vector_begin(ecs->static_collisions);
 	Rectangle* end = (Rectangle*)vector_end(ecs->static_collisions);
 	for (Rectangle* p = begin; p < end; p++) {
@@ -164,7 +165,7 @@ void ecs_update(ECS* ecs, const float dt) {
 		}
 		// TARGET
 		if (ecs->camera->have_target) {
-			EntityTransform* transform = ecs_get_transform(ecs, ecs->camera->target_entity);
+			const EntityTransform* transform = ecs_get_transform(ecs, ecs->camera->target_entity);
 			camera_set_target(
 				ecs->camera,
 				transform->pos.x + transform->size.x / 2.0f,
@@ -204,7 +205,7 @@ void ecs_draw(ECS* ecs) {
 	ecs_manager_set_ecs_instance(ecs->scene_id);
 	camera_begin_drawing(ecs->camera);
 		for (zindex_t z = CAMERA_ZINDEX_MIN; z <= CAMERA_ZINDEX_MAX; z++) {
-			Vector* vec = ecs->camera->zindex + z;
+			const Vector* vec = ecs->camera->zindex + z;
 			EntityPair* begin = (EntityPair*) vector_begin(vec);
 			EntityPair* end = (EntityPair*) vector_end(vec);
 			for (EntityPair* p = begin; p < end; p++) {
@@ -218,10 +219,10 @@ void ecs_draw(ECS* ecs) {
 	debug_ecs(ecs);
 }
 
-SetIterator* ecs_get_entities_by_component(ECS* ecs, component_t component_id) {
+SetIterator* ecs_get_entities_by_component(const ECS* ecs, const component_t component_id) {
 	return set_iter(ecs->system->entities + component_id);
 }
 
-EntityTransform* ecs_get_transform(ECS* ecs, const entity_t e) {
+EntityTransform* ecs_get_transform(const ECS* ecs, const entity_t e) {
 	return (EntityTransform*) component_manager_at(ecs->component, e, TRANSFORM_ID);
 }

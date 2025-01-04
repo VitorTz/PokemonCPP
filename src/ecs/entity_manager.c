@@ -1,3 +1,5 @@
+#include <assert.h>
+#include <stdlib.h>
 #include "entity_manager.h"
 #include "../constants.h"
 
@@ -44,6 +46,6 @@ void entity_manager_clear(EntityManager* entity_manager) {
 	entity_manager->top = MAX_ENTITIES - 1;
 }
 
-size_t entity_manager_num_entities(EntityManager* entity_manager) {
+size_t entity_manager_num_entities(const EntityManager* entity_manager) {
 	return entity_manager->size;
 }

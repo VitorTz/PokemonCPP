@@ -1,5 +1,6 @@
 #include "constants.h"
 #include "scene/scene.h"
+#include "ecs/ecs_manager.h"
 #include "util/texture_pool.h"
 
 

@@ -1,3 +1,5 @@
+#include <assert.h>
+#include <stdlib.h>
 #include "system_manager.h"
 #include "../util/hash.h"
 
@@ -19,13 +21,13 @@ SystemManager* system_manager_create() {
 
 void system_manager_register_system(
 	SystemManager* system_manager,
-	component_t id,
+	component_t component_id,
 	void (*update)(SetIterator*, float),
 	void (*draw)(entity_t)
 ) {
-	system_manager->system[id] = (System){ update, draw };
+	system_manager->system[component_id] = (System){ update, draw };
 	if (draw != NULL) {
-		system_manager->is_drawable_component[id] = 1;
+		system_manager->is_drawable_component[component_id] = 1;
 	}
 }
 
@@ -40,23 +42,23 @@ void system_manager_destroy(SystemManager* system_manager) {
 	free(system_manager);
 }
 
-void system_manager_insert(SystemManager* system_manager, const entity_t entity, const component_t component_id) {	
-	set_insert(system_manager->entities + component_id, &entity);
+void system_manager_insert(SystemManager* system_manager, const entity_t e, const component_t component_id) {
+	set_insert(system_manager->entities + component_id, &e);
 	if (system_manager->is_drawable_component[component_id]) {
-		set_insert(system_manager->drawable_components + entity, &component_id);
+		set_insert(system_manager->drawable_components + e, &component_id);
 	}
 }
 
-void system_manager_erase(SystemManager* system_manager, const entity_t entity, const component_t component_id) {
-	set_erase(system_manager->entities + component_id, &entity);
-	set_erase(system_manager->drawable_components + entity, &component_id);
+void system_manager_erase(SystemManager* system_manager, const entity_t e, const component_t component_id) {
+	set_erase(system_manager->entities + component_id, &e);
+	set_erase(system_manager->drawable_components + e, &component_id);
 }
 
-void system_manager_destroy_entity(SystemManager* system_manager, const entity_t entity) {
+void system_manager_destroy_entity(SystemManager* system_manager, const entity_t e) {
 	for (int i = 0; i < NUM_COMPONENTS; i++) {
-		set_erase(system_manager->entities + i, &entity);
+		set_erase(system_manager->entities + i, &e);
 	}
-	set_clear(system_manager->drawable_components + entity);
+	set_clear(system_manager->drawable_components + e);
 }
 
 void system_manager_update(SystemManager* system_manager, const float dt) {
@@ -71,7 +73,7 @@ void system_manager_update(SystemManager* system_manager, const float dt) {
 	);
 }
 
-void system_manager_draw(SystemManager* system_manager, EntityPair* begin, EntityPair* end) {
+void system_manager_draw(SystemManager* system_manager, EntityPair* begin, const EntityPair* end) {
 	component_t* id = NULL;
 	for (EntityPair* p = begin; p < end; p++) {
 		SetIterator* iter = set_iter(system_manager->drawable_components + p->entity);

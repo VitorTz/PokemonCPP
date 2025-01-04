@@ -1,10 +1,5 @@
 #ifndef POKE_MAP_H
 #define POKE_MAP_H
-#include <assert.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stddef.h>
-#include <math.h>
 #include "vector.h"
 
 
@@ -38,9 +33,9 @@ void map_destroy(Map* map);
 
 void map_insert(Map* map, const void* key, const void* value);
 
-void* map_at(Map* map, const void* key);
+void* map_at(const Map* map, const void* key);
 
-int map_contains(Map* map, const void* key);
+int map_contains(const Map* map, const void* key);
 
 void map_erase(Map* map, const void* key);
 

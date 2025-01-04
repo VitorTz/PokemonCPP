@@ -1,4 +1,5 @@
 #include "camera.h"
+#include <stdlib.h>
 #include <raymath.h>
 
 
@@ -25,28 +26,28 @@ PokeCamera* camera_create() {
 	return camera;
 }
 
-void camera_destroy(PokeCamera* camera) {
+void camera_destroy(const PokeCamera* camera) {
 	for (int i = CAMERA_ZINDEX_MIN; i <= CAMERA_ZINDEX_MAX; i++) {
 		vector_close(camera->zindex + i);
 	}
 }
 
-void camera_insert(PokeCamera* camera, const entity_t e, const zindex_t z) {
+void camera_insert(PokeCamera* camera, const entity_t e, const zindex_t zindex) {
 	if (camera->is_on_camera[e] == 0) {
 		camera->is_on_camera[e] = 1;
 		const EntityPair p = { e, 0.0f };
-		vector_push_back(camera->zindex + z, &p);
+		vector_push_back(camera->zindex + zindex, &p);
 		camera->size++;
 	}
 }
 
-void camera_erase(PokeCamera* camera, const entity_t e, const zindex_t z) {
+void camera_erase(PokeCamera* camera, const entity_t e, const zindex_t zindex) {
 	if (camera->is_on_camera[e] == 1) {
 		camera->is_on_camera[e] = 0;
 		size_t i = 0;
-		Vector* v = camera->zindex + z;
+		Vector* v = camera->zindex + zindex;
 		EntityPair* begin = (EntityPair*)vector_begin(v);
-		EntityPair* end = (EntityPair*)vector_end(v);
+		const EntityPair* end = (EntityPair*)vector_end(v);
 		for (EntityPair* p = begin; p < end; p++) {
 			if (p->entity == e) {
 				vector_erase(v, i);
@@ -93,7 +94,7 @@ void camera_set_target(PokeCamera* camera, const float x, const float y) {
 	camera->camera2D.target.y = Clamp(y, camera->vertical_limit.x, camera->vertical_limit.y);
 }
 
-void camera_begin_drawing(PokeCamera* camera) {
+void camera_begin_drawing(const PokeCamera* camera) {
 	BeginMode2D(camera->camera2D);
 }
 

@@ -1,6 +1,7 @@
 #ifndef POKE_TEXTURE_POOL_H
 #define POKE_TEXTURE_POOL_H
 #include <raylib.h>
+#include <stddef.h>
 
 
 void texture_pool_init();

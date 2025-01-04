@@ -1,7 +1,12 @@
+#include <assert.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stddef.h>
+#include "util.h"
 #include "map.h"
 
 
-Map* map_create(size_t type_size, size_t(*hash)(const void*)) {
+Map* map_create(const size_t type_size, size_t(*hash)(const void*)) {
 	// Map
 	Map* map = (Map*)malloc(sizeof(Map));
 	assert(map != NULL);
@@ -32,7 +37,7 @@ void map_destroy(Map* map) {
 }
 
 static MapNode* map_node_create(const size_t key, const size_t type_size, const void* data) {
-	MapNode* node = (MapNode*)malloc(sizeof(MapNode));
+	MapNode* node = (MapNode*) malloc(sizeof(MapNode));
 	assert(node != NULL);
 
 	node->data = malloc(type_size);
@@ -45,7 +50,7 @@ static MapNode* map_node_create(const size_t key, const size_t type_size, const 
 	return node;
 }
 
-inline static MapNode* map_min_left_subtree(MapNode* node) {
+static MapNode* map_min_left_subtree(MapNode* node) {
 	MapNode* aux = node;
 	while (aux->left != NULL)
 		aux = aux->left;
@@ -53,7 +58,7 @@ inline static MapNode* map_min_left_subtree(MapNode* node) {
 }
 
 
-inline static int map_height(MapNode* node) {
+static int map_height(const MapNode* node) {
 	if (node == NULL) return 0;
 	else return node->height;
 }
@@ -65,8 +70,8 @@ static MapNode* map_right_rotate(MapNode* y) {
 	x->right = y;
 	y->left = T2;
 
-	y->height = 1 + max(map_height(y->left), map_height(y->right));
-	x->height = 1 + max(map_height(x->left), map_height(x->right));
+	y->height = 1 + max_int(map_height(y->left), map_height(y->right));
+	x->height = 1 + max_int(map_height(x->left), map_height(x->right));
 
 	return x;
 }
@@ -78,13 +83,13 @@ static MapNode* map_left_rotate(MapNode* x) {
 	y->left = x;
 	x->right = T2;
 
-	x->height = 1 + max(map_height(x->left), map_height(x->right));
-	y->height = 1 + max(map_height(y->left), map_height(y->right));
+	x->height = 1 + max_int(map_height(x->left), map_height(x->right));
+	y->height = 1 + max_int(map_height(y->left), map_height(y->right));
 
 	return y;
 }
 
-inline static int map_get_balance(MapNode* node) {
+static int map_get_balance(const MapNode* node) {
 	if (node == NULL) return 0;
 	else return map_height(node->left) - map_height(node->right);
 }
@@ -105,16 +110,16 @@ static MapNode* map_insert_aux(Map* map, MapNode* node, const size_t key, const 
 		return node;
 	}
 	
-	node->height = 1 + max(map_height(node->left), map_height(node->right));
+	node->height = 1 + max_int(map_height(node->left), map_height(node->right));
 
 	const int balance = map_get_balance(node);
 
-	// Left Left Case 
+	// Left Case
 	if (balance > 1 && key < node->left->key) {
 		return map_right_rotate(node);
 	}
 
-	// Right Right Case 
+	// Right Case
 	if (balance < -1 && key > node->right->key) {
 		return map_left_rotate(node);
 	}
@@ -138,9 +143,9 @@ void map_insert(Map* map, const void* key, const void* value) {
 	map->root = map_insert_aux(map, map->root, map->hash(key), value);
 }
 
-void* map_at(Map* map, const void* key) {
+void* map_at(const Map* map, const void* key) {
 	const size_t hash = map->hash(key);
-	MapNode* node = map->root;
+	const MapNode* node = map->root;
 
 	while (node != NULL) {		
 		if (hash < node->key)
@@ -153,9 +158,9 @@ void* map_at(Map* map, const void* key) {
 	return NULL;
 }
 
-int map_contains(Map* map, const void* key) {
+int map_contains(const Map* map, const void* key) {
 	const size_t hash = map->hash(key);
-	MapNode* node = map->root;
+	const MapNode* node = map->root;
 
 	while (node != NULL) {
 		if (hash < node->key) {
@@ -183,28 +188,26 @@ static MapNode* map_erase_aux(Map* map, MapNode* node, const size_t key) {
 			map->size--;
 			return NULL;
 		}
-		else if (node->left == NULL) {
+		if (node->left == NULL) {
 			MapNode* tmp = node->right;
 			free(node->data);
 			free(node);
 			map->size--;
 			return tmp;
 		}
-		else if (node->right == NULL) {
+		if (node->right == NULL) {
 			MapNode* tmp = node->left;
 			free(node->data);
 			free(node);
 			map->size--;
 			return tmp;
 		}
-		else {
-			MapNode* tmp = map_min_left_subtree(node->right);
+		const MapNode* tmp = map_min_left_subtree(node->right);
 
-			node->key = tmp->key;
-			memcpy(node->data, tmp->data, map->type_size);
+		node->key = tmp->key;
+		memcpy(node->data, tmp->data, map->type_size);
 
-			node->right = map_erase_aux(map, node->right, tmp->key);
-		}
+		node->right = map_erase_aux(map, node->right, tmp->key);
 	}
 	else if (key < node->key) {
 		node->left = map_erase_aux(map, node->left, key);
@@ -213,7 +216,7 @@ static MapNode* map_erase_aux(Map* map, MapNode* node, const size_t key) {
 		node->right = map_erase_aux(map, node->right, key);
 	}
 
-	node->height = 1 + max(map_height(node->left), map_height(node->right));
+	node->height = 1 + max_int(map_height(node->left), map_height(node->right));
 
 	const int balance = map_get_balance(node);
 

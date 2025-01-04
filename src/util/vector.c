@@ -1,3 +1,6 @@
+#include <stdlib.h>
+#include <assert.h>
+#include <string.h>
 #include "vector.h"
 
 
@@ -9,7 +12,7 @@ void vector_init(Vector* vec, const size_t type_size, const size_t capacity) {
 	assert(vec->data != NULL);
 }
 
-void vector_close(Vector* vec) {
+void vector_close(const Vector* vec) {
 	if (vec == NULL || vec->data == NULL) { return; }
 	free(vec->data);
 }
@@ -37,7 +40,7 @@ void vector_reserve(Vector* vec, const size_t new_capacity) {
 	}
 }
 
-inline static void vector_grow(Vector* vec) {
+static void vector_grow(Vector* vec) {
 	if (vec->size >= vec->capacity) {
 		void* tmp = realloc(vec->data, vec->type_size * vec->capacity * 2);
 		if (tmp != NULL) {
@@ -84,7 +87,7 @@ void vector_rmv(Vector* vec, const void* item, int (*cmp)(const void*, const voi
 	}
 }
 
-void* vector_at(Vector* vec, const size_t i) {
+void* vector_at(const Vector* vec, const size_t i) {
 	return vec->data + vec->type_size * i;
 }
 
@@ -93,11 +96,11 @@ void* vector_allocate(Vector* vec) {
 	return vec->data + vec->type_size * vec->size++;
 }
 
-char* vector_begin(Vector* vec) {
+char* vector_begin(const Vector* vec) {
 	return vec->data;
 }
 
-char* vector_end(Vector* vec) {
+char* vector_end(const Vector* vec) {
 	return vec->data + vec->type_size * vec->size;
 }
 
@@ -117,13 +120,4 @@ void vector_pop_front(Vector* vec, void* dst) {
 
 void vector_clear(Vector* vec) {
 	vec->size = 0;
-}
-
-Iterator vector_iter(Vector* vec) {
-	const Iterator iter = {
-		vec->data,
-		vec->data + vec->type_size * vec->size,
-		vec->type_size
-	};
-	return iter;
 }

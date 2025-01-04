@@ -4,7 +4,6 @@
 #include "../util/vector.h"
 
 
-
 typedef struct _entity_manager {
 	Vector* entities;
 	size_t top;
@@ -22,7 +21,7 @@ void entity_manager_destroy_entity(EntityManager* entity_manager, entity_t entit
 
 void entity_manager_clear(EntityManager* entity_manager);
 
-size_t entity_manager_num_entities(EntityManager* entity_manager);
+size_t entity_manager_num_entities(const EntityManager* entity_manager);
 
 
 #endif // !POKE_ENTITY_H

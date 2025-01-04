@@ -1,4 +1,7 @@
+#include <assert.h>
+#include <stdlib.h>
 #include "component_manager.h"
+#include "../constants.h"
 
 
 ComponentManager* component_manager_create() {

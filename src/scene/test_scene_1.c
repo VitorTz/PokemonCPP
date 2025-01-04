@@ -1,5 +1,5 @@
 #include "scene.h"
-
+#include "../ecs/ecs_manager.h"
 
 static ECS* ecs = NULL;
 
