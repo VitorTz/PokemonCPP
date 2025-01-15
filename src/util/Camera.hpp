@@ -1,32 +1,38 @@
 #pragma once
-#include <map>
 #include <raylib.h>
-#include <vector>
-#include <array>
-#include "types.hpp"
+#include <limits>
 #include "../constants.hpp"
 
 
-namespace pk {
-
-    typedef std::map<pk::zindex_t, std::vector<std::pair<float, pk::entity_t>>> CameraEntitiesMap;
+namespace pk {    
 
     class Camera {
         
-    private:
-        pk::CameraEntitiesMap zindex_to_entities{};
-        std::array<bool, pk::MAX_ENTITIES> is_on_camera{};
-        Camera2D camera2D{};
-        std::size_t mSize{};
+    private:        
+        Camera2D camera2D{
+            pk::SCREEN_CENTER,
+            pk::SCREEN_CENTER,
+            0.0f,
+            1.0f
+        };        
+        float max_x_pos{std::numeric_limits<float>::max()};
+        float max_y_pos{std::numeric_limits<float>::max()};
 
     public:
-        Camera();
-        void insert(pk::entity_t e, pk::zindex_t zindex);
-        void erase(pk::entity_t e, pk::zindex_t zindex);        
-        pk::CameraEntitiesMap* get_entities_map();
-        void clear();        
-        std::size_t size() const;
-    
+        void set_max_x_pos(float x);
+        void set_max_y_pos(float y);
+        
+        void add_zoom(float zoom);
+        void set_zoom(float zoom);
+
+        void set_target(float x, float y);
+        void move(float delta_x, float delta_y);
+
+        void begin_drawing() const;
+        void end_drawing() const;
+
+        void reset();
+        
     };
     
 } // namespace pk

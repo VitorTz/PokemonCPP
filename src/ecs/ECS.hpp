@@ -28,31 +28,42 @@ namespace pk {
             this->component->register_component<pk::Transform>();
             this->component->register_component<pk::Sprite>();
             this->component->register_component<pk::SpriteAnimation>();
+            // Check
             assert(this->component->num_registered_components() == pk::NUM_COMPONENTS);
             
             // System
             // All Components
             this->system->register_system<pk::Transform, pk::TransformSystem>();
             this->system->register_system<pk::Sprite, pk::SpriteSystem>();
-            this->system->register_system<pk::SpriteAnimation, pk::SpriteAnimationSystem>();
-            // Drawable Components
-            this->system->register_drawable_component<pk::Sprite>();
-            this->system->register_drawable_component<pk::SpriteAnimation>();
-            // Updatable Componens
-            this->system->register_updatable_component<pk::SpriteAnimation>();
+            this->system->register_system<pk::SpriteAnimation, pk::SpriteAnimationSystem>();            
             // Check
             assert(this->system->num_registered_systems() == pk::NUM_COMPONENTS);
-            assert(this->system->num_registered_drawable_components() == pk::NUM_DRAWABLE_COMPONENTS);
-            assert(this->system->num_registered_updatable_components() == pk::NUM_UPDATABLE_COMPONENTS);
         }
             
         
-        pk::entity_t entity_create(pk::zindex_t zindex, bool add_to_camera) {
+        pk::entity_t entity_create(
+            const pk::zindex_t zindex, 
+            const float pos_x,
+            const float pos_y,
+            const bool add_to_camera
+        ) {
             const pk::entity_t e = this->entity->entity_create();
-            this->add_component<pk::Transform>(e, pk::Transform{zindex});
-            if (add_to_camera) {
-                this->camera->insert(e, zindex);
-            }
+            this->add_component<pk::Transform>(e, pk::Transform{pos_x, pos_y, zindex});            
+            return e;
+        }
+
+        pk::entity_t sprite_create(
+            const pk::zindex_t zindex,
+            const char* filepath,
+            const float pos_x,
+            const float pos_y
+        ) {
+            const pk::entity_t e = this->entity_create(zindex, pos_x, pos_y, true);
+            const pk::Sprite& sprite = this->add_component<pk::Sprite>(e, pk::Sprite{filepath});
+            this->get_transform(e).size = {
+                static_cast<float>(sprite.texture.width),
+                static_cast<float>(sprite.texture.height)
+            };
             return e;
         }
 
@@ -65,9 +76,24 @@ namespace pk {
         }
 
         template<typename T>
-        void add_component(const pk::entity_t e, T component) {
-            this->component->insert<T>(e, std::move(component));
-            this->system->insert<T>(e);
+        T& add_component(const pk::entity_t e, T component) {
+            this->system->insert<T>(e);            
+            return this->component->insert<T>(e, std::move(component));
+        }
+
+        template<typename T>
+        void rmv_component(const pk::entity_t e) {
+            this->component->erase<T>(e);
+            this->system->erase<T>(e);
+        }
+
+        template<typename T>
+        T& get_component(const pk::entity_t e) {
+            return this->component->at<T>(e);
+        }
+
+        pk::Transform& get_transform(const pk::entity_t e) {            
+            return this->component->at<pk::Transform>(e);
         }
 
         void update(const float dt) {
@@ -77,15 +103,13 @@ namespace pk {
                 this->should_destroy_all_entities = false;
                 this->entity->clear();
                 this->component->clear();
-                this->system->clear();
-                this->camera->clear();
+                this->system->clear();                
                 this->entities_to_destroy = std::queue<pk::entity_t>();
             }
 
             while (this->entities_to_destroy.empty()) {
                 const pk::entity_t e = this->entities_to_destroy.front();
-                this->entities_to_destroy.pop();
-                this->camera->erase(e, this->component->at<pk::Transform>(e).zindex);
+                this->entities_to_destroy.pop();                
                 this->entity->entity_destroy(e);
                 this->component->entity_destroy(e);
                 this->system->entity_destroy(e);
@@ -93,16 +117,33 @@ namespace pk {
         }
 
         void draw() {
-            pk::CameraEntitiesMap* entities_map = this->camera->get_entities_map();
-            for (auto& pair : *entities_map) {
-                for (std::pair<float, pk::entity_t>& pair1 : pair.second) {
-                    pk::Transform& transform = this->component->at<pk::Transform>(pair1.second);
-                    pair1.first = transform.pos.y + transform.size.y / 2.0f;
-                    std::sort(pair.second.begin(), pair.second.end());
-                    this->system->draw(pair.second);
-                }
-                
-            }
+            this->camera->begin_drawing();
+            this->system->draw();
+            this->camera->end_drawing();
+        }
+
+        void reset() {
+            this->should_destroy_all_entities = false;
+            this->entity->clear();
+            this->component->clear();
+            this->system->clear();            
+            this->entities_to_destroy = std::queue<pk::entity_t>();
+        }
+
+        pk::Camera* get_camera() {
+            return this->camera.get();
+        }
+
+        const pk::EntityManager* get_entity_manager() const {
+            return this->entity.get();
+        }
+
+        const pk::ComponentManager* get_component_manager() const {
+            return this->component.get();
+        }
+
+        const pk::SystemManager* get_system_manager() const {
+            return this->system.get();
         }
     
     };

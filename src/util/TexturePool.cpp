@@ -9,13 +9,13 @@ pk::TexturePool::TexturePool() {
 
 
 Texture2D pk::TexturePool::get(const char* filepath) {
-    const std::size_t h = pk::hash_str(filepath);
-    const auto pair = this->pool.find(h);
+    const std::size_t hash = pk::hash_str(filepath);
+    const auto pair = this->pool.find(hash);
     if (pair == this->pool.end()) {
-        Texture2D t = LoadTexture(filepath);
-        assert(t.id > 0);
-        this->pool.insert({h, t});
-        return t;
+        const Texture2D new_texture = LoadTexture(filepath);
+        assert(new_texture.id > 0);
+        this->pool.insert({hash, new_texture});
+        return new_texture;
     }
     return pair->second;
 }

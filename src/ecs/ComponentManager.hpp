@@ -2,6 +2,7 @@
 #include <cassert>
 #include <memory>
 #include <typeinfo>
+#include "components.hpp"
 #include "ComponentArray.hpp"
 #include "../util/types.hpp"
 
@@ -17,16 +18,16 @@ namespace pk {
         template<typename T>
         pk::ComponentArray<T>* get_component_array() {
             return dynamic_cast<pk::ComponentArray<T>*>(
-                this->component_array_map[typeid(T).hash_code()].get()
-            )
+                this->component_array_map[pk::get_component_id<T>()].get()
+            );
         }
 
     public:        
         template<typename T>
         void register_component() {
-            const std::size_t h = typeid(T).hash_code();
-            assert(this->component_array_map.find(h) != this->component_array_map.end());
-            this->component_array_map.emplace(h, std::make_unique<pk::ComponentArray<T>>());
+            const pk::component_t component_id = pk::get_component_id<T>();                        
+            assert(this->component_array_map.find(component_id) == this->component_array_map.end());
+            this->component_array_map.emplace(component_id, std::make_unique<pk::ComponentArray<T>>());
         }   
 
         template<typename T>
@@ -35,13 +36,14 @@ namespace pk {
         }
 
         template<typename T>
-        void insert(const pk::entity_t e, T component) {
+        T& insert(const pk::entity_t e, T component) {
             this->get_component_array<T>()->insert(e, component);
+            return this->at<T>(e);
         }
 
         template<typename T>
-        void erase(const pk::entity_t e) {
-            this->component_array_map[typeid(T).hash_code()]->erase(e);
+        void erase(const pk::entity_t e) {            
+            this->component_array_map[pk::get_component_id<T>()]->erase(e);
         }
         
         void entity_destroy(pk::entity_t e) {

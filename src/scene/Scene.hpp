@@ -3,16 +3,22 @@
 #include <iostream>
 #include "SceneID.hpp"
 #include "../constants.hpp"
+#include "../ecs/EcsManager.hpp"
 
 
 namespace pk {
 
     class Scene {
 
+    private:
+        pk::SceneID scene_id{};
+
     public:
+        explicit Scene(const pk::SceneID scene_id);
         virtual ~Scene() = default;
-        virtual void update(float dt) = 0;
-        virtual void draw() = 0;
+        virtual void update(float dt);
+        virtual void draw();
+        pk::SceneID get_scene_id() const;
 
     };
 
