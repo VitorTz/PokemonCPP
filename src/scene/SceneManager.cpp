@@ -46,11 +46,16 @@ void pk::SceneManager::change_scene(const pk::SceneID scene_id) {
 }
 
 
-void pk::SceneManager::update(const float dt) {
+void pk::SceneManager::update(const float dt) const {
     this->scene->update(dt);
 }
 
 
-void pk::SceneManager::draw() {
+void pk::SceneManager::draw() const {
     this->scene->draw();
+}
+
+
+std::map<std::string, std::string>* pk::SceneManager::get_scene_context() {
+    return &this->scene_context;
 }

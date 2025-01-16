@@ -2,7 +2,6 @@
 #include "scene/Scene.hpp"
 #include "util/TexturePool.hpp"
 #include "constants.hpp"
-#include "ecs/EcsManager.hpp"
 
 
 int main() {		
@@ -17,6 +16,9 @@ int main() {
 		BeginDrawing();
 		ClearBackground(BLACK);
 			pk::gSceneManager.draw();
+			if (pk::DEBUG_MODE) {
+				DrawFPS(20, 20);
+			}
 		EndDrawing();
 	}
 

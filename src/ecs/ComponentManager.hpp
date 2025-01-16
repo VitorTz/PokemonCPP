@@ -46,7 +46,7 @@ namespace pk {
             this->component_array_map[pk::get_component_id<T>()]->erase(e);
         }
         
-        void entity_destroy(pk::entity_t e) {
+        void entity_destroy(const pk::entity_t e) {
             for (auto& pair : this->component_array_map) {
                 pair.second->erase(e);
             }
@@ -60,6 +60,14 @@ namespace pk {
 
         std::size_t num_registered_components() const {
             return this->component_array_map.size();
+        }
+
+        std::size_t count_num_active_components() const {
+            std::size_t n{};
+            for (auto& pair : this->component_array_map) {
+                n += pair.second->size();
+            }
+            return n;
         }
 
     };

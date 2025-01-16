@@ -19,7 +19,7 @@ namespace pk {
     typedef struct transform {
         Vector2 pos{};
         Vector2 size{};
-        pk::zindex_t zindex;
+        pk::zindex_t zindex{};
         transform() = default;
         explicit transform(const pk::zindex_t zindex) : zindex(zindex) { }
         transform(
@@ -37,23 +37,21 @@ namespace pk {
     } Sprite;
 
     typedef struct sprite_animation {
-        sprite_animation() = default;
         Texture2D texture{};
         Rectangle texture_rect{};
         std::uint8_t current_frame{};
         std::uint8_t max_frame{};
         std::uint8_t current_sprite{};
-        std::uint8_t max_sprite{};        
+        std::uint8_t max_sprite{};
         std::uint8_t cols{};
-        sprite_animation(
-            const char* filepath,
-            std::uint8_t rows,
-            std::uint8_t cols,
-            std::uint8_t speed
-        ) : texture(pk::gTexturePool.get(filepath)),
-            max_frame(speed),
-            max_sprite(rows * cols),
-            cols(cols) { }
+        sprite_animation() = default;
+        explicit sprite_animation(
+            const SpriteAnimationSource& source
+        ) : texture(pk::gTexturePool.get(source.sprite_sheet.image_path)),
+            texture_rect({0.0f, 0.0f, source.sprite_sheet.sprite_width, source.sprite_sheet.sprite_height}),
+            max_frame(source.speed),
+            max_sprite(source.sprite_sheet.rows * source.sprite_sheet.cols),
+            cols(source.sprite_sheet.cols) { }
     } SpriteAnimation;
     
 } // namespace pk

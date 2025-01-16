@@ -66,6 +66,11 @@ void pk::Camera::reset() {
 }
 
 
+void pk::Camera::handle_user_input(const float dt) {
+    this->add_zoom(GetMouseWheelMove() * dt * 2.0f);
+}
+
+
 void pk::Camera::begin_drawing() const {
     BeginMode2D(this->camera2D);
 }

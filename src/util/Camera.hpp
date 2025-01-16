@@ -31,6 +31,8 @@ namespace pk {
         void begin_drawing() const;
         void end_drawing() const;
 
+        void handle_user_input(float dt);
+
         void reset();
         
     };

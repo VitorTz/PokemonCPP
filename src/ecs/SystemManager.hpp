@@ -63,6 +63,11 @@ namespace pk {
                 p.second->entities.clear();
             }            
         }
+
+        template<typename T>
+        const std::set<pk::entity_t>& get_entities_by_system() const {
+            return this->system_map.at(pk::get_component_id<T>())->entities;
+        }
         
         std::size_t num_registered_systems() const {
             return this->system_map.size();

@@ -1,6 +1,8 @@
 #pragma once
-#include <memory>
 #include <iostream>
+#include <memory>
+#include <string>
+#include <map>
 #include "SceneID.hpp"
 #include "../constants.hpp"
 #include "../ecs/EcsManager.hpp"
@@ -14,7 +16,7 @@ namespace pk {
         pk::SceneID scene_id{};
 
     public:
-        explicit Scene(const pk::SceneID scene_id);
+        explicit Scene(pk::SceneID scene_id);
         virtual ~Scene() = default;
         virtual void update(float dt);
         virtual void draw();
@@ -28,6 +30,7 @@ namespace pk {
         std::unique_ptr<pk::Scene> scene{};
         pk::SceneID current_scene_id{pk::MAIN_SCENE};
         pk::SceneID next_scene_id{pk::MAIN_SCENE};
+        std::map<std::string, std::string> scene_context{};
         bool should_change_scene{};
 
     private:
@@ -35,9 +38,13 @@ namespace pk {
 
     public:
         void init();
+
         void change_scene(pk::SceneID scene_id);
-        void update(float dt);
-        void draw();
+
+        void update(float dt) const;
+        void draw() const;
+
+        std::map<std::string, std::string>* get_scene_context();
 
     };
 
@@ -114,7 +121,6 @@ namespace pk {
 
     };
 
-    inline pk::SceneManager gSceneManager{};
-    
+    inline pk::SceneManager gSceneManager{};    
 
 } // namespace pk

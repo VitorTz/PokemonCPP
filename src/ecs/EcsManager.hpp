@@ -34,11 +34,11 @@ namespace pk {
             this->current_ecs = this->ecs_map[scene_id].get();
         }
 
-        void update(const float dt) {
+        void update(const float dt) const {
             this->current_ecs->update(dt);
         }
 
-        void draw() {
+        void draw() const {
             this->current_ecs->draw();
         }
 

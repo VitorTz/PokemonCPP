@@ -18,7 +18,7 @@ namespace pk {
     };
 
     template<typename T>
-    class ComponentArray : public pk::IComponentArray {
+    class ComponentArray final : public pk::IComponentArray {
 
     private:
         std::array<T, pk::MAX_ENTITIES> arr{};
@@ -45,7 +45,7 @@ namespace pk {
         }
 
         void erase(const pk::entity_t e) override {
-            if (this->entity_to_index.find(e) != this->entity_to_index.end()) {
+            if (this->entity_to_index.find(e) == this->entity_to_index.end()) {
                 return;
             }
 
@@ -58,7 +58,6 @@ namespace pk {
 
             this->entity_to_index.erase(e);
             this->index_to_entity.erase(last_component_index);
-
 
             std::swap(this->arr[removed_component_index], this->arr[last_component_index]);
         }
