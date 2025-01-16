@@ -24,8 +24,11 @@ void pk::SceneManager::load_next_scene() {
         case pk::HouseSceneID:
             this->scene = std::make_unique<pk::HouseScene>();
             break;
-        case pk::TestSceneID:
-            this->scene = std::make_unique<pk::TestScene>();
+        case pk::TestScene1ID:
+            this->scene = std::make_unique<pk::TestScene1>();
+            break;
+        case pk::TestScene2ID:
+            this->scene = std::make_unique<pk::TestScene2>();
             break;
         default:
             break;
@@ -46,13 +49,16 @@ void pk::SceneManager::change_scene(const pk::SceneID scene_id) {
 }
 
 
-void pk::SceneManager::update(const float dt) const {
+void pk::SceneManager::update(const float dt) {
     this->scene->update(dt);
 }
 
 
-void pk::SceneManager::draw() const {
+void pk::SceneManager::draw() {
     this->scene->draw();
+    if (this->should_change_scene) {
+        this->load_next_scene();
+    }
 }
 
 

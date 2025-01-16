@@ -1,6 +1,7 @@
 #include "Camera.hpp"
 #include <algorithm>
 #include <cassert>
+#include <cmath>
 
 
 void pk::Camera::add_zoom(const float zoom) {
@@ -13,11 +14,16 @@ void pk::Camera::add_zoom(const float zoom) {
 
 
 void pk::Camera::set_zoom(const float zoom) {
-this->camera2D.zoom = std::clamp(
+    this->camera2D.zoom = std::clamp(
         zoom,
         pk::CAMERA_ZOOM_MIN,
         pk::CAMERA_ZOOM_MAX
     );
+}
+
+
+float pk::Camera::get_zoom() const {
+    return this->camera2D.zoom;
 }
 
 
@@ -34,15 +40,25 @@ void pk::Camera::set_max_y_pos(const float y) {
 
 void pk::Camera::set_target(const float x, const float y) {
     this->camera2D.target.x = std::clamp(
-        x,
+        std::roundf(x),
         pk::SCREEN_CENTER.x,
         this->max_x_pos
     );
     this->camera2D.target.y = std::clamp(
-        y,
+        std::roundf(y),
         pk::SCREEN_CENTER.y,
         this->max_y_pos
     );
+}
+
+
+float pk::Camera::get_target_x() const {
+    return this->camera2D.target.x;
+}
+
+
+float pk::Camera::get_target_y() const {
+    return this->camera2D.target.y;
 }
 
 

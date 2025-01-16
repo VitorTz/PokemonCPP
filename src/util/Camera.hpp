@@ -24,8 +24,12 @@ namespace pk {
         
         void add_zoom(float zoom);
         void set_zoom(float zoom);
+        float get_zoom() const;
 
         void set_target(float x, float y);
+        float get_target_x() const;
+        float get_target_y() const;
+
         void move(float delta_x, float delta_y);
 
         void begin_drawing() const;

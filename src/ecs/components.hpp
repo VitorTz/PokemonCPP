@@ -7,9 +7,9 @@
 
 namespace pk {
 
-    constexpr std::size_t NUM_COMPONENTS{3};
+    constexpr std::size_t NUM_COMPONENTS{4};
     constexpr std::size_t NUM_DRAWABLE_COMPONENTS{2};
-    constexpr std::size_t NUM_UPDATABLE_COMPONENTS{1};
+    constexpr std::size_t NUM_UPDATABLE_COMPONENTS{2};
 
     template<typename T>
     pk::component_t get_component_id() {
@@ -53,5 +53,10 @@ namespace pk {
             max_sprite(source.sprite_sheet.rows * source.sprite_sheet.cols),
             cols(source.sprite_sheet.cols) { }
     } SpriteAnimation;
+
+    typedef struct player {
+        char direction[2]{'i', 'd'};
+        char last_direction[2]{'i', 'd'};
+    } Player;
     
 } // namespace pk

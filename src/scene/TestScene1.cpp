@@ -4,8 +4,12 @@
 static std::unordered_map<pk::entity_t, float> speed{};
 
 
-pk::TestScene::TestScene(): pk::Scene(pk::TestSceneID) {
-    pk::ECS* ecs = pk::gEcsManager.get_ecs(pk::TestSceneID);
+pk::TestScene1::TestScene1(): pk::Scene(pk::TestScene1ID) {
+    pk::ECS* ecs = pk::gEcsManager.get_ecs(pk::TestScene1ID);
+
+    if (ecs->is_empty() == false) {
+        return;
+    }
 
     for (int i = 0; i < pk::MAX_ENTITIES; i++) {
         const pk::entity_t e = ecs->sprite_create(
@@ -19,8 +23,8 @@ pk::TestScene::TestScene(): pk::Scene(pk::TestSceneID) {
 }
 
 
-void pk::TestScene::update(const float dt) {
-    pk::ECS* ecs = pk::gEcsManager.get_ecs(pk::TestSceneID);
+void pk::TestScene1::update(const float dt) {
+    pk::ECS* ecs = pk::gEcsManager.get_ecs(pk::TestScene1ID);
     const pk::SystemManager* system_manager = ecs->get_system_manager();
     const std::set<pk::entity_t>& sprite_entities = system_manager->get_entities_by_system<Sprite>();
     for (const pk::entity_t e : sprite_entities) {
@@ -31,9 +35,12 @@ void pk::TestScene::update(const float dt) {
         }
     }
     pk::Scene::update(dt);
+    if (IsKeyPressed(KEY_SPACE)) {
+        pk::gSceneManager.change_scene(pk::TestScene2ID);
+    }
 }
 
 
-void pk::TestScene::draw() {
+void pk::TestScene1::draw() {
     pk::Scene::draw();
 }

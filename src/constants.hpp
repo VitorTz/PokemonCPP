@@ -9,6 +9,7 @@
 #define CHARACTERS_PATH "./resources/graphics/characters/"
 #define ICONS_PATH "./resources/graphics/icons/"
 #define UI_PATH "./resources/graphics/ui/"
+#define MAPS_PATH "./resources/data/maps/"
 #define AUDIO_PATH "./resources/audio"
 
 
@@ -30,7 +31,7 @@ namespace pk {
     constexpr bool DEBUG_MODE{true};
 
     // Scene
-    constexpr pk::SceneID MAIN_SCENE{pk::TestSceneID};
+    constexpr pk::SceneID MAIN_SCENE{pk::TestScene1ID};
 
     // Ecs
     constexpr pk::entity_t MAX_ENTITIES{4096};    
@@ -49,6 +50,12 @@ namespace pk {
     constexpr float CAMERA_ZOOM_MIN{0.25f};
     constexpr float CAMERA_ZOOM_MAX{2.5f};
 
+    // Keyboard
+    constexpr int KEY_MOVE_LEFT{KEY_A};
+    constexpr int KEY_MOVE_RIGHT{KEY_D};
+    constexpr int KEY_MOVE_UP{KEY_W};
+    constexpr int KEY_MOVE_DOWN{KEY_S};
+
     // Sprite Animation Speed
     constexpr std::uint8_t SPRITE_ANIMATION_SPEED_SLOW{12};
     constexpr std::uint8_t SPRITE_ANIMATION_SPEED_NORMAL{8};
@@ -56,6 +63,15 @@ namespace pk {
 
     // Characters
     constexpr float CHARACTER_SIZE{128.0f};
+
+    // Player
+    constexpr float PLAYER_SPEED{150.0f};
+    constexpr Rectangle PLAYER_COLLISION_RECT{
+        0.0f,
+        0.0f,
+        CHARACTER_SIZE * 0.4,
+        CHARACTER_SIZE * 0.4
+    };
 
     constexpr pk::SpriteAnimationSource PLAYER_SPRITE_ANIMATION{
         pk::SpriteSheet{
@@ -66,6 +82,19 @@ namespace pk {
             4
         },
         SPRITE_ANIMATION_SPEED_NORMAL
+    };
+
+    // Maps
+    constexpr const char* MAP_PATH_BY_SCENE_ID[pk::NumScenes] {
+        "null",
+        MAPS_PATH "world.bin",
+        MAPS_PATH "fire.bin",
+        MAPS_PATH "plant.bin",
+        MAPS_PATH "water.bin",
+        MAPS_PATH "hospital.bin",
+        MAPS_PATH "house.bin",
+        "null",
+        MAPS_PATH "world.bin"
     };
 
 

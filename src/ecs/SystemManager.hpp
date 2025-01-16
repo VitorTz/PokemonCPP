@@ -20,6 +20,8 @@ namespace pk {
 
     private:        
         std::map<pk::component_t, std::unique_ptr<pk::System>> system_map{};
+        std::vector<pk::component_t> draw_order{};
+        std::vector<pk::component_t> update_order;
 
     public:
         template<typename T, class SystemClass>
@@ -30,6 +32,17 @@ namespace pk {
         }
 
     public:
+        SystemManager() {
+            this->update_order.push_back(pk::get_component_id<pk::SpriteAnimation>());
+            this->update_order.push_back(pk::get_component_id<pk::Player>());
+            assert(this->update_order.size() == pk::NUM_UPDATABLE_COMPONENTS);
+
+            this->draw_order.push_back(pk::get_component_id<pk::Sprite>());
+            this->draw_order.push_back(pk::get_component_id<pk::SpriteAnimation>());
+            assert(this->draw_order.size() == pk::NUM_DRAWABLE_COMPONENTS);
+
+        }
+
         template<typename T>
         void insert(const pk::entity_t e) {            
             this->system_map[pk::get_component_id<T>()]->entities.insert(e);
@@ -41,14 +54,14 @@ namespace pk {
         }
 
         void update(const float dt) {
-            for (auto& pair : this->system_map) {
-                pair.second->update(dt);
-            }            
+            for (const pk::component_t component_id : this->update_order) {
+                this->system_map[component_id]->update(dt);
+            }
         }
 
         void draw() {
-            for (auto& pair : this->system_map) {
-                pair.second->draw();    
+            for (const pk::component_t component_id : this->draw_order) {
+                this->system_map[component_id]->draw();
             }
         }
 

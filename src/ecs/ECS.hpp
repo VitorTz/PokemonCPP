@@ -26,6 +26,7 @@ namespace pk {
             this->component.register_component<pk::Transform>();
             this->component.register_component<pk::Sprite>();
             this->component.register_component<pk::SpriteAnimation>();
+            this->component.register_component<pk::Player>();
             // Check
             assert(this->component.num_registered_components() == pk::NUM_COMPONENTS);
             
@@ -34,6 +35,7 @@ namespace pk {
             this->system.register_system<pk::Transform, pk::TransformSystem>();
             this->system.register_system<pk::Sprite, pk::SpriteSystem>();
             this->system.register_system<pk::SpriteAnimation, pk::SpriteAnimationSystem>();
+            this->system.register_system<pk::Player, pk::PlayerSystem>();
             // Check
             assert(this->system.num_registered_systems() == pk::NUM_COMPONENTS);
 
@@ -63,6 +65,13 @@ namespace pk {
                 static_cast<float>(sprite.texture.width),
                 static_cast<float>(sprite.texture.height)
             };
+            return e;
+        }
+
+        pk::entity_t player_create(const float pos_x, const float pos_y) {
+            const pk::entity_t e = this->entity_create(pk::CAMERA_ZINDEX_WORLD, pos_x, pos_y);
+            this->add_sprite_animation_component(e, pk::PLAYER_SPRITE_ANIMATION);
+            this->add_component<pk::Player>(e, pk::Player{});
             return e;
         }
 
@@ -151,6 +160,15 @@ namespace pk {
             this->static_collisions.push_back(Rectangle{x, y, width, height});
         }
 
+        bool check_static_collision(const Rectangle& rect) {
+            for (const Rectangle& other_rect : this->static_collisions) {
+                if (CheckCollisionRecs(rect, other_rect)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         pk::Camera* get_camera() {
             return &this->camera;
         }
@@ -167,9 +185,24 @@ namespace pk {
             return &this->system;
         }
 
+        bool is_empty() const {
+            return this->entity.size() == 0;
+        }
+
     private:
 
-        void draw_debug() const {
+        void draw_debug() {
+            this->camera.begin_drawing();
+                for (const pk::entity_t e : this->system.get_entities_by_system<pk::Player>()) {
+                    const pk::Transform& transform = this->get_transform(e);
+                    Rectangle player_collision_rect = pk::PLAYER_COLLISION_RECT;
+                    player_collision_rect.x = transform.pos.x + transform.size.x / 2.0f - pk::PLAYER_COLLISION_RECT.width / 2.0f;
+                    player_collision_rect.y = transform.pos.y + transform.size.y - pk::PLAYER_COLLISION_RECT.height;
+                    DrawRectangleLinesEx(player_collision_rect, 2.0f, BLUE);
+                }
+            this->camera.end_drawing();
+
+            // Overlay
             DrawRectangle(
                 16,
                 16,
@@ -188,6 +221,20 @@ namespace pk {
                 TextFormat("Components: %d", this->component.count_num_active_components()),
                     20,
                     60,
+                    18,
+                    LIME
+            );
+            DrawText(
+                TextFormat("Camera Target: (%.2f, %.2f)", this->camera.get_target_x(), this->camera.get_target_y()),
+                    20,
+                    80,
+                    18,
+                    LIME
+            );
+            DrawText(
+                TextFormat("Camera Zoom: %.2f", this->camera.get_zoom()),
+                    20,
+                    100,
                     18,
                     LIME
             );

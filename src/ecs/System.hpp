@@ -1,7 +1,7 @@
 #pragma once
 #include <set>
-#include <vector>
 #include "../util/types.hpp"
+#include "../constants.hpp"
 
 
 namespace pk {
@@ -35,6 +35,14 @@ namespace pk {
     };
 
     class SpriteAnimationSystem : public System {
+
+    public:
+        void update(float dt) override;
+        void draw() override;
+
+    };
+
+    class PlayerSystem : public System {
 
     public:
         void update(float dt) override;

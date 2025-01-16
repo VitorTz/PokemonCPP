@@ -11,7 +11,8 @@ namespace pk {
         WaterArenaSceneID,
         HospitalSceneID,
         HouseSceneID,
-        TestSceneID,
+        TestScene1ID,
+        TestScene2ID,
         NumScenes
     };
     

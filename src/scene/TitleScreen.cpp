@@ -1,7 +1,7 @@
 #include "Scene.hpp"
 
 
-pk::TitleScreen::TitleScreen() : pk::Scene(pk::TestSceneID) {
+pk::TitleScreen::TitleScreen() : pk::Scene(pk::TestScene1ID) {
 
 }
 

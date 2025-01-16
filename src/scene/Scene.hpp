@@ -5,6 +5,7 @@
 #include <map>
 #include "SceneID.hpp"
 #include "../constants.hpp"
+#include "../util/TiledMap.h"
 #include "../ecs/EcsManager.hpp"
 
 
@@ -41,8 +42,8 @@ namespace pk {
 
         void change_scene(pk::SceneID scene_id);
 
-        void update(float dt) const;
-        void draw() const;
+        void update(float dt);
+        void draw();
 
         std::map<std::string, std::string>* get_scene_context();
 
@@ -112,10 +113,19 @@ namespace pk {
 
     };
 
-    class TestScene : public pk::Scene {
+    class TestScene1 : public pk::Scene {
 
     public:
-        TestScene();
+        TestScene1();
+        void update(float dt) override;
+        void draw() override;
+
+    };
+
+    class TestScene2 : public pk::Scene {
+
+    public:
+        TestScene2();
         void update(float dt) override;
         void draw() override;
 
