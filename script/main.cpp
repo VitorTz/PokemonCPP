@@ -1,8 +1,11 @@
 #include <iostream>
 #include <fstream>
-#include <stdio.h>
-#include <assert.h>
+#include <cassert>
 #include <string>
+
+
+#define COAST_GROUP 1
+#define SPRITES_GROUP 3
 
 
 typedef struct _tile {
@@ -15,122 +18,50 @@ typedef struct _tile {
 } Tile;
 
 
-void read_tiledmap(const char* map_path) {
-    FILE* input = fopen(map_path, "rb");
-    assert(input != NULL);
-
-    int width, height;
-    int buffer_i = 0;
-    char buffer[256];
-    
-    // Read width, height and ground image
-    fread(&width, sizeof(int), 1, input);
-    fread(&height, sizeof(int), 1, input);
-
-    char c;
-    while (!feof(input) && fread(&c, sizeof(char), 1, input)) {        
-        buffer[buffer_i++] = c;
-        if (c == '\0') { break; }
-    }
-
-    printf("%d %d\n%s\n", width, height, buffer);
-
-    int coast_n;
-    int coast_terrain;
-
-    // Read objs
-    while (!feof(input)) {
-        Tile tile{};
-        int groupid, n;
-        fread(&n, sizeof(int), 1, input);
-        fread(&groupid, sizeof(int), 1, input);
-        if (feof(input)) { return; }
-        printf("%d %d\n", n, groupid);        
-        for (int i = 0; i < n && !feof(input); i++) {
-            if (!fread(&tile, sizeof(Tile), 1, input)) {
-                break;
-            }
-            printf("%.2f %.2f %.2f %.2f %d %d", tile.x, tile.y, tile.width, tile.height, tile.objid, tile.zindex);
-            if (groupid == 1) {
-                fread(&coast_n, sizeof(int), 1, input);
-                fread(&coast_terrain, sizeof(int), 1, input);
-                printf(" %d %d", coast_n, coast_terrain);
-            }
-            printf("\n");
-        }
-    }
-
-    fclose(input);
-}
-
-void txt_to_bin(const char* input_path, const char* output_path) {
-    FILE* output = fopen(output_path, "wb");
-    assert(output != NULL);
-
+void read_tiledmap(const char* input_path) {
     std::ifstream file(input_path);
-    assert(file.is_open());
+
+    assert(file.is_open());    
     
-    int a;
-    std::string str;
-    
-    // Write width
-    file >> str;
-    printf("%s\n", str.c_str());    
-    a = std::stoi(str);
-    printf("%d\n", a);
-    fwrite(&a, sizeof(int), 1, output);
-
-    // Write height
-    file >> str;
-    printf("%s\n", str.c_str());
-    a = std::stoi(str);
-    fwrite(&a, sizeof(int), 1, output);
-    printf("%d\n", a);    
-
-    // Write ground image
-    file >> str;
-    const char* s = str.c_str();
-    printf("%s\n", str.c_str());    
-    fwrite(s, sizeof(char), str.size() + 1, output);
-
+    int map_width, map_height;
     int n;
     int groupid;
-    Tile tile;
-
     int coast_n;
     int cost_terrain;
+    Tile tile;
+    std::string str;
+    
+    file >> map_width;
+    file >> map_height;
+    file >> str;
+
+    std::cout << map_width << ' ' << map_height << '\n' << str << '\n';    
 
     while (file >> str) {
         file >> n;
         file >> groupid;
-        fwrite(&n, sizeof(int), 1, output);
-        fwrite(&groupid, sizeof(int), 1, output);
-        printf("%s %d %d\n", str.c_str(), n, groupid);
+        std::cout << str << ' ' << n << ' ' << groupid << '\n';
         
         for (int i = 0; i < n; i++) {
             file >> tile.x >> tile.y >> tile.width >> tile.height >> tile.objid >> tile.zindex;
-            printf("%.2f %.2f %.2f %.2f %d %d", tile.x, tile.y, tile.width, tile.height, tile.objid, tile.zindex);            
-            fwrite(&tile, sizeof(Tile), 1, output);
+            std::cout << tile.x << ' ' << tile.y << ' ' << tile.width << ' ' << tile.height << ' ' << tile.objid << ' ' << tile.zindex;
+            
             if (groupid == 1) {
                 file >> coast_n >> cost_terrain;
-                fwrite(&coast_n, sizeof(int), 1, output);
-                fwrite(&cost_terrain, sizeof(int), 1, output);
-                printf(" %d %d", coast_n, cost_terrain);                
+                std::cout << ' ' << coast_n << ' ' << cost_terrain;                
             } else if (groupid == 3) {
                 file >> str;
-                fwrite(str.c_str(), sizeof(char), str.size() + 1, output);
-                printf(" %s", str.c_str());
+                std::cout << ' ' << str;                
             }
-            printf("\n");            
+            std::cout << '\n';
         }
     }
-
-    fclose(output);
+    
     file.close();
 }
 
 
-int main() {    
-    txt_to_bin("world.txt", "../src/resources/data/maps/world.bin");
+int main() {                
+    read_tiledmap("world.txt");
     return 0;
 }

@@ -20,5 +20,15 @@ namespace pk {
         SpriteSheet sprite_sheet{};
         std::uint8_t speed{};
     } SpriteAnimationSource;
+
+    enum GameObjGroup {
+        CharacterGroup,
+        CoastGroup,
+        MonsterGroup,
+        SpriteGroup,
+        TransitionGroup,
+        CollisionGroup,
+        WaterGroup
+    };
     
 } // namespace pk

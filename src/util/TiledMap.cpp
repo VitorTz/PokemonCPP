@@ -11,6 +11,37 @@ typedef struct _tile {
     int zindex;
 } Tile;
 
+
+static void load_character(pk::ECS* ecs, const Tile& tile) {
+
+}
+
+static void load_coast(pk::ECS* ecs, const Tile& tile, FILE* file) {
+    int coast_n, coast_terrain;
+    fread(&coast_n, sizeof(int), 1, file);
+    fread(&coast_terrain, sizeof(int), 1, file);
+}
+
+static void load_water(pk::ECS* ecs, const Tile& tile) {
+
+}
+
+static void load_transition(pk::ECS* ecs, const Tile& tile) {
+
+}
+
+static void load_collision(pk::ECS* ecs, const Tile& tile) {
+    ecs->add_static_collision(tile.x, tile.y, tile.width, tile.height);
+}
+
+static void load_monster(pk::ECS* ecs, const Tile& tile) {
+
+}
+
+static void load_sprite(pk::ECS* ecs, const Tile& tile) {
+
+}
+
 void pk::read_tiled_map(const char *map_path, pk::ECS *ecs) {
     FILE* input = fopen(map_path, "rb");
 
@@ -35,10 +66,6 @@ void pk::read_tiled_map(const char *map_path, pk::ECS *ecs) {
 
     // GROUND
     ecs->sprite_create(pk::CAMERA_ZINDEX_GROUND, buffer, 0.0f, 0.0f);
-    printf("%d %d\n%s\n", width, height, buffer);
-
-    int coast_n;
-    int coast_terrain;
 
     // Read objs
     while (!feof(input)) {
@@ -46,20 +73,43 @@ void pk::read_tiled_map(const char *map_path, pk::ECS *ecs) {
         int groupId, n;
         fread(&n, sizeof(int), 1, input);
         fread(&groupId, sizeof(int), 1, input);
-        if (feof(input)) { return; }
 
-        printf("%d %d\n", n, groupId);
+        if (feof(input)) {
+            return;
+        }
+
         for (int i = 0; i < n && !feof(input); i++) {
+
             if (!fread(&tile, sizeof(Tile), 1, input)) {
                 break;
             }
-            printf("%.2f %.2f %.2f %.2f %d %d", tile.x, tile.y, tile.width, tile.height, tile.objId, tile.zindex);
-            if (groupId == 1) {
-                fread(&coast_n, sizeof(int), 1, input);
-                fread(&coast_terrain, sizeof(int), 1, input);
-                printf(" %d %d", coast_n, coast_terrain);
+
+            switch (groupId) {
+                case pk::CharacterGroup:
+                    load_character(ecs, tile);
+                    break;
+                case pk::CoastGroup:
+                    load_coast(ecs, tile, input);
+                    break;
+                case pk::MonsterGroup:
+                    load_monster(ecs, tile);
+                    break;
+                case pk::SpriteGroup:
+                    load_sprite(ecs, tile);
+                    break;
+                case pk::TransitionGroup:
+                    load_transition(ecs, tile);
+                    break;
+                case pk::CollisionGroup:
+                    load_collision(ecs, tile);
+                    break;
+                case pk::WaterGroup:
+                    load_water(ecs, tile);
+                    break;
+                default:
+                    break;
             }
-            printf("\n");
+
         }
     }
 
