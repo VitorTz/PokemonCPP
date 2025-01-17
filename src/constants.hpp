@@ -42,6 +42,17 @@ namespace pk {
 
     // Scene
     constexpr pk::SceneID MAIN_SCENE{pk::TestScene1ID};
+    constexpr const char* SCENE_NAMES[pk::NumScenes] {
+        "Title Screen",
+        "World",
+        "Fire Arena",
+        "Plant Arena",
+        "Water Arena",
+        "Hospital",
+        "House",
+        "Test Scene 1",
+        "Test Scene 2"
+    };
 
     // Ecs
     constexpr pk::entity_t MAX_ENTITIES{4096};    
@@ -66,6 +77,7 @@ namespace pk {
     constexpr int KEY_MOVE_RIGHT{KEY_D};
     constexpr int KEY_MOVE_UP{KEY_W};
     constexpr int KEY_MOVE_DOWN{KEY_S};
+    constexpr int KEY_ACTION{KEY_F};
 
     // Sprite Animation Speed
     constexpr std::uint8_t SPRITE_ANIMATION_SPEED_SLOW{12};

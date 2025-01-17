@@ -49,23 +49,27 @@ namespace pk {
             this->register_system<pk::SpriteAnimation, pk::SpriteAnimationSystem>();
             this->register_system<pk::Player, pk::PlayerSystem>();
             this->register_system<pk::Water, pk::WaterSystem>();
+            this->register_system<pk::Transition, pk::TransitionSystem>();
             assert(this->system_map.size() == pk::NUM_COMPONENTS);
 
-            // Updatable Components
+            // Update order
             this->update_order.push_back(pk::get_component_id<pk::SpriteAnimation>());
             this->update_order.push_back(pk::get_component_id<pk::Player>());
             this->update_order.push_back(pk::get_component_id<pk::Water>());
             assert(this->update_order.size() == pk::NUM_UPDATABLE_COMPONENTS);
 
-            // Drawable components
+            // Register Drawable components
             this->register_drawable_component<pk::SpriteAnimation>();
             this->register_drawable_component<pk::Sprite>();
             this->register_drawable_component<pk::Water>();
+            this->register_drawable_component<pk::Transition>();
             assert(this->drawable_components.size() == pk::NUM_DRAWABLE_COMPONENTS);
 
+            // Draw order
             this->draw_order.push_back(pk::get_component_id<pk::Sprite>());
             this->draw_order.push_back(pk::get_component_id<pk::SpriteAnimation>());
             this->draw_order.push_back(pk::get_component_id<pk::Water>());
+            this->draw_order.push_back(pk::get_component_id<pk::Transition>());
             assert(this->draw_order.size() == pk::NUM_DRAWABLE_COMPONENTS);
         }
 

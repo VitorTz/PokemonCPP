@@ -79,7 +79,10 @@ static void load_water(pk::ECS* ecs, const Tile& tile) {
 }
 
 static void load_transition(pk::ECS* ecs, const Tile& tile) {
-
+    const pk::entity_t e = ecs->entity_create(pk::CAMERA_ZINDEX_WORLD_OVERLAY, tile.x, tile.y, true);
+    pk::Transform& transform = ecs->get_transform(e);
+    transform.size = {tile.width, tile.height};
+    ecs->add_component<pk::Transition>(e, pk::Transition{static_cast<pk::SceneID>(tile.objId)});
 }
 
 static void load_collision(pk::ECS* ecs, const Tile& tile) {
@@ -115,6 +118,8 @@ void pk::read_tiled_map(const char *map_path, pk::ECS *ecs) {
     file >> map_height;
     file >> str;
 
+    ecs->get_camera()->set_max_x_pos(static_cast<float>(map_width) - pk::SCREEN_CENTER.x);
+    ecs->get_camera()->set_max_y_pos(static_cast<float>(map_height) - pk::SCREEN_CENTER.y);
     ecs->sprite_create(pk::CAMERA_ZINDEX_GROUND, str.c_str(), 0.0f, 0.0f);
 
     while (file >> str) {
@@ -137,6 +142,9 @@ void pk::read_tiled_map(const char *map_path, pk::ECS *ecs) {
                     break;
                 case pk::WaterGroup:
                     load_water(ecs, tile);
+                    break;
+                case pk::TransitionGroup:
+                    load_transition(ecs, tile);
                     break;
                 default:
                     break;

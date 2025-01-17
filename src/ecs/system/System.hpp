@@ -62,5 +62,13 @@ namespace pk {
         void draw(pk::entity_t e) override;
 
     };
+
+    class TransitionSystem final : public System {
+
+    public:
+        void update(float dt) override { }
+        void draw(pk::entity_t e) override;
+
+    };
     
 } // namespace pk

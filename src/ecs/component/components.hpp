@@ -1,14 +1,15 @@
 #pragma once
 #include <raylib.h>
 #include <typeinfo>
+#include "../../scene/SceneID.hpp"
 #include "../../util/TexturePool.hpp"
 #include "../../util/types.hpp"
 
 
 namespace pk {
 
-    constexpr std::size_t NUM_COMPONENTS{5};
-    constexpr std::size_t NUM_DRAWABLE_COMPONENTS{3};
+    constexpr std::size_t NUM_COMPONENTS{6};
+    constexpr std::size_t NUM_DRAWABLE_COMPONENTS{4};
     constexpr std::size_t NUM_UPDATABLE_COMPONENTS{3};
 
     template<typename T>
@@ -64,5 +65,12 @@ namespace pk {
         water() = default;
         explicit water(const Texture2D &texture) : texture(texture) { }
     } Water;
+
+    typedef struct transition {
+        bool is_hovered{};
+        pk::SceneID scene_id{};
+        transition() = default;
+        explicit transition(const pk::SceneID scene_id) : scene_id(scene_id) { }
+    } Transition;
     
 } // namespace pk

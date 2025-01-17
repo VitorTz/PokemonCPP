@@ -185,6 +185,22 @@ namespace pk {
                 for (const Rectangle& rect : this->static_collisions) {
                     DrawRectangleLinesEx(rect, 2.0f, RED);
                 }
+                for (const pk::entity_t e : this->system.get_entities_by_system<pk::Transition>()) {
+                    const pk::Transition& transition = this->get_component<pk::Transition>(e);
+                    const pk::Transform& transform = this->get_transform(e);
+                    DrawRectangleLinesEx(
+                        Rectangle{transform.pos.x, transform.pos.y, transform.size.x, transform.size.y},
+                        2.0,
+                        BLACK
+                    );
+                    DrawText(
+                        pk::SCENE_NAMES[transition.scene_id],
+                        transform.pos.x,
+                        transform.pos.y,
+                        18,
+                        WHITE
+                    );
+                }
             this->camera.end_drawing();
 
             // Overlay

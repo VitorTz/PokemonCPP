@@ -35,6 +35,7 @@ namespace pk {
             this->register_component<pk::SpriteAnimation>();
             this->register_component<pk::Player>();
             this->register_component<pk::Water>();
+            this->register_component<pk::Transition>();
             assert(this->component_array_map.size() == pk::NUM_COMPONENTS);
         }
 

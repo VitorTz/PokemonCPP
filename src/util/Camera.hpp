@@ -53,6 +53,10 @@ namespace pk {
         void clear();
         void reset();
 
+        const Camera2D& get_camera2D() const {
+            return this->camera2D;
+        }
+
         std::size_t num_entities();
 
     };

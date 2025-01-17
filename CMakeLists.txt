@@ -34,7 +34,8 @@ FetchContent_MakeAvailable(raylib)
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp")
 add_executable (${PROJECT_NAME} ${sources} ${headers}
         src/shaders/ShaderPool.h
-        src/shaders/ShaderPool.cpp)
+        src/shaders/ShaderPool.cpp
+        src/ecs/system/SystemTransition.cpp)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME})
