@@ -30,5 +30,10 @@ namespace pk {
         CollisionGroup,
         WaterGroup
     };
+
+    enum CharacterID {
+        PlayerID,
+        NurseID
+    };
     
 } // namespace pk

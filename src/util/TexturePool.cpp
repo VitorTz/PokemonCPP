@@ -3,7 +3,7 @@
 #include "util.hpp"
 
 
-pk::TexturePool::TexturePool() {
+void pk::TexturePool::init() {
     this->pool.reserve(256);
 }
 
@@ -18,6 +18,11 @@ Texture2D pk::TexturePool::get(const char* filepath) {
         return new_texture;
     }
     return pair->second;
+}
+
+
+void pk::TexturePool::register_texture(const char *key, Texture2D texture) {
+    this->pool.emplace(pk::hash_str(key), texture);
 }
 
 

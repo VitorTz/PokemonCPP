@@ -12,7 +12,7 @@ namespace pk {
         pk::ECS* current_ecs{};
 
     public:
-        EcsManager() {
+        void init() {
             for (int i = 0; i < pk::NumScenes; i++) {
                 this->ecs_map.emplace(
                     static_cast<pk::SceneID>(i),

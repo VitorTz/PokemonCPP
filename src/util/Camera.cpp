@@ -2,7 +2,52 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
+#include "../ecs/EcsManager.hpp"
 
+pk::Camera::Camera() {
+    for (pk::zindex_t z = pk::CAMERA_ZINDEX_MIN; z < pk::CAMERA_ZINDEX_MAX; z++) {
+        this->entities[z].reserve(pk::MAX_ENTITIES);
+    }
+}
+
+void pk::Camera::insert(const pk::entity_t e, const pk::zindex_t zindex) {
+    if (this->is_on_camera[e] == false) {
+        this->is_on_camera[e] = true;
+        this->entities[zindex].emplace_back(0.0f, e);
+        this->mSize++;
+    }
+}
+
+void pk::Camera::erase(const pk::entity_t e, const pk::zindex_t zindex) {
+    if (this->is_on_camera[e] == true) {
+        this->is_on_camera[e] = false;
+        std::vector<std::pair<float, pk::entity_t>>& vec = this->entities[zindex];
+        auto iter = vec.begin();
+        for (std::size_t i = 0; i < vec.size(); i++) {
+            if (vec[i].second == e) {
+                std::advance(iter, i);
+                vec.erase(iter);
+                this->mSize--;
+                return;
+            }
+        }
+    }
+}
+
+
+void pk::Camera::draw(pk::SystemManager* system_manager) {
+    pk::ECS* ecs = pk::gEcsManager.get_current_ecs();
+    this->begin_drawing();
+        for (auto&[zindex, entities_vec] : this->entities) {
+            for (auto&[centerY, entity] : entities_vec) {
+                const pk::Transform& transform = ecs->get_transform(entity);
+                centerY = transform.pos.y + transform.size.y / 2.0f;
+            }
+            std::sort(entities_vec.begin(), entities_vec.end());
+            system_manager->draw(entities_vec);
+        }
+    this->end_drawing();
+}
 
 void pk::Camera::add_zoom(const float zoom) {
     this->camera2D.zoom = std::clamp(
@@ -70,6 +115,14 @@ void pk::Camera::move(const float x, const float y) {
 }
 
 
+void pk::Camera::clear() {
+    for (auto& pair : this->entities) {
+        pair.second.clear();
+    }
+    this->mSize = 0;
+}
+
+
 void pk::Camera::reset() {
     this->camera2D = Camera2D{
         pk::SCREEN_CENTER,
@@ -79,6 +132,7 @@ void pk::Camera::reset() {
     };
     this->max_x_pos = std::numeric_limits<float>::max();
     this->max_y_pos = std::numeric_limits<float>::max();
+    this->clear();
 }
 
 

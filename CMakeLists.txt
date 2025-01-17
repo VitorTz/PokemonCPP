@@ -33,9 +33,8 @@ FetchContent_MakeAvailable(raylib)
 # Add source to this project's executable.
 file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp")
 add_executable (${PROJECT_NAME} ${sources} ${headers}
-        src/scene/TestScene2.cpp
-        src/util/TiledMap.h
-        src/util/TiledMap.cpp)
+        src/shaders/ShaderPool.h
+        src/shaders/ShaderPool.cpp)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${PROJECT_NAME})

@@ -1,9 +1,9 @@
 #pragma once
 #include <algorithm>
-#include "EntityManager.hpp"
-#include "ComponentManager.hpp"
-#include "SystemManager.hpp"
-#include "components.hpp"
+#include "entity/EntityManager.hpp"
+#include "component/components.hpp"
+#include "component/ComponentManager.hpp"
+#include "system/SystemManager.hpp"
 #include "../util/Camera.hpp"
 
 
@@ -22,23 +22,6 @@ namespace pk {
 
     public:
         ECS() {
-            // Component
-            this->component.register_component<pk::Transform>();
-            this->component.register_component<pk::Sprite>();
-            this->component.register_component<pk::SpriteAnimation>();
-            this->component.register_component<pk::Player>();
-            // Check
-            assert(this->component.num_registered_components() == pk::NUM_COMPONENTS);
-            
-            // System
-            // All Components
-            this->system.register_system<pk::Transform, pk::TransformSystem>();
-            this->system.register_system<pk::Sprite, pk::SpriteSystem>();
-            this->system.register_system<pk::SpriteAnimation, pk::SpriteAnimationSystem>();
-            this->system.register_system<pk::Player, pk::PlayerSystem>();
-            // Check
-            assert(this->system.num_registered_systems() == pk::NUM_COMPONENTS);
-
             // Collisions
             this->static_collisions.reserve(1024);
         }
@@ -46,10 +29,15 @@ namespace pk {
         pk::entity_t entity_create(
             const pk::zindex_t zindex, 
             const float pos_x,
-            const float pos_y
+            const float pos_y,
+            const bool should_add_to_camera
         ) {
+            assert(zindex >= pk::CAMERA_ZINDEX_MIN && zindex < pk::CAMERA_ZINDEX_MAX);
             const pk::entity_t e = this->entity.entity_create();
             this->add_component<pk::Transform>(e, pk::Transform{pos_x, pos_y, zindex});
+            if (should_add_to_camera) {
+                this->camera.insert(e, zindex);
+            }
             return e;
         }
 
@@ -59,19 +47,12 @@ namespace pk {
             const float pos_x,
             const float pos_y
         ) {
-            pk::entity_t e = this->entity_create(zindex, pos_x, pos_y);
+            const pk::entity_t e = this->entity_create(zindex, pos_x, pos_y, true);
             const pk::Sprite& sprite = this->add_component<pk::Sprite>(e, pk::Sprite{filepath});
             this->get_transform(e).size = {
                 static_cast<float>(sprite.texture.width),
                 static_cast<float>(sprite.texture.height)
             };
-            return e;
-        }
-
-        pk::entity_t player_create(const float pos_x, const float pos_y) {
-            const pk::entity_t e = this->entity_create(pk::CAMERA_ZINDEX_WORLD, pos_x, pos_y);
-            this->add_sprite_animation_component(e, pk::PLAYER_SPRITE_ANIMATION);
-            this->add_component<pk::Player>(e, pk::Player{});
             return e;
         }
 
@@ -118,11 +99,13 @@ namespace pk {
                 this->entity.clear();
                 this->component.clear();
                 this->system.clear();
+                this->camera.clear();
                 this->entities_to_destroy = std::queue<pk::entity_t>();
             }
 
             while (this->entities_to_destroy.empty() == false) {
                 const pk::entity_t e = this->entities_to_destroy.front();
+                this->camera.erase(e, this->get_transform(e).zindex);
                 this->entities_to_destroy.pop();
                 this->entity.entity_destroy(e);
                 this->component.entity_destroy(e);
@@ -134,9 +117,7 @@ namespace pk {
         }
 
         void draw() {
-            this->camera.begin_drawing();
-            this->system.draw();
-            this->camera.end_drawing();
+            this->camera.draw(&this->system);
             if (pk::DEBUG_MODE) {
                 this->draw_debug();
             }
@@ -148,6 +129,7 @@ namespace pk {
             this->component.clear();
             this->system.clear();
             this->entities_to_destroy = std::queue<pk::entity_t>();
+            this->camera.clear();
             this->static_collisions.clear();            
         }
 
@@ -199,6 +181,9 @@ namespace pk {
                     player_collision_rect.x = transform.pos.x + transform.size.x / 2.0f - pk::PLAYER_COLLISION_RECT.width / 2.0f;
                     player_collision_rect.y = transform.pos.y + transform.size.y - pk::PLAYER_COLLISION_RECT.height;
                     DrawRectangleLinesEx(player_collision_rect, 2.0f, BLUE);
+                }
+                for (const Rectangle& rect : this->static_collisions) {
+                    DrawRectangleLinesEx(rect, 2.0f, RED);
                 }
             this->camera.end_drawing();
 

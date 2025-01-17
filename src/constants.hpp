@@ -4,6 +4,15 @@
 #include "scene/SceneID.hpp"
 
 
+#if defined(PLATFORM_DESKTOP)
+    #define GLSL_VERSION "330"
+    #define SHADERS_PATH "./resources/shaders/glsl330/"
+#else   // PLATFORM_ANDROID, PLATFORM_WEB
+    #define GLSL_VERSION "100"
+    #define SHADERS_PATH "./resources/shaders/glsl100/"
+#endif
+
+
 #define ASSETS_PATH "./resources/"
 #define GRAPHICS_PATH "./resources/graphics/"
 #define CHARACTERS_PATH "./resources/graphics/characters/"
@@ -11,6 +20,7 @@
 #define UI_PATH "./resources/graphics/ui/"
 #define MAPS_PATH "./resources/data/maps/"
 #define AUDIO_PATH "./resources/audio"
+#define TILE_SETS_PATH "./resources/graphics/tilesets/"
 
 
 namespace pk {
@@ -38,14 +48,15 @@ namespace pk {
 
     // Camera
     constexpr pk::zindex_t CAMERA_ZINDEX_MIN{0};
-        constexpr pk::zindex_t CAMERA_ZINDEX_GROUND{0};
-        constexpr pk::zindex_t CAMERA_ZINDEX_WATER{1};
-        constexpr pk::zindex_t CAMERA_ZINDEX_SHADOW{2};
-        constexpr pk::zindex_t CAMERA_ZINDEX_WORLD{3};
-        constexpr pk::zindex_t CAMERA_ZINDEX_WORLD_TOP{4};
-        constexpr pk::zindex_t CAMERA_ZINDEX_WORLD_SKY{5};
-        constexpr pk::zindex_t CAMERA_ZINDEX_WORLD_OVERLAY{6};
-    constexpr pk::zindex_t CAMERA_ZINDEX_MAX{7};
+        constexpr pk::zindex_t CAMERA_ZINDEX_WATER{0};
+        constexpr pk::zindex_t CAMERA_ZINDEX_GROUND{1};
+        constexpr pk::zindex_t CAMERA_ZINDEX_COAST{2};
+        constexpr pk::zindex_t CAMERA_ZINDEX_SHADOW{3};
+        constexpr pk::zindex_t CAMERA_ZINDEX_WORLD{4};
+        constexpr pk::zindex_t CAMERA_ZINDEX_WORLD_TOP{5};
+        constexpr pk::zindex_t CAMERA_ZINDEX_WORLD_SKY{6};
+        constexpr pk::zindex_t CAMERA_ZINDEX_WORLD_OVERLAY{7};
+    constexpr pk::zindex_t CAMERA_ZINDEX_MAX{8};
 
     constexpr float CAMERA_ZOOM_MIN{0.25f};
     constexpr float CAMERA_ZOOM_MAX{2.5f};
@@ -84,17 +95,18 @@ namespace pk {
         SPRITE_ANIMATION_SPEED_NORMAL
     };
 
-    // Maps
+    // Map
+    constexpr float TILE_SIZE{64.0f};
     constexpr const char* MAP_PATH_BY_SCENE_ID[pk::NumScenes] {
         "null",
-        MAPS_PATH "world.bin",
-        MAPS_PATH "fire.bin",
-        MAPS_PATH "plant.bin",
-        MAPS_PATH "water.bin",
-        MAPS_PATH "hospital.bin",
-        MAPS_PATH "house.bin",
+        MAPS_PATH "world.txt",
+        MAPS_PATH "fire.txt",
+        MAPS_PATH "plant.txt",
+        MAPS_PATH "water.txt",
+        MAPS_PATH "hospital.txt",
+        MAPS_PATH "house.txt",
         "null",
-        MAPS_PATH "world.bin"
+        MAPS_PATH "world.txt"
     };
 
 
