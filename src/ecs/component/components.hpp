@@ -58,6 +58,8 @@ namespace pk {
     typedef struct player {
         char direction[2]{'i', 'd'};
         char last_direction[2]{'i', 'd'};
+        Rectangle collision_rect{};
+        Rectangle action_rect{};
     } Player;
 
     typedef struct water {

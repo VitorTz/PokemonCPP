@@ -177,10 +177,9 @@ namespace pk {
             this->camera.begin_drawing();
                 for (const pk::entity_t e : this->system.get_entities_by_system<pk::Player>()) {
                     const pk::Transform& transform = this->get_transform(e);
-                    Rectangle player_collision_rect = pk::PLAYER_COLLISION_RECT;
-                    player_collision_rect.x = transform.pos.x + transform.size.x / 2.0f - pk::PLAYER_COLLISION_RECT.width / 2.0f;
-                    player_collision_rect.y = transform.pos.y + transform.size.y - pk::PLAYER_COLLISION_RECT.height;
-                    DrawRectangleLinesEx(player_collision_rect, 2.0f, BLUE);
+                    const pk::Player& player = this->get_component<pk::Player>(e);
+                    DrawRectangleLinesEx(player.action_rect, 2.0f, BLUE);
+                    DrawRectangleLinesEx(player.collision_rect, 2.0f, RED);
                 }
                 for (const Rectangle& rect : this->static_collisions) {
                     DrawRectangleLinesEx(rect, 2.0f, RED);

@@ -95,6 +95,12 @@ namespace pk {
         CHARACTER_SIZE * 0.4,
         CHARACTER_SIZE * 0.4
     };
+    constexpr Rectangle PLAYER_ACTION_RECT{
+        0.0f,
+        0.0f,
+        CHARACTER_SIZE * 0.4,
+        CHARACTER_SIZE * 0.8
+    };
 
     constexpr pk::SpriteAnimationSource PLAYER_SPRITE_ANIMATION{
         pk::SpriteSheet{
