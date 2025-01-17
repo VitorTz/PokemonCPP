@@ -30,9 +30,6 @@ static void load_character(pk::ECS* ecs, const Tile& tile) {
     }
 }
 
-static void load_coast(pk::ECS* ecs, const Tile& tile, const int coast_n, const int coast_terrain) {
-
-}
 
 static void load_water(pk::ECS* ecs, const Tile& tile) {
     // Create water entity
@@ -125,15 +122,9 @@ void pk::read_tiled_map(const char *map_path, pk::ECS *ecs) {
         file >> groupId;
 
         for (int i = 0; i < n; i++) {
-            int cost_terrain;
-            int coast_n;
             file >> tile.x >> tile.y >> tile.width >> tile.height >> tile.objId >> tile.zindex;
 
             switch (groupId) {
-                case pk::CoastGroup:
-                    file >> coast_n >> cost_terrain;
-                    load_coast(ecs, tile, coast_n, cost_terrain);
-                    break;
                 case pk::SpriteGroup:
                     file >> str;
                     load_sprite(ecs, tile, str.c_str());

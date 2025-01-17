@@ -2,7 +2,6 @@ import pygame
 from pytmx import load_pygame, TiledMap, TiledObjectGroup, TiledObject, TiledTileLayer
 
 
-COAST_ID = 1
 SPRITES_OBJS = 3
 
 
@@ -23,9 +22,7 @@ def main() -> None:
         output.write(f"{layer.name} {len(objs)} {layer.properties["group-id"]}\n")
         for obj in objs:
             try:
-                output.write(f"{round(obj.x)} {round(obj.y)} {round(obj.width)} {round(obj.height)} {obj.properties['obj-id']} {obj.properties['zindex']}")
-                if (layer.properties['group-id'] == COAST_ID):
-                    output.write(f" {obj.properties['n']} {obj.properties['terrain']}")
+                output.write(f"{round(obj.x)} {round(obj.y)} {round(obj.width)} {round(obj.height)} {obj.properties['obj-id']} {obj.properties['zindex']}")                
                 if (layer.properties['group-id'] == SPRITES_OBJS):
                     output.write(f" {obj.properties['source'].replace('../tilesets/../../', './resources/')}")
                 output.write('\n')

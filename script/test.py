@@ -1,18 +1,33 @@
+from pathlib import Path
+from PIL import Image
+import sys
 
 
-def map_x_to_y(x):
-    # Limites de x e y
-    x_min, x_max = 64, 8096
-    y_min, y_max = 0.5, 5
+def main() -> None:
+    file = Path(sys.argv[1])
+    rows = int(sys.argv[2])
+    cols = int(sys.argv[3])
 
-    # Coeficientes da transformação linear
-    a = (y_max - y_min) / (x_min - x_max)
-    b = y_max - a * x_min
+    img = Image.open(file)
+    left = 0
+    top = 0    
+    
+    width = img.width / cols
+    height = img.height / rows
+    n = 0
 
-    # Transformação de x para y
-    y = a * x + b
-    return y
+    for i in range(rows):
+        for j in range(cols):
+            new_image = img.crop((left, top, left + width, top + height))
+            new_image.save(f"sand-1-{n}.png", "png")
+            n += 1
+            left += width
+        top += height
+        left = 0
 
+    if (file.exists() is False):
+        print("erro")
+    
 
-for i in range(64, 8097):
-    print(map_x_to_y(i))
+if __name__ == "__main__":
+    main()

@@ -16,9 +16,9 @@ pk::WaterShader::WaterShader(
     this->speedXLoc = GetShaderLocation(this->shader, "speedX");
     this->speedYLoc = GetShaderLocation(this->shader, "speedY");
 
-    this->freqX = 25.0f;
-    this->freqY = 25.0f;
-    this->ampX = 10.0f;
+    this->freqX = 15.0f;
+    this->freqY = 15.0f;
+    this->ampX = 3.0f;
     this->ampY = 3.0f;
     this->speedX = 3.0f;
     this->speedY = 3.0f;
